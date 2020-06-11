@@ -122,12 +122,7 @@
 
 
 
-                <div class="links">
-                  <a href="#">Accueil</a>
-                  <a href="#">Doctorants</a>
-                  <a href="https://laravel-news.com">Administrateur</a>
-                  <a href="https://forge.laravel.com">Enseignant</a>
-                </div>
+                
             </div>
         </div>
     </body>
