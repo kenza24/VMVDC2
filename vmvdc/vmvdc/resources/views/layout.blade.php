@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -79,17 +81,17 @@
 
             <div class="content">
 
-@yield ('contenu')
+                @yield ('contenu')
 
 
 
-            <div class="links">
+                <div class="links">
                   <a href="https://laravel.com/docs">Accueil</a>
                   <a href="https://laracasts.com">Doctorants</a>
                   <a href="https://laravel-news.com">Administrateur</a>
                   <a href="https://forge.laravel.com">Enseignant</a>
-                        </div>
-                        </div>
-                      </div>
-                  </body>
-              </html>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
