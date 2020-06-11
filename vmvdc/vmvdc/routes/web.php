@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +16,6 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-//taper accueil dans l'url -> permet d'avoir la page d'accueil
-Route::get('/accueil', function()
-{
-     return View::make('accueil');
 });
 
 Route::get('/inscriptions', function(){
