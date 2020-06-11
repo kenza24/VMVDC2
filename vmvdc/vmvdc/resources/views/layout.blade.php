@@ -86,8 +86,8 @@
 
 
                 <div class="links">
-                  <a href="https://laravel.com/docs">Accueil</a>
-                  <a href="https://laracasts.com">Doctorants</a>
+                  <a href="#">Accueil</a>
+                  <a href="#">Doctorants</a>
                   <a href="https://laravel-news.com">Administrateur</a>
                   <a href="https://forge.laravel.com">Enseignant</a>
                 </div>
