@@ -2,18 +2,19 @@
 
 @section('contenu')
 
-                <div class="title m-b-md">
-                    Vis ma vie de chercheur
-                </div>
+<div class="container-fluid">
 
-                <img src="/home/xubuntu/Documents/GitHub/-VMVDC-/vmvdc/vmvdc/tes.jpg" alt="Bootstrap" class="img-responsive">
+  <!-- Columns are always 50% wide, on mobile and desktop -->
+  <div class="row ">
+    <a href="" class="col-md-1" style="background-color:aqua;">Logo</a>
+    <div class="col-md" style="background-color: brown;">VMVDC</div>
+    <a href="" class="col-md-1" style="background-color: red;">Se créer un compte</a>
+    <a href="" class="col-md-1" style="background-color: green;">S'inscrire</a>
+  </div>
+</div>
 
-                <div class="links">
-                  <a href="#">Accueil</a>
-                  <a href="#">Doctorants</a>
-                  <a href="https://laravel-news.com">Administrateur</a>
-                  <a href="https://forge.laravel.com">Enseignant</a>
-                  <a href="/creationCompteE"> Créer son compte en tant qu'enseignant </a>
-                </div>
+<h1>Vis ma vie de chercheur</h1>
+
+<img src="content/image.png" alt="Bootstrap" class="img-responsive">
 
 @endsection
