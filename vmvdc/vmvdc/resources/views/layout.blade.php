@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content" style="background-color: #274D71;">
 
                 @yield ('contenu')
 
