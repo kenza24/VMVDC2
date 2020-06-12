@@ -21,6 +21,11 @@ Route::get('/creationCompteE', function(){
   return view ('creationCompteE');
 });
 
+Route::get('/creationD', function(){
+  return view ('creationD');
+});
+
+
 Route::get('/inscriptions', function(){
   return view('inscriptions');
 });
@@ -40,3 +45,30 @@ Route::post('creationCompteE', function(){
   return 'Nous avons recu votre mail qui est : ' . request('email');
 //  return 'Formulate recu';
 });
+
+Route::post('creationD', function(){
+  $doctorant = new App\Doctorants;
+
+  $doctorant->email = request ('emailD');
+  $doctorant->mot_de_passe = bcrypt(request('mdpD'));
+  $doctorant->nom = request ('nomD');
+  $doctorant->prenom = request ('prenomD');
+
+
+  $doctorant->save();
+
+  return 'Nous avons recu votre mail qui est : ' . request('emailD');
+//  return 'Formulate recu';
+});
+
+//CONNEXION DU DOCTORANT
+Route::get('/connexionD', 'ConnexionControllerD@formulaire' );
+Route::post('/connexionD', 'ConnexionControllerD@traitement' );
+Route::get('/compteD', 'CompteDController@accueil');
+
+//Route :: get('/deconnexion', 'CompteDController@deconnexion');
+
+//CONNEXION ENSEIGNANT
+Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
+Route::post('/connexionE', 'ConnexionControllerE@traitement' );
+Route::get('/compteE', 'CompteEController@accueil');

@@ -12,7 +12,7 @@
 
 
 
-<div class="container" action="/compteE">
+<div class="container" action="/creationD">
 
 <br>
 <hr>
@@ -20,16 +20,16 @@
 
 <div class="card bg-light">
 <article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Créer votre compte</h4>
+	<h4 class="card-title mt-3 text-center">Inscrivez un doctorant</h4>
 
 
 	<p class="divider-text">
 
         <span class="bg-light"></span>
     </p>
-	<form action="/creationCompteE" method="post">
+	<form action="/creationD" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    {{ csrf_field () }}
+    {{csrf_field()}}
 
 
 	<div class="form-group input-group">
@@ -38,37 +38,18 @@
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="nom" class="form-control" placeholder="Nom" type="text">
-        <input name="prenom" class="form-control" placeholder="Prenom" type="text">
+        <input name="nomD" class="form-control" placeholder="Nom" type="text">
+        <input name="prenomD" class="form-control" placeholder="Prenom" type="text">
     </div> <!-- form-group// -->
 
-    <!--AGE-->
-    <div class="form-group input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"> <i class="fas fa-birthday-cake"></i>
-      </div>
-          <input name="age" class="form-control" placeholder="Age" type="text"> </span>
-    </div>
 
-		<!--TEL-->
-		<div class="form-group input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		</div>
-		<select class="custom-select" style="max-width: 120px;">
-				<option selected="">+33</option>
-		</select>
-			<input name="tel" class="form-control" placeholder="Numéro de téléphone" type="text">
-		</div> <!-- form-group// -->
-		
     <!--MAIL-->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		  </div>
-      <input name="email" class="form-control" placeholder="Adresse mail" type="email">
+      <input name="emailD" class="form-control" placeholder="Adresse mail" type="email">
     </div> <!-- form-group// -->
-
 
 
     <!--MDP-->
@@ -76,10 +57,16 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Mot de passe" type="password" name="mdp">
+        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpD">
     </div> <!-- form-group// -->
 
-
+    <!--VERIF MDP-->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Confimer le mot de passe" type="passwordD">
+    </div> <!-- form-group// -->
 
     <!--BOUTON-->
     <div class="form-group">
