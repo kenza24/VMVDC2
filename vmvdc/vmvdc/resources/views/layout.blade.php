@@ -8,7 +8,7 @@
         <title>Vis ma vie de chercheur</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../public/css/style.css">
+        <link rel="stylesheet" href="../vmvdc/vmvdc/public/css/style.css" type="text/css">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 

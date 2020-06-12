@@ -1,3 +1,17 @@
-.bordure-taille {
-    border-width: 50px;
-}
+.content_center {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 250px;
+    height: 150px;
+    border : 1px solid black;
+    color: red;
+  }
+
+  h5 {
+      color: red;
+  }
+
+  .content {
+      background-color: red;
+  }

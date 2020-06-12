@@ -9,8 +9,8 @@
     <a href="" class="col-auto" style="background-color: white;">
       <img src="content/Logo-IBPS.png" alt="Bootstrap" class="Logo-IBPS" style="max-height: 100px;">
     </a>
-    <div class="col-md text-center text-wrap text-break" style="color: white;">
-      <h1>Vis ma vie de chercheur</h1>
+    <div class="col-md text-center text-wrap text-break content_center" style="color: white;">
+      <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
     </div>
     <a href="" class="col-md-2 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
       <h5>Se créer un compte enseignant</h5>
@@ -23,11 +23,11 @@
   </div>
 </div>
 
-<div class="text-center mb-3">
+<div class="text-center mb-5">
   <img src="content/bandeau.png" class="img-fluid" alt="Responsive image" style="height: 300px;">
 </div>
 
-<div class="container-fluid mt-3 mb-3">
+<div class="container-fluid mt-5 mb-5">
   <div class="row d-flex justify-content-around">
     <div class="card col-lg-5">
       <div class="card-body">
@@ -49,8 +49,13 @@
   </div>
 </div>
 
-<div class="container-fluid mt-3 mb-3">
-  <div class="row d-flex justify-content-around">
+<div class="container-fluid mt-5 mb-5">
+  <div class="row d-flex justify-content-around mt-5 mb-5">
+    <div class="col-md-2 d-flex justify-content-around mt-5 mb-5" style="color: white;">
+      <h3>Financeurs</h3>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-around mt-5 mb-5">
     <a href="https://www.paris.fr/">
       <img src="content/ville-de-paris.jpeg" alt="Sponsor1" class="img-thumbnail">
     </a>
@@ -60,7 +65,7 @@
   </div>
 </div>
 
-<div class="container-fluid mt-3" style="background-color: #11385b;">
+<div class="container-fluid mt-5" style="background-color: #11385b;">
   <br>
   <br>
   <div class="row d-flex justify-content-around">
