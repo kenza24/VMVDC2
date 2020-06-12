@@ -7,16 +7,16 @@
   <!-- Columns are always 50% wide, on mobile and desktop -->
   <div class="row" style="background-color: #11385b;">
     <a href="" class="col-auto" style="background-color: white;">
-      <img src="content/Logo-IBPS.png" alt="Bootstrap" class="Logo-IBPS" style="max-height: 150px;">
+      <img src="content/Logo-IBPS.png" alt="Bootstrap" class="Logo-IBPS" style="max-height: 100px;">
     </a>
     <div class="col-md text-center text-wrap text-break" style="color: white;">
       <h1>Vis ma vie de chercheur</h1>
     </div>
     <a href="" class="col-md-2 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
-      <h3>Se créer un compte enseignant</h3>
+      <h5>Se créer un compte enseignant</h5>
     </a>
     <a href="" class="col-md-1 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
-      <h3>Se connecter</h3>
+      <h5>Se connecter</h5>
     </a>
 
   <br>
@@ -24,7 +24,7 @@
 </div>
 
 <div class="text-center mb-3">
-  <img src="content/bandeau.png" class="img-fluid" alt="Responsive image" style="height: 500px;">
+  <img src="content/bandeau.png" class="img-fluid" alt="Responsive image" style="height: 300px;">
 </div>
 
 <div class="container-fluid mt-3 mb-3">
@@ -63,13 +63,11 @@
 <div class="container-fluid mt-3" style="background-color: #11385b;">
   <br>
   <br>
-  <br>
   <div class="row d-flex justify-content-around">
     <a href="">Nous contacter</a>
     <a href="">A propos</a>
     <a href="">Qui sommes-nous ?</a>
   </div>
-  <br>
   <br>
   <br>
 </div>
