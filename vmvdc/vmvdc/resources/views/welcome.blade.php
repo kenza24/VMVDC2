@@ -6,21 +6,22 @@
 
   <!-- Columns are always 50% wide, on mobile and desktop -->
   <div class="row" style="background-color: #11385b;">
-    <a href="" class="col-auto" style="background-color: white;">
-      <img src="content/Logo-IBPS.png" alt="Bootstrap" class="Logo-IBPS" style="max-height: 100px;">
+    <a href="">
+      <img src="content/Logo-IBPS.png" alt="Logo-IBPS" class="float-left" style="height: 150px;">
     </a>
-    <div class="col-md text-center text-wrap text-break content_center" style="color: white;">
+    <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:100px; margin-top: 50px;">
       <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
     </div>
-    <a href="" class="col-md-2 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
+    <div class="col-2"></div>
+
+    <!--<a href="" class="col-md-2 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
       <h5>Se créer un compte enseignant</h5>
     </a>
     <a href="" class="col-md-1 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
       <h5>Se connecter</h5>
-    </a>
-
-  <br>
+    </a>-->
   </div>
+  
 </div>
 
 <div class="text-center mb-5">
