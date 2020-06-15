@@ -73,12 +73,12 @@
       </a>
     </div>
     <div class="col-md-2">
-      <a href="">
+      <a href="https://www.iledefrance.fr/">
         <img src="content/idf-logo.jpg" alt="Sponsor3" class="img-thumbnail" style="width: 100%;">
       </a>
     </div>
     <div class="col-md-2">
-      <a href="">
+      <a href="http://sciences.sorbonne-universite.fr/ufr-sciences-de-la-vie">
         <img src="content/UFR-science-de-la-vie.jpg" alt="Sponsor4" class="img-thumbnail" style="width: 100%;">
       </a>
     </div>
