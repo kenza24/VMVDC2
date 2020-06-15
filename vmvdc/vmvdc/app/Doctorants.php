@@ -1,14 +1,19 @@
 <?php
 namespace App;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as BasicAuthenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Doctorants extends Model implements Authenticatable {
 
-  use BasicAuthenticatable; //utiliser les 6 methode par defaut
+class Doctorants extends Authenticatable   {
 
-  public function getAuthPassword(){
-    return $this->mot_de_passe;
-  }
+  use Notifiable; //utiliser les 6 methode par defaut
+
+  protected $guard='doctorants';
+
+  protected $fillable =['nom','prenom','email', 'mot_de_passe'];
+
+  protected $hidden = ['mot_de_passe'];
+
+
 }

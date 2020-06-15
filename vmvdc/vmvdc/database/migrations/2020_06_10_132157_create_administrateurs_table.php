@@ -19,6 +19,7 @@ class CreateAdministrateursTable extends Migration
             $table->string('prenom');
             $table->string('email');
             $table->string('mot_de_passe');
+            $table->boolean('isAdmin');
             $table->timestamps();
         });
     }

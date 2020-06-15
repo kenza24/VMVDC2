@@ -19,6 +19,7 @@ class CreateDoctorantsTable extends Migration
             $table->string('prenom');
             $table->string('email');
             $table->string('mot_de_passe');
+            $table->boolean('isDoctorant');
             $table->timestamps();
         });
     }

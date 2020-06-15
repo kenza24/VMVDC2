@@ -30,7 +30,7 @@ Route::get('/inscriptions', function(){
   return view('inscriptions');
 });
 
-Route::post('creationCompteE', function(){
+Route::post('inscriptionE', function(){
   $enseignant = new App\Enseignants;
 
   $enseignant->email = request ('email');
@@ -46,7 +46,7 @@ Route::post('creationCompteE', function(){
 //  return 'Formulate recu';
 });
 
-Route::post('creationD', function(){
+Route::post('inscriptionsD', function(){
   $doctorant = new App\Doctorants;
 
   $doctorant->email = request ('emailD');
@@ -72,3 +72,8 @@ Route::get('/compteD', 'CompteDController@accueil');
 Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
 Route::post('/connexionE', 'ConnexionControllerE@traitement' );
 Route::get('/compteE', 'CompteEController@accueil');
+
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');

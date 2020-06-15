@@ -37,14 +37,26 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+          'driver'=>'session',
+          'provider'=>'users',
         ],
 
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'doctorants' => [
+              'driver'=> 'session',
+              'provider'=> 'doctorants'
+        ],
+        'enseignants' => [
+              'driver'=> 'session',
+              'provider'=> 'enseignants'
+        ],
+        'admins' => [
+            'driver' => 'session',
+            'provider'=>'admins',
+        ]
     ],
 
     /*
@@ -65,15 +77,23 @@ return [
     */
 
     'providers' => [
-        'users' => [
+
+        'doctorants' => [
             'driver' => 'eloquent',
             'model' => App\Doctorants::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+        'enseignants' => [
+            'driver' => 'eloquent',
+            'model' => App\Enseignants::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Administrateurs::class,
+        ]
     ],
 
     /*
@@ -94,6 +114,21 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'enseignants' => [
+            'provider' => 'enseignants',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'doctorants' => [
+            'provider' => 'doctorants',
             'table' => 'password_resets',
             'expire' => 60,
         ],

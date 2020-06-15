@@ -22,6 +22,7 @@ class CreateEnseignantsTable extends Migration
           $table->boolean('dejaVenu')->default(0);
           $table->string('numTel');
           $table->integer('age');
+          $table->boolean('isEnseignant');
           $table->timestamps();
         });
     }
