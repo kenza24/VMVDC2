@@ -45,14 +45,17 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
         'doctorants' => [
               'driver'=> 'session',
-              'provider'=> 'doctorants'
+              'provider'=> 'doctorants',
         ],
+
         'enseignants' => [
               'driver'=> 'session',
-              'provider'=> 'enseignants'
+              'provider'=> 'enseignants',
         ],
+
         'admins' => [
             'driver' => 'session',
             'provider'=>'admins',

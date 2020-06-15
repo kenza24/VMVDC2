@@ -24,27 +24,22 @@
 
 
 	<p class="divider-text">
-
         <span class="bg-light"></span>
     </p>
-	<form action="/connexionE" method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    {{csrf_field()}}
+    <form action="/connexionE" method="post">
+    @csrf
+    <!--<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    {{csrf_field()}}-->
 
 
 	<div class="form-group input-group">
-
 
     <!--MAIL-->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		  </div>
-      <input name="emailE" class="form-control" placeholder="Adresse mail" type="email">
-
-
-
-
+		</div>
+        <input name="emailE" class="form-control @error('emailE') is-invalid @error" placeholder="Adresse mail" type="email">
     </div> <!-- form-group// -->
 
 
@@ -53,18 +48,18 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpE">
+        <input class="form-control @error('mdpE') is-invalid @error" placeholder="Mot de passe" type="password" name="mdpE">
     </div> <!-- form-group// -->
 
 
 
     <!--BOUTON-->
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Se connecter  </button>
+        <button type="submit" class="btn btn-primary btn-block"> Se connecter </button>
     </div>
 
 
-</form>
+    </form>
 </article>
 </div> <!-- card.// -->
 

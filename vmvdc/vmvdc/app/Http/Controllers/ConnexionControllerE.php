@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
 
 class ConnexionControllerE extends Controller
 {
@@ -12,14 +13,17 @@ class ConnexionControllerE extends Controller
 
     public function traitement(){
       request()->validate([
-        'emailE'=>['required', 'email'],
-        'mdpE' => ['required'],
+        'emailE'=>'required',
+        'mdpE' => 'required',
       ]);
+
       //essayer une connexion
       $resultat=auth()->attempt([
         'email' => request('emailE'),
         'password' => request('mdpE'),
       ]);
+
+      //var_dump($resultat); //affiche le résultat - un boolean (vrai si connexion est bonne)
 
       if ($resultat) { //si les id sont bons (renvoie true)
           return redirect ('/compteE');
@@ -30,7 +34,7 @@ class ConnexionControllerE extends Controller
       ]); //retourne a la page precedente (le formulaire si pas bon id)
       //with input -> pour renvoyer le formulaire avec l'email entrer
 
-      //var_dump($resultat); //affiche le résultat - un boolean (vrai si connexion est bonne)
+      
 
     }
 }
