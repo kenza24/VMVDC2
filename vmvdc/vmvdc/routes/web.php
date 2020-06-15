@@ -25,9 +25,16 @@ Route::get('/creationD', function(){
   return view ('creationD');
 });
 
+Route::get('/enseignants', function(){
+  return view ('enseignants');
+});
 
-Route::get('/inscriptions', function(){
-  return view('inscriptions');
+Route::get('/inscriptionE', function(){
+  return view('inscriptionE');
+});
+
+Route::get('/inscriptionsD', function(){
+  return view('inscriptionsD');
 });
 
 Route::post('inscriptionE', function(){
@@ -62,18 +69,50 @@ Route::post('inscriptionsD', function(){
 });
 
 //CONNEXION DU DOCTORANT
-Route::get('/connexionD', 'ConnexionControllerD@formulaire' );
-Route::post('/connexionD', 'ConnexionControllerD@traitement' );
-Route::get('/compteD', 'CompteDController@accueil');
+//Route::get('/connexionD', 'ConnexionControllerD@formulaire' );
+//Route::post('/connexionD', 'ConnexionControllerD@traitement' );
+//Route::get('/compteD', 'CompteDController@accueil');
 
 //Route :: get('/deconnexion', 'CompteDController@deconnexion');
 
 //CONNEXION ENSEIGNANT
-Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
-Route::post('/connexionE', 'ConnexionControllerE@traitement' );
-Route::get('/compteE', 'CompteEController@accueil');
+//Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
+//Route::post('/connexionE', 'ConnexionControllerE@traitement' );
+//Route::get('/compteE', 'CompteEController@accueil');
 
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/login/doctorants', 'Auth\LoginController@showDoctorantsLoginForm');
+Route::get('/login/enseignants', 'Auth\LoginController@showEnseignantLoginForm');
+
+
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+Route::get('/register/doctorants', 'Auth\RegisterController@showDoctorantsRegisterForm');
+Route::get('/register/enseignants', 'Auth\RegisterController@showEnseignantRegisterForm');
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/login/doctorants', 'Auth\LoginController@doctorantsLogin');
+Route::post('/login/blogger', 'Auth\LoginController@enseignantsLogin');
+
+
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+Route::post('/register/doctorants', 'Auth\RegisterController@createDoctorants');
+Route::post('/register/doctorants', 'Auth\RegisterController@createEnseignants');
+/*
+Route::group([‘middleware’ => ‘auth:doctorants], function () {
+Auth::routes();
+Route::view(‘/doctorants’, ‘doctorants’);
+});
+
+Route::group([‘middleware’ => ‘auth:enseignants’], function () {
+Auth::routes();
+Route::view(‘/enseignants’, ‘enseignants’);
+});
+
+Route::group([‘middleware’ => ‘auth:admin’], function () {
+Auth::routes();
+Route::view(‘/admin’, ‘admin’);
+});
+*/
