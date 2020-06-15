@@ -125,17 +125,17 @@ class RegisterController extends Controller
             'email' => $request->email,
             'mot_de_passe' => Hash::make($request->password),
         ]);
-        return redirect()->intended('login/enseignants');
+        return redirect()->intended('login/connexionE');
     }
     protected function createDoctorants(Request $request)
     {
         $this->validator($request->all())->validate();
-        Enseignants::create([
+        Doctorants::create([
             'nom' => $request->name,
             'email' => $request->email,
             'mot_de_passe' => Hash::make($request->password),
         ]);
-        return redirect()->intended('login/doctorants');
+        return redirect()->intended('login/connexionD');
     }
 
 
