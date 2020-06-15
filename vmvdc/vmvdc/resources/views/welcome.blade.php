@@ -12,7 +12,13 @@
       <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:50px; margin-top: 25px;">
         <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
       </div>
-      <div class="col-2"></div>
+      <div class="col-md-1 d-flex align-content-center flex-wrap">
+        <button type="button" class="btn btn-primary">Se connecter</button>
+      </div>
+      <div class="col-md-1 d-flex align-content-center flex-wrap">
+        <button type="button" class="btn btn-primary">Se créer un compte</button>
+      </div>
+      
 
       <!--<a href="" class="col-md-2 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
         <h5>Se créer un compte enseignant</h5>
@@ -24,7 +30,7 @@
   </div>
 
   <!--Bandeau-->
-  <div class="text-center mb-5">
+  <div class="text-center">
     <!--<img src="content/bandeau-ibps.jpg" class="img-fluid" alt="Responsive image" style="width: 100%;">-->
     <div style="height: 300px;"></div>
   </div>
