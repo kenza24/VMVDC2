@@ -18,17 +18,30 @@
   <br>
   <br>
   <br>
+  <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
+    <h1> Blabla Untel </h1>
+  </div>
 
   <div  class="container">
     <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
       <br>
-      <dl class="row">
-        <dt class="col-sm-3">Votre email </dt>
-        <dd class="col-m-3"> test@gmail.com</dd>
-      </dl>
-      <button type="button" class="btn btn-lg btn-primary">Modifier mon adresse mail</button>
-      <button type="button" class="btn btn-lg btn-secondary pull-right" style="horizontal-align: pull-right;">Modifier mon mot de passe</button>
+      <div class="col-md text-center text-wrap text-break content_center" style="font-style: oblique; font-family: Georgia, serif;">
+        <h3> Vos informations </h3>
+      </div>
+      <br>
+      <br>
 
+      <dl class="row">
+        <dt class="col-xl-5" style="margin-left:30px;">Votre email : <small> test@gmail.com </small> </dt>
+        <dd class="col-m-3"> </dd>
+      </dl>
+      <div class="d-flex flex-row">
+      <div class="p-2">
+        <button type="button" class="btn btn-xs btn-secondary" >Modifier mon adresse mail</button>
+      </div>
+      <div class="p-2">
+        <button type="button" class="btn btn-xs btn-secondary" style="margin-left:400px; margin-top:1px">Modifier mon mot de passe</button>
+      </div>
     </div>
 <!--Fin container-->
 </div>
@@ -40,6 +53,7 @@
       <div class="col-md-4" style=" display: inline-block;">
         <div class="d-flex flex-row">
         <div class="p-2">
+        <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
                <strong class="d-inline-block mb-2 text-secondary">Mes sessions</strong>
@@ -49,14 +63,15 @@
                <br>
                <br>
                <br>
-               <a class="btn btn-outline-secondary btn-sm" role="button" href="#">Y aller !</a>
+               <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions">Y aller !</a>
             </div>
           </div>
          </div>
+       </div>
 
           <div class="p-2">
             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-              <div class="card-body d-flex flex-column align-items-start" style="margin-left:1px;">
+              <div class="card-body d-flex flex-column align-items-start" style="margin-left:1px; width:650px; height: 255px">
                 <strong class="d-inline-block mb-2 text-secondary">Mes documents</strong>
                  <h6 class="mb-0">
                     lorem ipsblalnvsdnlnsdlnsdlnldnlnflknlknlknlknlknln
@@ -87,4 +102,13 @@
         <br>
       <br>
     </div>
+
+
+    <style>
+      .container{
+        font-style: oblique;
+        font-family: Georgia, serif;
+
+      }
+    </style>
 @endsection
