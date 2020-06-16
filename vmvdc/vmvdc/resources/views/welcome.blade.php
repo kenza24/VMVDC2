@@ -85,7 +85,7 @@
           </div>
           <div class="col-md-2">
             <a href="https://www.iledefrance.fr/">
-              <img src="content/idf-logo.jpg" alt="Sponsor3" class="img-thumbnail" style="width: 100%;">
+              <img src="content/LOGO_RIDF_2019.svg" alt="Sponsor3" class="img-thumbnail" style="width: 100%;">
             </a>
           </div>
           <div class="col-md-2">
