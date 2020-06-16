@@ -77,9 +77,9 @@ Route::post('inscriptionsD', function(){
 //Route :: get('/deconnexion', 'CompteDController@deconnexion');
 
 //CONNEXION ENSEIGNANT
-//Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
-//Route::post('/connexionE', 'ConnexionControllerE@traitement' );
-//Route::get('/compteE', 'CompteEController@accueil');
+Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
+Route::post('/connexionE', 'ConnexionControllerE@traitement' );
+Route::get('/compteE', 'CompteEController@accueil');
 
 Auth::routes();
 

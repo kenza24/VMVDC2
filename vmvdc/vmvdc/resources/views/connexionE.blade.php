@@ -12,57 +12,52 @@
 
 
 
-<div class="container" action="/connexionE">
+<div class="container">
 
-<br>
-<hr>
-
-
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Connectez-vous</h4>
+    <br>
+    <hr>
 
 
-	<p class="divider-text">
-        <span class="bg-light"></span>
-    </p>
-    <form action="/connexionE" method="post">
-    @csrf
-    <!--<input type="hidden" name="_token" value="{{ csrf_token() }}">
-    {{csrf_field()}}-->
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Connectez-vous</h4>
 
+            <p class="divider-text">
+                <span class="bg-light"></span>
+            </p>
+            <form action="/connexionE" method="post">
+                {{csrf_field()}}
+                <div class="form-group input-group">
 
-	<div class="form-group input-group">
+                <!--MAIL-->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+                        <input name="emailE" class="form-control @error('emailE') is-invalid @enderror" placeholder="Adresse mail" type="email">
+                    </div>
 
-    <!--MAIL-->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		</div>
-        <input name="emailE" class="form-control @error('emailE') is-invalid @error" placeholder="Adresse mail" type="email">
-    </div> <!-- form-group// -->
+                <!--MDP-->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        <input class="form-control @error('mdpE') is-invalid @enderror" placeholder="Mot de passe" type="password" name="mdpE">
+                    </div>
 
+                <!--BOUTON-->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Se connecter </button>
+                    </div>
 
-    <!--MDP-->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control @error('mdpE') is-invalid @error" placeholder="Mot de passe" type="password" name="mdpE">
-    </div> <!-- form-group// -->
-
-
-
-    <!--BOUTON-->
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Se connecter </button>
-    </div>
-
-
-    </form>
-</article>
-</div> <!-- card.// -->
-
+                </div>
+            </form>
+        </article>
+    </div> <!-- card.// -->
 </div>
 <!--container end.//-->
 
