@@ -18,7 +18,7 @@
       <div class="col-md-1 d-flex align-content-center flex-wrap">
         <button type="button" class="btn btn-primary">Se créer un compte</button>
       </div>
-      
+
 
       <!--<a href="" class="col-md-2 text-reset border border-top-0 border-bottom-0 text-center text-wrap text-break" style="background-color: white;">
         <h5>Se créer un compte enseignant</h5>
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-    
+
     <!--Financement-->
       <div class="container-fluid mt-5 mb-5">
         <div class="row d-flex justify-content-around mt-5 mb-5">
@@ -85,7 +85,7 @@
           </div>
           <div class="col-md-2">
             <a href="https://www.iledefrance.fr/">
-              <img src="content/idf-logo.jpg" alt="Sponsor3" class="img-thumbnail" style="width: 100%;">
+              <img src="content/LOGO_RIDF_2019.svg" alt="Sponsor3" class="img-thumbnail" style="width: 100%;">
             </a>
           </div>
           <div class="col-md-2">
@@ -112,7 +112,7 @@
     </div>
   </div>
 
-  
+
 
 
 

@@ -77,9 +77,9 @@ Route::post('inscriptionsD', function(){
 //Route :: get('/deconnexion', 'CompteDController@deconnexion');
 
 //CONNEXION ENSEIGNANT
-//Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
-//Route::post('/connexionE', 'ConnexionControllerE@traitement' );
-//Route::get('/compteE', 'CompteEController@accueil');
+Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
+Route::post('/connexionE', 'ConnexionControllerE@traitement' );
+Route::get('/compteE', 'CompteEController@accueil');
 
 Auth::routes();
 
@@ -106,12 +106,10 @@ Route::group([‘middleware’ => ‘auth:doctorants], function () {
 Auth::routes();
 Route::view(‘/doctorants’, ‘doctorants’);
 });
-
 Route::group([‘middleware’ => ‘auth:enseignants’], function () {
 Auth::routes();
 Route::view(‘/enseignants’, ‘enseignants’);
 });
-
 Route::group([‘middleware’ => ‘auth:admin’], function () {
 Auth::routes();
 Route::view(‘/admin’, ‘admin’);
