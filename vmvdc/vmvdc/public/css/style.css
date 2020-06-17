@@ -1,17 +1,15 @@
-.content_center {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    width: 250px;
-    height: 150px;
-    border : 1px solid black;
-    color: red;
-  }
+@media screen and (max-width: 640px) {
+    .bandeau {
+        display: none;
+    }
+}
 
-  h5 {
-      color: red;
-  }
+#financeur-partenaire-logo a img{
+    height: 100px;
+    min-width: 100px;
+}
 
-  .content {
-      background-color: red;
-  }
+#financeur-partenaire-logo img{
+    height: 100px;
+    min-width: 100px;
+}
