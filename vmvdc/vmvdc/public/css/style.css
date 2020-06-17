@@ -1,3 +1,6 @@
+/* layout.blade.php */
+
+/* weclome.blade.php */
 @media screen and (max-width: 640px) {
     .bandeau {
         display: none;
@@ -13,3 +16,14 @@
     height: 100px;
     min-width: 100px;
 }
+
+/* inscriptionE.blade.php */
+/* inscriptionD.blade.php */
+/* connexionE.blade.php */
+/* connexionD.blade.php */
+/* connexionA.blade.php */
+/* admin.blade.php */
+/* compteD.blade.php */
+/* compteE.blade.php */
+/* compteA.blade.php */
+/* session.bled.php */

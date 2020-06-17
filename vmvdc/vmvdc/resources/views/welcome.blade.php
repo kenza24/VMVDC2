@@ -8,7 +8,7 @@
     <!-- En-tete -->
       <div class="container-fluid">
         <div class="row" style="background-color: #11385b">
-        <a href="" style="width: 15%; min-width: 100px">
+          <a href="" style="width: 15%; min-width: 100px">
             <img src="content/ibps-logo.jpg" class="img-fluid float-left" alt="Logo-IBPS">
           </a>
           <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
