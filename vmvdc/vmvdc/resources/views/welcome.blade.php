@@ -42,10 +42,10 @@
         <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
       </div>
       <div class="col-md-1 d-flex align-content-center flex-wrap">
-        <button type="button" class="btn btn-primary">Se connecter</button>
+        <button type="button" class="btn btn-primary" href="inscriptionsD">Se connecter</button>
       </div>
       <div class="col-md-1 d-flex align-content-center flex-wrap">
-        <button type="button" class="btn btn-primary">Se créer un compte</button>
+        <button type="button" class="btn btn-primary" href="inscriptionE">Se créer un compte</button>
       </div>
     </div>
   </div>
