@@ -7,16 +7,12 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
 
 <div class="container">
 
     <br>
     <hr>
-
 
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px;">
@@ -25,7 +21,7 @@
             <p class="divider-text">
                 <span class="bg-light"></span>
             </p>
-            <form action="/connexionE" method="post">
+            <form action={{route('connexionE')}} method="post">
                 {{csrf_field()}}
                 <div class="form-group input-group">
 
@@ -36,7 +32,7 @@
                                 <i class="fa fa-envelope"></i>
                             </span>
                         </div>
-                        <input name="emailE" class="form-control @error('emailE') is-invalid @enderror" placeholder="Adresse mail" type="email">
+                        <input name="emailE" class="form-control" placeholder="Adresse mail" type="email">
                     </div>
 
                 <!--MDP-->
@@ -46,14 +42,13 @@
                                 <i class="fa fa-lock"></i>
                             </span>
                         </div>
-                        <input class="form-control @error('mdpE') is-invalid @enderror" placeholder="Mot de passe" type="password" name="mdpE">
+                        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpE">
                     </div>
 
                 <!--BOUTON-->
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block"> Se connecter </button>
+                        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
                     </div>
-
                 </div>
             </form>
         </article>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\Environment\Console;
+use Illuminate\Support\Facades\DB;
 
 class ConnexionControllerE extends Controller
 {
@@ -14,40 +15,28 @@ class ConnexionControllerE extends Controller
 
     public function traitement(){
       request()->validate([
-        'emailE'=>'required|email',
+        'emailE'=>'required',
         'mdpE' => 'required'
       ]);
 
+      //récupération des valeurs entrées
       $emailE = request('emailE');
       $mdpE = request('mdpE');
 
-      if(Auth::attempt([
-        'email' => $emailE,
-        'mot_de_passe' => $mdpE
-      ])) {
-        dd('True'); //affiche le résultat - un boolean (vrai si connexion est bonne)
+      $password = DB::table('enseignants')->select('mot_de_passe')->where('email', $emailE)->get();
+      //récupération de l'objet de l'email contenant le hash du mot de passe
+
+      //dd(password_hash($mdpE, PASSWORD_DEFAULT)."  |  ".$password[0]->mot_de_passe."  =  ".password_verify($mdpE, $password[0]->mot_de_passe));
+
+      //récupération du hash dans l'objet et comparaison avec le mot de passe entré
+      if (password_verify($mdpE, $password[0]->mot_de_passe)) {
+        return redirect ('/');
       }
-
-      dd('False');
-
-      /*//essayer une connexion
-      $resultat=auth()->attempt([
-        'email' => request('emailE'),
-        'password' => request('mdpE'),
-      ]);
-
-      //var_dump($resultat); //affiche le résultat - un boolean (vrai si connexion est bonne)
-
-      if ($resultat) { //si les id sont bons (renvoie true)
-          return redirect ('/compteE');
-      }*/
-
-      /*return back()->withInput()->withErrors([
-        'email'=>'Vos identifiants sont incorrectes'
-      ]); //retourne a la page precedente (le formulaire si pas bon id)
-      //with input -> pour renvoyer le formulaire avec l'email entrer*/
-
       
+      return back()->withInput()->withErrors([
+        'email'=>'Vos identifiants sont incorrectes'
+      ]);//retourne a la page precedente (le formulaire si pas bon id)
+      //with input -> pour renvoyer le formulaire avec l'email entrer*/
 
     }
 }

@@ -18,6 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function(){
+  return view ('test');
+});
+
+Route::post("testConnexion", "testController@connexion")->name('testConnexion');
+
+Route::get('/connexionE', function(){
+  return view ('connexionE');
+});
+
+Route::post("connexionE", "ConnexionControllerE@traitement")->name('connexionE');
+
 Route::get('/creationCompteE', function(){
   return view ('creationCompteE');
 });
@@ -77,8 +89,6 @@ Route::post('inscriptionsD', function(){
 //Route :: get('/deconnexion', 'CompteDController@deconnexion');
 
 //CONNEXION ENSEIGNANT
-Route::get('/connexionE', 'ConnexionControllerE@formulaire' );
-Route::post('/connexionE', 'ConnexionControllerE@traitement' );
 Route::get('/compteE', 'CompteEController@accueil');
 
 Auth::routes();
