@@ -38,6 +38,9 @@ Route::get('/inscriptionE', function(){
   return view('inscriptionE');
 });
 
+Route::post('inscriptione', "inscriptionEController@inscription")->name('inscriptione');
+//J'ai essayé avec inscriptionE mais ca a pas l'air de marcher avec des majuscules
+
 Route::get('/inscriptionsD', function(){
   return view('inscriptionsD');
 });

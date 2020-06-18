@@ -25,84 +25,86 @@
 
 
 
-<div class="container" action="/inscriptionE">
+<div class="container">
 
-<br>
-<hr>
-
-
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Créer votre compte</h4>
+  <br>
+  <hr>
 
 
-	<p class="divider-text">
+  <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Créer votre compte</h4>
 
+
+      <p class="divider-text">
         <span class="bg-light"></span>
-    </p>
-	<form action="/incriptionE" method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    {{ csrf_field () }}
+      </p>
+      <form action={{route('inscriptione')}} method="post">
+        {{ csrf_field () }}
 
+      <!--NOM/PRENOM-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-user"></i>
+            </span>
+        </div>
+          <input name="nom" class="form-control" placeholder="Nom" type="text">
+          <input name="prenom" class="form-control" placeholder="Prenom" type="text">
+        </div> <!-- form-group// -->
 
-	<div class="form-group input-group">
+      <!--TEL-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-phone"></i>
+            </span>
+          </div>
+          <select class="custom-select" style="max-width: 120px;">
+            <option selected="">+33</option>
+          </select>
+          <input name="tel" class="form-control" placeholder="Numéro de téléphone" type="text">
+        </div> <!-- form-group// -->
 
-  <!--NOM/PRENOM-->
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="nom" class="form-control" placeholder="Nom" type="text">
-        <input name="prenom" class="form-control" placeholder="Prenom" type="text">
-    </div> <!-- form-group// -->
+      <!--MAIL-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+          <input name="email" class="form-control" placeholder="Adresse mail" type="email">
+        </div> <!-- form-group// -->
 
-    <!--AGE-->
-    <div class="form-group input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"> <i class="fas fa-birthday-cake"></i>
-      </div>
-          <input name="age" class="form-control" placeholder="Age" type="text"> </span>
-    </div>
+      <!--MDP-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" placeholder="Mot de passe" type="password" name="mdp">
+        </div> <!-- form-group// -->
 
-		<!--TEL-->
-		<div class="form-group input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		</div>
-		<select class="custom-select" style="max-width: 120px;">
-				<option selected="">+33</option>
-		</select>
-			<input name="tel" class="form-control" placeholder="Numéro de téléphone" type="text">
-		</div> <!-- form-group// -->
+      <!--Confirmation du MDP-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-lock"></i>
+            </span>
+          </div>
+          <input class="form-control" placeholder="Confirmation du mot de passe" type="password" name="mdp-confirmation">
+        </div> <!-- form-group// -->
 
-    <!--MAIL-->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		  </div>
-      <input name="email" class="form-control" placeholder="Adresse mail" type="email">
-    </div> <!-- form-group// -->
+      <!--BOUTON-->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
+        </div>
 
-
-
-    <!--MDP-->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Mot de passe" type="password" name="mdp">
-    </div> <!-- form-group// -->
-
-
-
-    <!--BOUTON-->
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
-    </div>
-
-    <p class="text-center">Deja inscrit ? <a href="">Connectez-vous !</a> </p>
-</form>
-</article>
-</div> <!-- card.// -->
+        <p class="text-center">Deja inscrit ? <a href="">Connectez-vous !</a> </p>
+      </form>
+    </article>
+  </div> <!-- card.// -->
 
 </div>
 <!--container end.//-->
@@ -111,39 +113,39 @@
 
 <style>
 
-body{
-	background-image:url(content/téléchargement.jpeg);;
-}
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
+  body{
+    background-image:url(content/téléchargement.jpeg);;
+  }
+  .divider-text {
+      position: relative;
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  .divider-text span {
+      padding: 7px;
+      font-size: 12px;
+      position: relative;
+      z-index: 2;
+  }
+  .divider-text:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      border-bottom: 1px solid #ddd;
+      top: 55%;
+      left: 0;
+      z-index: 1;
+  }
 
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
+  .btn-facebook {
+      background-color: #405D9D;
+      color: #fff;
+  }
+  .btn-twitter {
+      background-color: #42AEEC;
+      color: #fff;
+  }
 </style>
 
 @endsection
