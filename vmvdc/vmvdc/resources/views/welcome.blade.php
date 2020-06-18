@@ -20,7 +20,7 @@
           <!--<div class="col-md-1 d-flex align-content-center flex-wrap">
             <button type="button" class="btn btn-primary">Se créer un compte</button>
           </div>-->
-          <a href="" class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se conecter</a>
+          <a href="" class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se connecter</a>
           <a href={{route('inscriptione')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se créer un compte</a>
         </div>
       </div>
