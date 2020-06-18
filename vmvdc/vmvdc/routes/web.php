@@ -18,64 +18,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/orientationConnexion','orientationConnexion')->name('orientationConnexion');
+
 Route::get('/connexionE', function(){
   return view ('connexionE');
 });
-
 Route::post("connexionE", "ConnexionControllerE@traitement")->name('connexionE');
-
-Route::get('/creationCompteE', function(){
-  return view ('creationCompteE');
-});
-
-Route::get('/creationD', function(){
-  return view ('creationD');
-});
-
-Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
-
-Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione');
 
 Route::get('/inscriptione', function(){
   return view('inscriptionE');
 });
-
 Route::post('inscriptione', "inscriptionEController@inscription")->name('inscriptione');
 //J'ai essayé avec inscriptionE mais ca a pas l'air de marcher avec des majuscules
 
+Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
+Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione');
+
 Route::get('/inscriptionsD', function(){
   return view('inscriptionsD');
-});
-
-Route::post('inscriptionE', function(){
-  $enseignant = new App\Enseignants;
-
-  $enseignant->email = request ('email');
-  $enseignant->mot_de_passe = bcrypt(request('mdp'));
-  $enseignant->nom = request ('nom');
-  $enseignant->prenom = request ('prenom');
-  $enseignant->age = request ('age');
-  $enseignant->numTel=request('tel');
-
-  $enseignant->save();
-
-  return 'Nous avons recu votre mail qui est : ' . request('email');
-//  return 'Formulate recu';
-});
-
-Route::post('inscriptionsD', function(){
-  $doctorant = new App\Doctorants;
-
-  $doctorant->email = request ('emailD');
-  $doctorant->mot_de_passe = bcrypt(request('mdpD'));
-  $doctorant->nom = request ('nomD');
-  $doctorant->prenom = request ('prenomD');
-
-
-  $doctorant->save();
-
-  return 'Nous avons recu votre mail qui est : ' . request('emailD');
-//  return 'Formulate recu';
 });
 
 //CONNEXION DU DOCTORANT
