@@ -18,12 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function(){
-  return view ('test');
-});
-
-Route::post("testConnexion", "testController@connexion")->name('testConnexion');
-
 Route::get('/connexionE', function(){
   return view ('connexionE');
 });
