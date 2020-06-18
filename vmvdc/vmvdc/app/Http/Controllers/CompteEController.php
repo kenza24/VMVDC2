@@ -17,4 +17,13 @@ class CompteEController extends Controller
 
         return view('connexionE');
       }
+
+      public function deconnexion()
+      {
+        if(isset($_SESSION['connecte'])){
+          unset($_SESSION['connecte']);
+        }
+
+        return redirect ('/');
+      }
 }
