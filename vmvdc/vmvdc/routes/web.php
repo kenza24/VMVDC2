@@ -84,6 +84,7 @@ Route::post('inscriptionsD', function(){
 
 //CONNEXION ENSEIGNANT
 Route::get('/compteE', 'CompteEController@accueil');
+//Route::post("compteE", "CompteEController@accueil")->name('compteE');
 
 Auth::routes();
 

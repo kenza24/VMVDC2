@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
+
+session_start();
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,8 @@ class ConnexionControllerE extends Controller
 
       //récupération du hash dans l'objet et comparaison avec le mot de passe entré
       if (password_verify($mdpE, $password[0]->mot_de_passe)) {
-        return redirect ('/');
+        $_SESSION['connecte'] = "enseignant";
+        return redirect ('/compteE');
       }
       
       return back()->withInput()->withErrors([
