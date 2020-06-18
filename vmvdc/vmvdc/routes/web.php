@@ -36,7 +36,7 @@ Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
 
 Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione');
 
-Route::get('/inscriptionE', function(){
+Route::get('/inscriptione', function(){
   return view('inscriptionE');
 });
 

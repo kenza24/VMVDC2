@@ -14,12 +14,14 @@
           <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
             <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
           </div>
-          <div class="col-md-1 d-flex align-content-center flex-wrap">
+          <!--<div class="col-md-1 d-flex align-content-center flex-wrap">
             <button type="button" class="btn btn-primary">Se connecter</button>
-          </div>
-          <div class="col-md-1 d-flex align-content-center flex-wrap">
+          </div>-->
+          <!--<div class="col-md-1 d-flex align-content-center flex-wrap">
             <button type="button" class="btn btn-primary">Se créer un compte</button>
-          </div>
+          </div>-->
+          <a href="" class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se conecter</a>
+          <a href={{route('inscriptione')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se créer un compte</a>
         </div>
       </div>
 
