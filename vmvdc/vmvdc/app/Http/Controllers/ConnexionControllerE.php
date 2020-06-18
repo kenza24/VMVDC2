@@ -32,7 +32,7 @@ class ConnexionControllerE extends Controller
       //récupération du hash dans l'objet et comparaison avec le mot de passe entré
       if (isset($password[0]->mot_de_passe) and password_verify($mdpE, $password[0]->mot_de_passe)) {
         $_SESSION['connecte'] = "enseignant";
-        return redirect ('/compteE');
+        return redirect ('/enseignants');
       }
       
       return back()->withInput()->withErrors([
