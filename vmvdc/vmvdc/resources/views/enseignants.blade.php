@@ -12,6 +12,9 @@
       <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:50px; margin-top: 25px; margin-left: 100px;">
         <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
       </div>
+      <form action={{route('deconnexione')}}>
+        <button type="submit" class="btn btn-primary btn-block">Se déconnecter</button>
+      </form>
     </div>
   </div>
 </div>
