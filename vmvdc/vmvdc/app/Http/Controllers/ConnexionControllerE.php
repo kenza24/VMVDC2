@@ -30,7 +30,7 @@ class ConnexionControllerE extends Controller
       //dd(password_hash($mdpE, PASSWORD_DEFAULT)."  |  ".$password[0]->mot_de_passe."  =  ".password_verify($mdpE, $password[0]->mot_de_passe));
 
       //récupération du hash dans l'objet et comparaison avec le mot de passe entré
-      if (password_verify($mdpE, $password[0]->mot_de_passe)) {
+      if (isset($password[0]->mot_de_passe) and password_verify($mdpE, $password[0]->mot_de_passe)) {
         $_SESSION['connecte'] = "enseignant";
         return redirect ('/compteE');
       }
