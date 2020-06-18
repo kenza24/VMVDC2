@@ -32,9 +32,7 @@ Route::get('/creationD', function(){
   return view ('creationD');
 });
 
-Route::get('/enseignants', function(){
-  return view ('enseignants');
-});
+Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
 
 Route::get('/inscriptionE', function(){
   return view('inscriptionE');
