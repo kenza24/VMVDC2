@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//page d'accueil
 Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::view('/orientationConnexion','orientationConnexion')->name('orientationConnexion');
 
+//ENSEIGNANTS
 Route::get('/connexionE', function(){
   return view ('connexionE');
 });
@@ -34,20 +37,22 @@ Route::post('inscriptione', "inscriptionEController@inscription")->name('inscrip
 Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
 Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione');
 
+
+//DOCTORANTS
 Route::get('/inscriptionsD', function(){
   return view('inscriptionsD');
 });
 
-//CONNEXION DU DOCTORANT
-//Route::get('/connexionD', 'ConnexionControllerD@formulaire' );
-//Route::post('/connexionD', 'ConnexionControllerD@traitement' );
-//Route::get('/compteD', 'CompteDController@accueil');
+Route::get('/connexionD', function(){
+  return view ('connexionD');
+});
+Route::post("connexionD", "ConnexionControllerD@traitement")->name('connexionD');
 
-//Route :: get('/deconnexion', 'CompteDController@deconnexion');
+Route::get('/doctorants', "CompteDController@accueil")->name('doctorants');
+Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
 
-//CONNEXION ENSEIGNANT
-Route::get('/compteE', 'CompteEController@accueil');
-//Route::post("compteE", "CompteEController@accueil")->name('compteE');
+
+//Auth
 
 Auth::routes();
 
