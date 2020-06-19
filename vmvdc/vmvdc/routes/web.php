@@ -74,6 +74,8 @@ Route::post('/login/blogger', 'Auth\LoginController@enseignantsLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::post('/register/doctorants', 'Auth\RegisterController@createDoctorants');
 Route::post('/register/doctorants', 'Auth\RegisterController@createEnseignants');
+
+;
 /*
 Route::group([‘middleware’ => ‘auth:doctorants], function () {
 Auth::routes();
