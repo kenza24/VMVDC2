@@ -7,67 +7,52 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
+<div class="container">
 
+    <br>
+    <hr>
 
-<div class="container" action="/connexionD">
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Connectez-vous</h4>
 
-<br>
-<hr>
+            <p class="divider-text">
+                <span class="bg-light"></span>
+            </p>
+            <form action={{route('connexionD')}} method="post">
+                {{csrf_field()}}
+                <div class="form-group input-group">
 
+                <!--MAIL-->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+                        <input name="emailE" class="form-control" placeholder="Adresse mail" type="email">
+                    </div>
 
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Connectez-vous</h4>
+                <!--MDP-->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpE">
+                    </div>
 
-
-	<p class="divider-text">
-
-        <span class="bg-light"></span>
-    </p>
-	<form action="/connexionD" method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    {{csrf_field()}}
-
-
-	<div class="form-group input-group">
-
-
-    <!--MAIL-->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		  </div>
-      <input name="emailD" class="form-control" placeholder="Adresse mail" type="email">
-
-
-
-
-    </div> <!-- form-group// -->
-
-
-    <!--MDP-->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpD">
-    </div> <!-- form-group// -->
-
-
-
-    <!--BOUTON-->
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Se connecter  </button>
-    </div>
-
-
-</form>
-</article>
-</div> <!-- card.// -->
-
+                <!--BOUTON-->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+                    </div>
+                </div>
+            </form>
+        </article>
+    </div> <!-- card.// -->
 </div>
 <!--container end.//-->
 

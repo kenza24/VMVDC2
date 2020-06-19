@@ -16,7 +16,7 @@
         <article class="card-body mx-auto">
             <h3>Connectez-vous en tant que:</h3>
             <a href={{route('connexionE')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Enseignant</a>
-            <a href="" class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
+            <a href={{route('connexionD')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
             <a href="" class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Administrateur</a>
         </article>
     </div> <!-- card.// -->
