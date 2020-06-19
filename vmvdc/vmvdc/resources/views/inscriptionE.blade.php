@@ -33,7 +33,7 @@
 
   <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
-      <h4 class="card-title mt-3 text-center">Créer votre compte</h4>
+      <h4 class="card-title mt-3 text-center">Créer votre compte enseignant</h4>
 
 
       <p class="divider-text">
