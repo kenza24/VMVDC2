@@ -16,7 +16,7 @@
         <article class="card-body mx-auto">
             <h3>Connectez-vous en tant que:</h3>
             <a href={{route('connexionE')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Enseignant</a>
-            <a href="" class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
+            <a href={{route('connexionD')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
             <a href="" class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Administrateur</a>
         </article>
     </div> <!-- card.// -->
@@ -26,7 +26,6 @@
 <br><br>
 
 <style>
-
 .divider-text {
     position: relative;
     text-align: center;
@@ -48,7 +47,6 @@
     left: 0;
     z-index: 1;
 }
-
 .btn-facebook {
     background-color: #405D9D;
     color: #fff;
