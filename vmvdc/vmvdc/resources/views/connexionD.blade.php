@@ -32,7 +32,7 @@
                                 <i class="fa fa-envelope"></i>
                             </span>
                         </div>
-                        <input name="emailE" class="form-control" placeholder="Adresse mail" type="email">
+                        <input name="emailD" class="form-control" placeholder="Adresse mail" type="email">
                     </div>
 
                 <!--MDP-->
@@ -42,7 +42,7 @@
                                 <i class="fa fa-lock"></i>
                             </span>
                         </div>
-                        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpE">
+                        <input class="form-control" placeholder="Mot de passe" type="password" name="mdpD">
                     </div>
 
                 <!--BOUTON-->
