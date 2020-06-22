@@ -66,7 +66,7 @@
         <button type="button" class="btn btn-xs btn-secondary" style="margin-left:400px; margin-top:0px">Modifier mes informations</button>
       </div>
       <div class="p-2">
-          <button type="button" class="btn btn-xs btn-secondary" href="/inscriptionsA" style="margin-left:400px; margin-top:0px">Inscrire un doctorant</button>
+          <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA" style="margin-left:400px; margin-top:0px">Inscrire un administrateur</a>
       </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
                 <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
                    <strong class="d-inline-block mb-2 text-secondary">Les doctorants</strong>
 
-                   <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions" style="position:center">Y aller !</a>
+                   <a class="btn btn-outline-secondary btn-sm" role="button" href="" style="position:center">Y aller !</a>
                 </div>
               </div>
              </div>

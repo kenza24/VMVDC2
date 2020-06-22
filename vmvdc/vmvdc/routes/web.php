@@ -42,10 +42,13 @@ Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione
 Route::get('/inscriptionsD', function(){
   return view('inscriptionsD');
 });
+Route::post('inscriptionsD', "InscriptionsDController@inscription")->name('inscriptionsD');
+
 
 Route::get('/connexionD', function(){
   return view ('connexionD');
 });
+
 Route::post("connexionD", "ConnexionControllerD@traitement")->name('connexionD');
 
 Route::get('/doctorants', "CompteDController@accueil")->name('doctorants');
@@ -64,7 +67,7 @@ Route::get('/connexionA', function(){
   return view('connexionA');
 });
 
-Route::get('/inscriptionsa', function(){
+Route::get('/inscriptionsA', function(){
   return view('inscriptionsA');
 });
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
