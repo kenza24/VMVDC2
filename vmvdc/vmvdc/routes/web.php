@@ -72,7 +72,15 @@ Route::get('/inscriptionsA', function(){
 });
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
-Route::post('connexionA', "ConnexionControllerA@traitement")->name('connexionA');
+Route::get('classesA', function(){
+  return view('classesA');
+});
+
+Route::get('sessionsA', function(){
+  return view('sessionsA');
+});
+
+Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
 //Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
