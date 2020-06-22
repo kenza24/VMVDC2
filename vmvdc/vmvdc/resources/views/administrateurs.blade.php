@@ -22,9 +22,7 @@
   <br>
   <br>
   <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
-    <h1><?php if (isset($_SESSION['id'])): ?>
-                  <?= $_SESSION['id'] ?>
-                <?php endif ?>
+    <h1>
     </h1>
   </div>
 
@@ -41,9 +39,7 @@
         <div class="shadow-lg p-3 mb-5 bg-black rounded" style="width: 1000px; margin-left:55px">
           <div class="row align-items-center">
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre email : <?php if (isset($_SESSION['email'])): ?>
-                                                                              <?= $_SESSION['email'] ?>
-                                                                            <?php endif ?> </dt>
+            <dt class="col-xl-5" style="margin-left:30px;">Votre email :
           </div>
           <div class="col-4">
             <dt class="col-xl-5" style="margin-left:30px;">Votre nom :</dt>
@@ -59,16 +55,12 @@
 
 
 
-      <div class="d-flex flex-row">
+        <div style="text-align:center;">
+            <a type="button" class="btn btn-xs btn-secondary" href="" style="">Accéder a mes sessions</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="" style="">Modifier mes informations</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA" style="">Inscrire un administrateur</a>
+        </div>
 
-
-      <div class="p-2">
-        <button type="button" class="btn btn-xs btn-secondary" style="margin-left:400px; margin-top:0px">Modifier mes informations</button>
-      </div>
-      <div class="p-2">
-          <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA" style="margin-left:400px; margin-top:0px">Inscrire un administrateur</a>
-      </div>
-      </div>
     </div>
 <!--Fin container-->
 </div>
@@ -79,27 +71,12 @@
 
       <div class="col-md-4" style=" display: inline-block;">
         <div class="d-flex flex-row">
-        <div class="p-2">
-        <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
-         <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-            <div class="card-body d-flex flex-column align-items-start" style="width:250px;">
-               <strong class="d-inline-block mb-2 text-secondary">Mes sessions</strong>
-               <h6 class="mb-0">
-                  Vous pouvez retrouver un récapitulatif de vos sessions a venir !
-               </h6>
-               <br>
-               <br>
-               <br>
-               <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions">Y aller !</a>
-            </div>
-          </div>
-         </div>
-       </div>
+        <div class="les cards" style="">
 
           <div class="p-2">
 
             <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
-            <img class="card-img-top" src="content/doctorants.png" alt="">
+            <img class="card-img-top" src="content/doctorants.png" alt="" style="height:205px;">
              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
                    <strong class="d-inline-block mb-2 text-secondary">Les doctorants</strong>
@@ -125,12 +102,12 @@
 
            </div>
 
-
            </div>
-
+         </div>
       </div>
     </div>
   </div>
+
 
 
   <!--Pied de page-->
