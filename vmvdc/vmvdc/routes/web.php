@@ -64,11 +64,12 @@ Route::get('/connexionA', function(){
   return view('connexionA');
 });
 
-Route::get('/inscriptionsA', function(){
+Route::get('/inscriptionsa', function(){
   return view('inscriptionsA');
 });
+Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
-Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
+Route::post('connexionA', "ConnexionControllerA@traitement")->name('connexionA');
 
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
 //Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
