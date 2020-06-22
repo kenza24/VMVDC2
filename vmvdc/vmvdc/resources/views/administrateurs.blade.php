@@ -65,6 +65,9 @@
       <div class="p-2">
         <button type="button" class="btn btn-xs btn-secondary" style="margin-left:400px; margin-top:0px">Modifier mes informations</button>
       </div>
+      <div class="p-2">
+          <button type="button" class="btn btn-xs btn-secondary" href="/inscriptionsA" style="margin-left:400px; margin-top:0px">Inscrire un doctorant</button>
+      </div>
       </div>
     </div>
 <!--Fin container-->

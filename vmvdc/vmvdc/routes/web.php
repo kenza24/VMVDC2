@@ -64,9 +64,10 @@ Route::get('/connexionA', function(){
   return view('connexionA');
 });
 
-Route::get('/inscriptionsA', function(){
+Route::get('/inscriptionsa', function(){
   return view('inscriptionsA');
 });
+Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
 Route::get('classesA', function(){
   return view('classesA');

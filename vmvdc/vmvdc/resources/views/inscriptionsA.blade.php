@@ -78,7 +78,7 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Confimer le mot de passe" type="passwordA">
+        <input class="form-control" placeholder="Confimer le mot de passe" type="password" name="mdp-confirmationA">
     </div> <!-- form-group// -->
 
     <!--BOUTON-->
