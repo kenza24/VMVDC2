@@ -96,7 +96,6 @@
         <br>
           <br>
             <div class="row d-flex justify-content-around">
-              <a href="">Nous contacter</a>
               <a href="">A propos</a>
               <a href="">Qui sommes-nous ?</a>
             </div>

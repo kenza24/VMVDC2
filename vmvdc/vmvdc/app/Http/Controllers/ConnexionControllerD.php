@@ -10,28 +10,27 @@ use Illuminate\Support\Facades\DB;
 class ConnexionControllerD extends Controller
 {
   public function formulaire(){
-    return view ('connexionE');
+    return view ('connexionD');
   }
 
   public function traitement(){
     request()->validate([
-      'emailE'=>'required',
-      'mdpE' => 'required'
+      'emailD'=>'required',
+      'mdpD' => 'required'
     ]);
 
     //récupération des valeurs entrées
-    $emailE = request('emailE');
-    $mdpE = request('mdpE');
+    $emailD = request('emailD');
+    $mdpD = request('mdpD');
 
-    $password = DB::table('enseignants')->select('mot_de_passe')->where('email', $emailE)->get();
+    $infos = DB::table('doctorants')->select('mot_de_passe', 'id')->where('email', $emailD)->get();
     //récupération de l'objet de l'email contenant le hash du mot de passe
 
-    //dd(password_hash($mdpE, PASSWORD_DEFAULT)."  |  ".$password[0]->mot_de_passe."  =  ".password_verify($mdpE, $password[0]->mot_de_passe));
-
     //récupération du hash dans l'objet et comparaison avec le mot de passe entré
-    if (isset($password[0]->mot_de_passe) and password_verify($mdpE, $password[0]->mot_de_passe)) {
-      $_SESSION['connecte'] = "enseignant";
-      return redirect ('/enseignants');
+    if (isset($infos[0]->mot_de_passe) and password_verify($mdpD, $infos[0]->mot_de_passe)) {
+      $_SESSION['connecte'] = "doctorant";
+      $_SESSION['id'] = $infos[0]->id;
+      return redirect ('/doctorants');
     }
     
     return back()->withInput()->withErrors([

@@ -22,9 +22,7 @@
   <br>
   <br>
   <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
-    <h1><?php if (isset($_SESSION['id'])): ?>
-                  <?= $_SESSION['id'] ?>
-                <?php endif ?>
+    <h1><?= $data[0]->nom ?>
     </h1>
   </div>
 
@@ -41,15 +39,13 @@
         <div class="shadow-lg p-3 mb-5 bg-black rounded" style="width: 1000px; margin-left:55px">
           <div class="row align-items-center">
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre email : <?php if (isset($_SESSION['email'])): ?>
-                                                                              <?= $_SESSION['email'] ?>
-                                                                            <?php endif ?> </dt>
+            <dt class="col-xl-5" style="margin-left:30px;">Votre email : <?= $data[0]->email ?></dt>
           </div>
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre nom :</dt>
+            <dt class="col-xl-5" style="margin-left:30px;">Votre nom : <?= $data[0]->nom ?></dt>
           </div>
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre prénom </dt>
+            <dt class="col-xl-5" style="margin-left:30px;">Votre prénom : <?= $data[0]->prenom ?></dt>
           </div>
         </div>
 
