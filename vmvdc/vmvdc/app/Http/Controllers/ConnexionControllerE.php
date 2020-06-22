@@ -33,10 +33,9 @@ class ConnexionControllerE extends Controller
       if (isset($infos[0]->mot_de_passe) and password_verify($mdpE, $infos[0]->mot_de_passe)) {
         $_SESSION['connecte'] = "enseignant";
         $_SESSION['id'] = $infos[0]->id;
-        dd($_SESSION['connecte']."  |  ".$_SESSION['id']);
         return redirect ('/enseignants');
       }
-      
+
       return back()->withInput()->withErrors([
         'email'=>'Vos identifiants sont incorrectes'
       ]);//retourne a la page precedente (le formulaire si pas bon id)

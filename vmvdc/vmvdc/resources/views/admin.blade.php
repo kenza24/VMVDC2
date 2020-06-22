@@ -115,7 +115,7 @@
                   <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
                      <strong class="d-inline-block mb-2 text-secondary">Les enseignants</strong>
 
-                     <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions" style="position:center">Y aller !</a>
+                     <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions">Y aller !</a>
                   </div>
                 </div>
                </div>
