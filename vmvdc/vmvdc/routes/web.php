@@ -51,8 +51,11 @@ Route::post("connexionD", "ConnexionControllerD@traitement")->name('connexionD')
 Route::get('/doctorants', "CompteDController@accueil")->name('doctorants');
 Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
 
-Route::get('/admin', function(){
-  return view('admin');
+Route::get('/administrateurs', function(){
+  return view('administrateurs');
+});
+Route::get('mesSessionsE', function(){
+  return view ('mesSessionsE');
 });
 
 //Auth

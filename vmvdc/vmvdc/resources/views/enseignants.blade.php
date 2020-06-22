@@ -21,9 +21,8 @@
   <br>
   <br>
   <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
-    <h1><?php if (isset($_SESSION['id'])): ?>
-                  <?= $_SESSION['id'] ?>
-                <?php endif ?>
+    <h1>
+
     </h1>
   </div>
 
@@ -40,13 +39,13 @@
         <div class="shadow-lg p-3 mb-5 bg-black rounded" style="width: 1000px; margin-left:55px">
           <div class="row align-items-center">
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre email : <?php $_SESSION['id']?></dt>
+            <dt class="col-xl-10" style="margin-left:30px;">Votre email : <?=  $data[0]->email ?></dt>
           </div>
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre nom :</dt>
+            <dt class="col-xl-10" style="margin-left:30px;">Votre nom : <?=  $data[0]->nom ?></dt>
           </div>
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre prénom </dt>
+            <dt class="col-xl-10" style="margin-left:30px;"><strong>Votre prénom :</strong> <?=  $data[0]->prenom ?> </dt>
           </div>
         </div>
 
@@ -76,20 +75,22 @@
         <div class="p-2">
         <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-            <div class="card-body d-flex flex-column align-items-start" style="width:250px;">
-               <strong class="d-inline-block mb-2 text-secondary">Mes sessions</strong>
+            <div class="card-body d-flex flex-column align-items-start" style="width:1000px;">
+               <strong class="d-inline-block mb-2 text-secondary" style="text-align: center;">Mes sessions</strong>
                <h6 class="mb-0">
+
                   Vous pouvez retrouver un récapitulatif de vos sessions a venir !
+
                </h6>
                <br>
                <br>
                <br>
-               <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions">Y aller !</a>
+               <a class="btn btn-outline-secondary btn-sm" role="button" href="mesSessionsE">Y aller !</a>
             </div>
           </div>
          </div>
        </div>
-
+       <!--
           <div class="p-2">
             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
               <div class="card-body d-flex flex-column align-items-start" style="margin-left:1px; width:650px; height: 255px">
@@ -99,7 +100,7 @@
                  </h6>
                </div>
               </div>
-            </div>
+            </div> -->
 
            </div>
 
