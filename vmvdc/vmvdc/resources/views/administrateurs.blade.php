@@ -56,9 +56,9 @@
 
 
         <div style="text-align:center;">
-            <a type="button" class="btn btn-xs btn-secondary" href="" style="">Accéder a mes sessions</a>
-            <a type="button" class="btn btn-xs btn-secondary" href="" style="">Modifier mes informations</a>
-            <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA" style="">Inscrire un administrateur</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="">Accéder a mes sessions</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
         </div>
 
     </div>
@@ -71,7 +71,7 @@
 
       <div class="col-md-4" style=" display: inline-block;">
         <div class="d-flex flex-row">
-        <div class="les cards" style="">
+        <div class="les cards">
 
           <div class="p-2">
 
