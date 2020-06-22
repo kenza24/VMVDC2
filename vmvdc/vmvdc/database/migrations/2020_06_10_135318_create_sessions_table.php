@@ -17,7 +17,6 @@ class CreateSessionsTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->string('sujet');
-            $table->integer('idDoctorant');
             $table->integer('idEnseignant');
             $table->string('salle');
             $table->integer('idAdminReferent');
