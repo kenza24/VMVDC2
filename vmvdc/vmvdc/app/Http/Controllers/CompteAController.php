@@ -7,7 +7,7 @@ session_start();
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CompteEController extends Controller
+class CompteAController extends Controller
 {
 
       public function accueil(){

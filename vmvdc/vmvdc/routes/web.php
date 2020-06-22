@@ -51,9 +51,33 @@ Route::post("connexionD", "ConnexionControllerD@traitement")->name('connexionD')
 Route::get('/doctorants', "CompteDController@accueil")->name('doctorants');
 Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
 
+Route::get('/connexionD', function(){
+  return view ('connexionD');
+});
+
+//administrateurs
 Route::get('/administrateurs', function(){
   return view('administrateurs');
 });
+
+Route::get('/connexionA', function(){
+  return view('connexionA');
+});
+
+Route::get('/inscriptionsA', function(){
+  return view('inscriptionsA');
+});
+
+Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
+
+Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
+//Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
+
+
+
+
+
+
 Route::get('mesSessionsE', function(){
   return view ('mesSessionsE');
 });
