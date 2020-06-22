@@ -68,6 +68,10 @@ Route::get('/inscriptionsA', function(){
   return view('inscriptionsA');
 });
 
+Route::get('classesA', function(){
+  return view('classesA');
+});
+
 Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
