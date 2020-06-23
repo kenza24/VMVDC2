@@ -89,13 +89,13 @@
     <!-- REP -->
     <label> REP ? </label>
     <div>
-      <input type="radio" id="huey" name="drone" value="huey"
+      <input type="radio"  name="rep" value="1"
            checked>
     <label for="oui">Oui</label>
   </div>
 
   <div>
-    <input type="radio" id="dewey" name="drone" value="dewey">
+    <input type="radio" name="rep" value="0">
     <label for="non">Non</label>
   </div>
 
