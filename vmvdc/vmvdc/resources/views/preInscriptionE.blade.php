@@ -195,8 +195,6 @@
 </div>
 
 <style>
-
-
   .container{
     font-style: oblique;
     font-family: Georgia, serif;
