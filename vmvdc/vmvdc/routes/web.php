@@ -99,16 +99,15 @@ Route::get('sessionsE', function(){
 
 //PRE INSCRIPTION D'UNE CLASSE
 Route::post('preInscriptionE', "PreInscriptionController@preInscription")->name('preInscriptionsE');
+Route::get('preInscriptionE', 'PreInscriptionController@sessions')->name('preInscriptionsE');
 
 Route::get('preInscriptionE', function(){
   return view('preInscriptionE');
 });
-
 Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
-Route::get('preInscriptionE', 'PreInscriptionController@sessions')->name('preInscriptionE');
 
 //Auth
 

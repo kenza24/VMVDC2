@@ -49,6 +49,7 @@ class PreInscriptionController extends Controller
 
   public function sessions()
   {
+      //dd("coucou")
       $sessions = DB::table('sessions')->get();
       return view('preInscriptionE', [
           'sessions' => $sessions
