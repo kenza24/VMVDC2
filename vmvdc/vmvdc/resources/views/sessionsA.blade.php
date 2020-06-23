@@ -2,7 +2,7 @@
 @section('contenu')
 
 <div class="contenu" style="background: url(content/bandeau-ibps.jpg) fixed no-repeat top; background-size: 100%;">
-    <!-- En-tete -->
+  <!-- En-tete -->
   <div class="container-fluid">
     <div class="row" style="background-color: #11385b;">
       <a href="">
@@ -11,6 +11,9 @@
       <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:50px; margin-top: 25px; margin-left: 100px;">
         <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
       </div>
+      <form action={{route('deconnexiond')}}>
+       <button type="submit" class="btn btn-primary btn-block">Se déconnecter</button>
+     </form>
     </div>
   </div>
 </div>
@@ -25,7 +28,7 @@
       <div style="postion:relative; float:right;">
         <a type="button" class="btn btn-xs btn-secondary" href="">Supprimer une session</a>
       </div>
-    
+
       <br>
       <br>
       <table class="table table-striped table-responsive-xl">
@@ -38,18 +41,23 @@
             <th scope="col">Nombre d'élèves</th>
           </tr>
         </thead>
-        <!--
         <tbody>
-          <?php //foreach($data as $key => $value):?>
+          <?php foreach($sessions as $session):?>
             <tr>
+              <td><?= $session->date ?></td>
+              <td><?= $enseignants[$session->idEnseignant] ?></td>
+              <td>
+                <?php foreach ($infoDoctorants as $infoDoctorant):?>
+                  <?php if ($infoDoctorant['idSession'] === $session->id):?>
+                    <?="- ".$infoDoctorant['prenom']." ".$infoDoctorant['nom']?>
+                  <?php endif;?>
+                <?php endforeach;?>
+              </td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><?= $session->nombreEleves ?></td>
             </tr>
-          <?php //endforeach;?>
-        </tbody>-->
+          <?php endforeach;?>
+        </tbody>
       </table>
     </div>
   </div>

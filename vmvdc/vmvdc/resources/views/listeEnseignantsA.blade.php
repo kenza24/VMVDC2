@@ -21,29 +21,23 @@
 <div class="container mt-5">
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
-      <h3>Liste des classes :</h3>
+      <h3>Liste des enseignants :</h3>
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
-            <th scope="col">Zone d'éducation</th>
-            <th scope="col">Niveau</th>
-            <th scope="col">Académie</th>
-            <th scope="col">Ville</th>
-            <th scope="col">Etablissement</th>
-            <th scope="col">Enseignant</th>
-            <th scope="col">Déjà participé</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">numéro de téléphone</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach($classes as $key => $value):?>
+          <?php foreach($enseignants as $key => $enseignant):?>
             <tr>
-              <td><?= $value->rep ?></td>
-              <td><?= $value->niveau ?></td>
-              <td><?= $value->academie ?></td>
-              <td><?= $value->ville ?></td>
-              <td><?= $value->etablissementScolaire ?></td>
-              <td><?= $enseignants[$value->idEnseignant] ?></td>
-              <td><?= $value->dejaVenu ?></td>
+              <td><?= $enseignant->prenom ?></td>
+              <td><?= $enseignant->nom ?></td>
+              <td><?= $enseignant->email ?></td>
+              <td><?= $enseignant->numTel ?></td>
             </tr>
           <?php endforeach;?>
       </table>
