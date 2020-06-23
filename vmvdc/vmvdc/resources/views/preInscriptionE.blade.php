@@ -18,7 +18,7 @@
     </div>
   </div>
 </div>
-<div class="container" action="/inscriptionsA">
+<div class="container" action="/preInscriptionE">
 
 <br>
 <hr>
@@ -38,20 +38,7 @@
     {{csrf_field()}}
 
 
-	<div class="form-group input-group" style="background-color:#B0C4DE">
-
-
-
-
-  <!--NOM/PRENOM-->
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="nom" class="form-control" placeholder="Nom" type="text">
-        <input name="prenom" class="form-control" placeholder="Prenom" type="text">
-    </div> <!-- form-group// -->
-
-
+	<div class="form-group input-group" >
 
 
     <!--Nom etablissement-->
@@ -61,6 +48,7 @@
 		</div>
         <input class="form-control" placeholder="Etablissement scolaire" type="text" name="etablissementScolaire">
     </div> <!-- form-group// -->
+
 
     <!--VILLE-->
     <div class="form-group input-group">
@@ -85,9 +73,10 @@
     </div>
         <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveau">
     </div>
-
     <!-- REP -->
-    <label> REP ? </label>
+
+    <label> Zone prioritaire ? </label>
+    <div style="display: inline;">
     <div>
       <input type="radio"  name="rep" value="1"
            checked>
@@ -98,22 +87,67 @@
     <input type="radio" name="rep" value="0">
     <label for="non">Non</label>
   </div>
+</div>
+
+<!--académie -->
+<div class="form-group input-group">
+    <label> Académie :  </label>
+    <div>
+    <div>
+      <input type="radio"  name="academie" value="creteil"
+           checked>
+    <label for="creteil">Créteil</label>
+  </div>
+
+  <div>
+    <input type="radio" name="academie" value="versailles">
+    <label for="versailles">Versailles</label>
+  </div>
+  <div>
+    <input type="radio" name="academie" value="paris">
+    <label for="paris">Paris</label>
+  </div>
+</div>
+</div>
+
+<!-- CHOIX DES DATES -->
+<div class="form-group input-group">
+  <div class="input-group-prepend">
+    <label> Choix d'une date : </label>
+<select name="dates">
+  <option value="date 1"> 22/06 </option>
+  <option value="date 2"> 26/06 </option>
+</select>
+
+<label> Choix d'une deuxieme date : </label>
+<select name="dates">
+<option value="date1"> 22/06 </option>
+<option value="date2"> 26/06 </option>
+</select>
+</div>
 
     <!--BOUTON-->
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
-    </div>
 
-    <p class="text-center">Deja inscrit ? <a href="">Connectez-vous !</a> </p>
+      <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
+
+
 </form>
-</article>
-</div> <!-- card.// -->
 
-<style>
+</article>
+
+
+</div>
+
+
+</div> <!--fin container -->
 </body>
 
-body{
-  background-color: black;
+<style>
+  .container{
+    font-style: oblique;
+    font-family: Georgia, serif;
+
+
 }
 
 

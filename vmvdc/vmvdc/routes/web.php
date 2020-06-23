@@ -70,6 +70,9 @@ Route::get('/connexionA', function(){
 Route::get('/inscriptionsA', function(){
   return view('inscriptionsA');
 });
+Route::get('/classesA', function(){
+  return view('classesA');
+});
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
 Route::get('sessionsA', 'listesAController@sessions')->name('sessionsA');
@@ -81,7 +84,6 @@ Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA')
 
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
 //Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
-
 
 
 
