@@ -69,12 +69,12 @@
   <div class="container">
     <div class="shadow-lg p-3 mb-5 bg-black rounded" style="background-color:#B0C4DE;">
 
-      <div class="col-md-4" style=" display: inline-block;">
+
         <div class="d-flex flex-row">
-        <div class="les cards">
+        <div class="row">
 
-          <div class="p-2">
 
+          <div class="col-md-5">
             <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
             <img class="card-img-top" src="content/doctorants.png" alt="" style="height:205px;">
              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
@@ -88,7 +88,8 @@
 
             </div>
 
-            <div class="p-2">
+          <div class="col-md-6">
+
               <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
                   <img class="card-img-top" src="content/enseignants.png" alt="">
                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
@@ -103,11 +104,14 @@
            </div>
 
            </div>
-         </div>
+
+           </div>
+
       </div>
-    </div>
+
   </div>
 
+</div>
 
 
   <!--Pied de page-->

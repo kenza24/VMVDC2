@@ -6,8 +6,25 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<div class="container-fluid">
+  <div class="row" style="background-color: #11385b">
+    <a href="" style="width: 15%; min-width: 100px">
+      <img src="content/ibps-logo.jpg" class="img-fluid float-left" alt="Logo-IBPS">
+    </a>
+    <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
+      <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
+    </div>
+    <!--<div class="col-md-1 d-flex align-content-center flex-wrap">
+      <button type="button" class="btn btn-primary">Se connecter</button>
+    </div>-->
+    <!--<div class="col-md-1 d-flex align-content-center flex-wrap">
+      <button type="button" class="btn btn-primary">Se créer un compte</button>
+    </div>-->
+
+</div>
 
 <div class="container">
+
 
     <br>
     <hr>
@@ -15,9 +32,10 @@
     <div class="card bg-light">
         <article class="card-body mx-auto">
             <h3>Connectez-vous en tant que:</h3>
-            <a href={{route('connexionE')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Enseignant</a>
-            <a href={{route('connexionD')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
-            <a href={{route('connexionA')}} class="btn btn-primary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Administrateur</a>
+
+            <a href={{route('connexionE')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Enseignant</a>
+            <a href={{route('connexionD')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
+            <a href={{route('connexionA')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Administrateur</a>
         </article>
     </div> <!-- card.// -->
 </div>
