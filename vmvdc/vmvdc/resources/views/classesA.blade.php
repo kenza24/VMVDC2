@@ -31,20 +31,18 @@
             <th scope="col">Déjà participé</th>
           </tr>
         </thead>
-        <!--
         <tbody>
-          <?php //foreach($data as $key => $value):?>
+          <?php foreach($classes as $key => $value):?>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><?= $value->rep ?></td>
+              <td><?= $value->niveau ?></td>
+              <td><?= $value->academie ?></td>
+              <td><?= $value->ville ?></td>
+              <td><?= $value->etablissementScolaire ?></td>
+              <td><?= $enseignants[$value->idEnseignant] ?></td>
+              <td><?= $value->dejaVenu ?></td>
             </tr>
-          <?php //endforeach;?>
-        </tbody>-->
+          <?php endforeach;?>
       </table>
     </div>
   </div>

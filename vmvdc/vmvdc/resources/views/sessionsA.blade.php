@@ -29,18 +29,23 @@
             <th scope="col">Nombre d'élèves</th>
           </tr>
         </thead>
-        <!--
         <tbody>
-          <?php //foreach($data as $key => $value):?>
+          <?php foreach($sessions as $session):?>
             <tr>
+              <td><?= $session->date ?></td>
+              <td><?= $enseignants[$session->idEnseignant] ?></td>
+              <td>
+                <?php foreach ($infoDoctorants as $infoDoctorant):?>
+                  <?php if ($infoDoctorant['idSession'] === $session->id):?>
+                    <?="- ".$infoDoctorant['prenom']." ".$infoDoctorant['nom']?>
+                  <?php endif;?>
+                <?php endforeach;?>
+              </td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><?= $session->nombreEleves ?></td>
             </tr>
-          <?php //endforeach;?>
-        </tbody>-->
+          <?php endforeach;?>
+        </tbody>
       </table>
     </div>
   </div>

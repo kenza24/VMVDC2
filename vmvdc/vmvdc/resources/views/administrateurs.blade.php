@@ -39,7 +39,7 @@
         <div class="shadow-lg p-3 mb-5 bg-black rounded" style="width: 1000px; margin-left:55px">
           <div class="row align-items-center">
           <div class="col-4">
-            <dt class="col-xl-5" style="margin-left:30px;">Votre email :
+            <dt class="col-xl-5" style="margin-left:30px;">Votre email :</dt>
           </div>
           <div class="col-4">
             <dt class="col-xl-5" style="margin-left:30px;">Votre nom :</dt>

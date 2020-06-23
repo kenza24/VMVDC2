@@ -72,13 +72,8 @@ Route::get('/inscriptionsA', function(){
 });
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
-Route::get('classesA', function(){
-  return view('classesA');
-});
-
-Route::get('sessionsA', function(){
-  return view('sessionsA');
-});
+Route::get('sessionsA', 'listesAController@sessions')->name('sessionsA');
+Route::get('classesA', 'listesAController@classes')->name('classesA');
 
 Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 
