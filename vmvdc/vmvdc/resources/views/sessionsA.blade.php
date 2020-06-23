@@ -23,7 +23,7 @@
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
       <h3>Liste des sessions :</h3>
       <div style="postion:relative; float:left;">
-        <a type="button" class="btn btn-xs btn-secondary" href="">Ajouter une nouvelle session</a>
+        <a type="button" class="btn btn-xs btn-secondary" href="/ajoutSession">Ajouter une nouvelle session</a>
       </div>
       <div style="postion:relative; float:right;">
         <a type="button" class="btn btn-xs btn-secondary" href="">Supprimer une session</a>

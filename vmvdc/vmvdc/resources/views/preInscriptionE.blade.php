@@ -118,9 +118,11 @@
                   <select id="selection" class="form-control" style="display:inline-block;"
                    onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
                     <optgroup label="Mai">
-                      <option value="mettre date">date 1</option>
-                      <option value="date 1">date 2</option>
-                      <option value="date 1">date 3</option>
+
+                      <?php foreach($sessions as $key => $sessions):?>
+                        <!--a chaque session dans la table on affiche les dates des sessions -->
+                        <option value="mettre date"><?= $session->date ?></option>
+                      <?php endforeach;?>
                     </optgroup>
                     <optgroup label="Juin">
                       <option value="22/06">22/06</option>
