@@ -20,7 +20,7 @@
 
 <div class="card bg-light">
   <article class="card-body mx-auto" style="max-width: 400px;">
-    <h4 class="card-title mt-3 text-center">Pré inscrivez votre classe !</h4>
+    <h4 class="card-title mt-3 text-center">Ajoutez une session !</h4>
     <p class="divider-text">
       <span class="bg-light"></span>
     </p>
@@ -29,7 +29,7 @@
 
     <!--Date-->
       <label for="custom-select col-md-6">Date :</label>
-      <div class="form-row">  
+      <div class="form-row">
         <select class="custom-select col-md-6" name="jour">
           <option selected>Jour</option>
           <option value="1"> 1 </option>
@@ -81,7 +81,7 @@
           <option value="12"> Décembre</option>
         </select>
       </div>
-      
+
       <br>
 
     <!--Salle-->

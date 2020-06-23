@@ -12,7 +12,7 @@ class PreInscriptionController extends Controller
   public function preInscription(){
     //dd("coucou");
         request()->validate([
-          //'date2'=> 'required',
+          'date2'=> 'required',
           'etablissementScolaire'=>'required',
           'ville'=>'required',
           'niveau' => 'required',
