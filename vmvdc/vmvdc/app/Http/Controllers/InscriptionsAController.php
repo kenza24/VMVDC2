@@ -26,7 +26,6 @@ class InscriptionsAController extends Controller
         $mdpConfirmation = request('mdp-confirmationA');
 
         if (isset($mdp) and isset($mdpConfirmation) and preg_match("#".$mdp."#", $mdpConfirmation)) {
-            echo("coucou");
             $resultat = DB::table('administrateurs')->insert(
                 array('nom' => $nom, 'prenom' => $prenom, 'email' => $email, 'mot_de_passe' => password_hash($mdp, PASSWORD_DEFAULT))
             );

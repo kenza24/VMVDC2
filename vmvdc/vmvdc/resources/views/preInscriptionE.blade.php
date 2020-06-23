@@ -135,12 +135,7 @@
 
 </article>
 
-
-</div>
-
-
-</div> <!--fin container -->
-</body>
+<style>
 
 <style>
   .container{

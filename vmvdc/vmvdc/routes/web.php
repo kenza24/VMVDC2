@@ -70,10 +70,14 @@ Route::get('/connexionA', function(){
 Route::get('/inscriptionsA', function(){
   return view('inscriptionsA');
 });
-Route::get('/classesA', function(){
-  return view('classesA');
+
+Route::get('/ajoutSession', function(){
+  return view('ajoutSession');
 });
+
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
+
+Route::post('ajoutSession', "CompteAController@ajoutSession")->name('ajoutSession');
 
 Route::get('sessionsA', 'listesAController@sessions')->name('sessionsA');
 Route::get('classesA', 'listesAController@classes')->name('classesA');

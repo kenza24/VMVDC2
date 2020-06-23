@@ -16,14 +16,14 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->string('sujet');
-            $table->integer('idEnseignant');
-            $table->string('salle');
-            $table->integer('idAdminReferent');
-            $table->integer('nombreEleves');
-            $table->integer('nombreFilles');
-            $table->integer('nombreGarcons');
-            $table->string('avisSession');
+            $table->string('sujet')->nullable();
+            $table->integer('idEnseignant')->nullable();
+            $table->string('salle')->nullable();
+            $table->integer('idAdminReferent')->nullable();
+            $table->integer('nombreEleves')->nullable();
+            $table->integer('nombreFilles')->nullable();
+            $table->integer('nombreGarcons')->nullable();
+            $table->string('avisSession')->nullable();
             $table->timestamps();
         });
     }
