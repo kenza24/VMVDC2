@@ -31,7 +31,7 @@
     <br>
     <br>
     <div class="shadow-lg p-3 mb-5 bg-black rounded d-flex flex-wrap text-break justify-content-center" style="margin-left:2%; margin-right: 2%">
-      
+
         <div class="col-md-4 mb-1 mt-1">
           <dt>Votre email : <?= $data[0]->email ?></dt>
         </div>
@@ -41,7 +41,7 @@
         <div class="col-md-4 mb-1 mt-1">
           <dt>Votre prénom : <?= $data[0]->prenom ?></dt>
         </div>
-      
+
     </div>
 
     <div class="d-flex flex-row p-2 justify-content-center">
@@ -55,17 +55,17 @@
   <div class="shadow-lg p-3 bg-black rounded" style="background-color:#B0C4DE;">
     <div class="col-md-12" style=" display: inline-block;">
       <div class="d-flex flex-row">
-          
+
             <div class="card flex-md-row shadow-sm h-md-250 p-2" style="width: 100%;">
               <div class="card-body d-flex flex-column align-items-start text-wrap text-break">
                 <strong class="d-inline-block mb-2 text-secondary">Mes sessions</strong>
                 <h6 class="mb-0">
-                  Vous pouvez retrouver un récapitulatif de vos sessions a venir ! 
+                  Vous pouvez retrouver un récapitulatif de vos sessions a venir !
                 </h6>
                 <br>
-                <br>  
                 <br>
-                <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions">Y aller !</a>
+                <br>
+                <a class="btn btn-outline-secondary btn-sm" role="button" href="/sessionsE">Y aller !</a>
               </div>
             </div>
 

@@ -90,10 +90,13 @@ Route::get('/administrateurs', "CompteAController@accueil")->name('administrateu
 
 
 
-Route::get('mesSessionsE', function(){
-  return view ('mesSessionsE');
+Route::get('sessionsE', function(){
+  return view ('sessionsE');
 });
 
+Route::get('preInscriptionE', function(){
+  return view('preInscriptionE');
+});
 //Auth
 
 Auth::routes();
