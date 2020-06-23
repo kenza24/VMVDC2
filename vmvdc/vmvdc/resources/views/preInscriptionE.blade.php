@@ -69,10 +69,19 @@
     <!--NIVEAU SCOLAIRE -->
     <div class="form-group input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text"> <i class="fa fa-lock"></i> </span> 
+        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
     </div>
         <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveau">
     </div>
+
+    <!--Effectif de la classe-->
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> </span>
+    </div>
+        <input class="form-control" placeholder="Effectif de la classe" type="text" name="effectifClasse">
+    </div>
+
     <!-- REP -->
 
     <label> Zone prioritaire ? </label>
@@ -111,33 +120,56 @@
 </div>
 
 <!-- CHOIX DES DATES -->
-<div class="form-group input-group">
+<!--<div class="form-group input-group">
   <div class="input-group-prepend">
     <label> Choix d'une date : </label>
 <select name="dates">
-  <option value="date 1"> 22/06 </option>
-  <option value="date 2"> 26/06 </option>
+  <option value="date1"> 22/06 </option>
+  <option value="date1"> 26/06 </option>
 </select>
 
 <label> Choix d'une deuxieme date : </label>
 <select name="dates">
-<option value="date1"> 22/06 </option>
+<option value="date2"> 22/06 </option>
 <option value="date2"> 26/06 </option>
 </select>
+</div>-->
+
+<!-- CHOIX DATES -->
+<div>
+<form>
+<input name="texte"  type="TEXT" name="date1"/>
+<select onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1">
+  <option>22/06</option>
+  <option>26/06</option>
+  <option>30/06</option>
+  </select>
+</form>
+</div>
+
+<div>
+<form>
+<input name="texte2" type="TEXT" name="date2"/>
+<select onclick="this.form.texte2.value=this.options[this.selectedIndex].text;" name="date2">
+  <option>22/06</option>
+  <option>26/06</option>
+  <option>30/06</option>
+</select>
+</form>
 </div>
 
     <!--BOUTON-->
-
-      <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
+    <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
 
 
 </form>
 
 </article>
+</div>
 
 <style>
 
-<style>
+
   .container{
     font-style: oblique;
     font-family: Georgia, serif;
