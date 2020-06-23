@@ -1,6 +1,10 @@
 @extends('layout')
 @section('contenu')
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+
+<body>
 <div class="contenu" style="background: url(content/bandeau-ibps.jpg) fixed no-repeat top; background-size: 100%;">
     <!-- En-tete -->
   <div class="container-fluid">
@@ -36,6 +40,9 @@
 
 	<div class="form-group input-group" style="background-color:#B0C4DE">
 
+
+
+
   <!--NOM/PRENOM-->
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -47,13 +54,12 @@
 
 
 
-
     <!--Nom etablissement-->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Etablissement scolaire  " type="text" name="etablissementScolaire">
+        <input class="form-control" placeholder="Etablissement scolaire" type="text" name="etablissementScolaire">
     </div> <!-- form-group// -->
 
     <!--VILLE-->
@@ -62,15 +68,36 @@
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
         <input class="form-control" placeholder="Ville" type="text" name="ville">
-    </div> <!-- form-group// -->
+    </div>
+
+    <!--Code postal-->
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+    </div>
+        <input class="form-control" placeholder="Code postal" type="text" name="codePostal">
+    </div>
 
     <!--NIVEAU SCOLAIRE -->
     <div class="form-group input-group">
       <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
     </div>
-        <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveauScolaires">
+        <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveau">
     </div>
+
+    <!-- REP -->
+    <label> REP ? </label>
+    <div>
+      <input type="radio" id="huey" name="drone" value="huey"
+           checked>
+    <label for="oui">Oui</label>
+  </div>
+
+  <div>
+    <input type="radio" id="dewey" name="drone" value="dewey">
+    <label for="non">Non</label>
+  </div>
 
     <!--BOUTON-->
     <div class="form-group">
@@ -83,10 +110,13 @@
 </div> <!-- card.// -->
 
 <style>
+</body>
 
 body{
-  background-color: #B0C4DE;
+  background-color: black;
 }
 
 
 </style>
+
+@endsection

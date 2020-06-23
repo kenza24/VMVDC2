@@ -88,15 +88,24 @@ Route::get('/administrateurs', "CompteAController@accueil")->name('administrateu
 
 
 
-
-
+//PAGE SESSIONS PERSO
 Route::get('sessionsE', function(){
   return view ('sessionsE');
 });
 
+
+//PRE INSCRIPTION D'UNE CLASSE
+Route::post('preInscriptionE', "PreInscriptionController@preInscription")->name('preInscriptionsE');
+
 Route::get('preInscriptionE', function(){
   return view('preInscriptionE');
 });
+
+Route::get('bienInscris', function(){
+  return view ('bienInscris');
+});
+
+
 //Auth
 
 Auth::routes();

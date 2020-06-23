@@ -56,9 +56,12 @@
 
 
         <div style="text-align:center;">
-            <a type="button" class="btn btn-xs btn-secondary" href="">Accéder a mes sessions</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="/sessionsA">Accéder a mes sessions</a>
             <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
             <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
+            
+              <a type="button" class="btn btn-xs btn-secondary" href="">Listes des classes pré-inscrites</a>
+
         </div>
 
     </div>
