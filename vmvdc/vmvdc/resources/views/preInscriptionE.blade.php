@@ -69,7 +69,7 @@
     <!--NIVEAU SCOLAIRE -->
     <div class="form-group input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        <span class="input-group-text"> <i class="fa fa-lock"></i> </span> 
     </div>
         <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveau">
     </div>
