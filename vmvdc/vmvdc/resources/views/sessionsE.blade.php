@@ -23,7 +23,7 @@
         <a type="button" class="btn btn-xs btn-secondary" href="/preInscriptionE">S'inscrire à une nouvelle session</a>
       </div>
       <div style="postion:relative; float:right;">
-        <a type="button" class="btn btn-xs btn-secondary" href="">Refuser une session</a>
+      <!--  <a type="button" class="btn btn-xs btn-secondary" href="">Refuser une session</a> -->
       </div>
         <br>
         <br>

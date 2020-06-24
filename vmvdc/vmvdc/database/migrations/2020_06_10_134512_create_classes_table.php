@@ -22,6 +22,7 @@ class CreateClassesTable extends Migration
             $table->string('academie');
             $table->date('dateSession');
             $table->string('etablissementScolaire');
+            $table->string('codePostal');
             $table->integer('effectifClasse');
             $table->string('ville');
             $table->timestamps();

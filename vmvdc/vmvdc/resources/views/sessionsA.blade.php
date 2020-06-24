@@ -21,7 +21,16 @@
 <div class="container mt-5">
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
-      <h3 class="mb-5">Liste des sessions :</h3>
+      <h3>Liste des sessions :</h3>
+      <div style="postion:relative; float:left;">
+        <a type="button" class="btn btn-xs btn-secondary" href="">Ajouter une nouvelle session</a>
+      </div>
+      <div style="postion:relative; float:right;">
+        <a type="button" class="btn btn-xs btn-secondary" href="">Supprimer une session</a>
+      </div>
+
+      <br>
+      <br>
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>

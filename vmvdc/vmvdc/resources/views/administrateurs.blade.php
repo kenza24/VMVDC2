@@ -36,8 +36,17 @@
         <div class="col-md-4 mb-1 mt-1">
           <dt>Votre nom : <?= $data[0]->nom ?></dt>
         </div>
-        <div class="col-md-4 mb-1 mt-1">
-          <dt>Votre prénom : <?= $data[0]->prenom ?></dt>
+      <!--</dl>-->
+
+
+
+        <div style="text-align:center;">
+            <a type="button" class="btn btn-xs btn-secondary" href="/sessionsA">Accéder a mes sessions</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
+            <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
+
+              <a type="button" class="btn btn-xs btn-secondary" href="">Listes des classes pré-inscrites</a>
+
         </div>
       </div>
 
