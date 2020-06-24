@@ -9,7 +9,7 @@ class listesAController extends Controller
 {
     public function classes()
     {
-        $classes = DB::table('classes')->get();
+        $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('niveau', 'desc')->get();
         $enseignants = [];
         foreach ($classes as $key => $value) {
             $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $value->idEnseignant)->get();
