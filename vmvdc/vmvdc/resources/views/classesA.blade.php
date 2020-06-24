@@ -28,6 +28,7 @@
             <th scope="col">Niveau</th>
             <th scope="col">Académie</th>
             <th scope="col">Ville</th>
+            <th scope="col">Code postal</th>
             <th scope="col">Etablissement</th>
             <th scope="col">Enseignant</th>
             <th scope="col">Déjà participé</th>
@@ -40,6 +41,7 @@
               <td><?= $value->niveau ?></td>
               <td><?= $value->academie ?></td>
               <td><?= $value->ville ?></td>
+              <td><?= $value->codePostal ?></td>
               <td><?= $value->etablissementScolaire ?></td>
               <td><?= $enseignants[$value->idEnseignant] ?></td>
               <td><?= $value->dejaVenu ?></td>
