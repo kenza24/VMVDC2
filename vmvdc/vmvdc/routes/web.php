@@ -91,7 +91,6 @@ Route::get('/administrateurs', "CompteAController@accueil")->name('administrateu
 
 
 
-
 //PAGE SESSIONS PERSO
 Route::get('sessionsE', function(){
   return view ('sessionsE');

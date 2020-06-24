@@ -23,13 +23,14 @@ class PreInscriptionController extends Controller
       $codePostal = request('codePostal');
       $niveau=request('niveau');
       $rep=request('rep');
-
-
-      //A MODIFIER
+      $date1 = request('date1');
+      $date2 = request('date2');
+      $academie=request('academie');
 
           //echo("coucou2");
           $resultat = DB::table('classes')->insert(
-              array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau, 'codePostal' => $codePostal, 'rep'=>$rep)
+              array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
+              'codePostal' => $codePostal, 'rep'=>$rep, 'choixDates1'=>$date1, 'choixDates2'=>$date2,'academie'=>$academie)
           );
           if($resultat) {
               $_SESSION['connecte'] = 'classes';
