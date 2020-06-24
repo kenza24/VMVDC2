@@ -24,8 +24,6 @@ class listesAController extends Controller
     public function sessions()
     {
         $sessions = DB::table('sessions')->select('date', 'id', 'nombreEleves', 'idEnseignant')->get();
-        /*var_dump('sessions : ');
-        print_r($sessions);*/
 
         $infoDoctorants = [];
         //on recup un tableau de couple (idSession/idDoctorants)
@@ -36,18 +34,12 @@ class listesAController extends Controller
             //Une case = idSession, nomDoctorant et prenomDoctorant
             foreach ($sessionDoctorant as $value) {
                 $tmp['idSession'] = $value->idSession;
-                //var_dump("tmp[idSession] : ".$tmp['idSession']);
                 $unDoctorant = DB::table('doctorants')->select('nom', 'prenom')->where('id', $value->idDoctorants)->get();
                 $tmp['nom'] = $unDoctorant[0]->nom;
-                //var_dump("tmp[nom] : ".$tmp['nom']);
                 $tmp['prenom'] = $unDoctorant[0]->prenom;
-                //var_dump("tmp[prenom] : ".$tmp['prenom']);
                 array_push($infoDoctorants, $tmp);
             }
-            /*var_dump("infodoctorants : ");
-            print_r($infoDoctorants);*/
         }
-        //var_dump("sessionDoctorant : ".$sessionDoctorant);
 
         $enseignants = [];
         foreach ($sessions as $value) {
@@ -65,7 +57,7 @@ class listesAController extends Controller
     public function doctorants()
     {
         $doctorants = DB::table('doctorants')->get();
-        return view('doctorantsA', [
+        return view('listeDoctorantsA', [
             'doctorants' => $doctorants
         ]);
     }
@@ -73,7 +65,7 @@ class listesAController extends Controller
     public function enseignants()
     {
         $enseignants = DB::table('enseignants')->get();
-        return view('enseignantsA', [
+        return view('listeEnseignantsA', [
             'enseignants' => $enseignants
         ]);
     }

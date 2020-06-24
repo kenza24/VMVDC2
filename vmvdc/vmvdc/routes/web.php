@@ -74,6 +74,8 @@ Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscr
 
 Route::get('sessionsA', 'listesAController@sessions')->name('sessionsA');
 Route::get('classesA', 'listesAController@classes')->name('classesA');
+Route::get('listeEnseignantsA', 'listesAController@enseignants')->name('listeEnseignantsA');
+Route::get('listeDoctorantsA', 'listesAController@doctorants')->name('listeDoctorantsA');
 
 Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 

@@ -2,8 +2,8 @@
 
 @section('contenu')
 
-<div class="contenu" style="background: url(content/bandeau-ibps.jpg) fixed no-repeat top; background-size: 100%;">
-    <!-- En-tete -->
+
+<!-- En-tete -->
   <div class="container-fluid">
     <div class="row" style="background-color: #11385b;">
       <a href="">
@@ -17,15 +17,11 @@
      </form>
     </div>
   </div>
-</div>
   <br>
   <br>
   <br>
-  <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
-    <h1>
-    </h1>
-  </div>
 
+<!--Vos informations-->
   <div  class="container">
     <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
       <br>
@@ -35,9 +31,8 @@
       <br>
       <br>
 
-    <!--<dl class="row">-->
-        <div class="shadow-lg p-3 mb-5 bg-black rounded" style="width: 1000px; margin-left:55px">
-          <div class="row align-items-center">
+      <div class="shadow-lg p-3 mb-5 bg-black rounded" style="width: 1000px; margin-left:55px">
+        <div class="row align-items-center">
           <div class="col-4">
             <dt class="col-xl-5" style="margin-left:30px;">Votre email :</dt>
           </div>
@@ -48,91 +43,98 @@
             <dt class="col-xl-5" style="margin-left:30px;">Votre prénom </dt>
           </div>
         </div>
+      </div>
 
-
-        </div>
-      <!--</dl>-->
-
-
-
-        <div style="text-align:center;">
-            <a type="button" class="btn btn-xs btn-secondary" href="">Accéder a mes sessions</a>
-            <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
-            <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
-        </div>
-
+      <div style="text-align:center;">
+          <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
+          <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
+      </div>
     </div>
-<!--Fin container-->
-</div>
+  </div><!--Fin container-->
 
-
+<!--Cartes-->
   <div class="container">
     <div class="shadow-lg p-3 mb-5 bg-black rounded" style="background-color:#B0C4DE;">
-
-
-        <div class="d-flex flex-row">
+      <div class="d-flex flex-row">
         <div class="row">
 
-
-          <div class="col-md-5">
+        <!--Carte doctorants-->
+          <div class="col-md-3">
             <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
             <img class="card-img-top" src="content/doctorants.png" alt="" style="height:205px;">
              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
-                   <strong class="d-inline-block mb-2 text-secondary">Les doctorants</strong>
-
-                   <a class="btn btn-outline-secondary btn-sm" role="button" href="" style="position:center">Y aller !</a>
+                  <strong class="d-inline-block mb-2 text-secondary">Les doctorants</strong>
+                  <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listeDoctorantsA')}} style="position:center">Y aller !</a>
                 </div>
               </div>
-             </div>
-
             </div>
+          </div>
 
-          <div class="col-md-6">
+        <!--Carte Enseignants-->
+          <div class="col-md-3">
+            <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
+              <img class="card-img-top" src="content/enseignants.png" alt="">
+              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
+                  <strong class="d-inline-block mb-2 text-secondary">Les enseignants</strong>
+                  <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listeEnseignantsA')}}>Y aller !</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
+        <!--Carte Sessions-->
+          <div class="col-md-3">
+            <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
+              <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
+              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
+                  <strong class="d-inline-block mb-2 text-secondary">Les sessions Validées</strong>
+                  <a class="btn btn-outline-secondary btn-sm" role="button" href={{('sessionsA')}}>Y aller !</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--Carte Classes-->
+          <div class="col-md-3">
               <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
-                  <img class="card-img-top" src="content/enseignants.png" alt="">
-               <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
+                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                   <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
-                     <strong class="d-inline-block mb-2 text-secondary">Les enseignants</strong>
-
-                     <a class="btn btn-outline-secondary btn-sm" role="button" href="sessions">Y aller !</a>
+                    <strong class="d-inline-block mb-2 text-secondary">Les classes pré-inscrites</strong>
+                    <a class="btn btn-outline-secondary btn-sm" role="button" href={{('classesA')}}>Y aller !</a>
                   </div>
                 </div>
-               </div>
+              </div>
+            </div>
 
-           </div>
-
-           </div>
-
-           </div>
-
+        </div>
       </div>
+    </div>
+  </div><!--fin cartes-->
 
+
+<!--Pied de page-->
+  <div class="container-fluid mt-5" style="background-color: #11385b;">
+    <br>
+    <br>
+      <div class="row d-flex justify-content-around">
+        <a href="">Nous contacter</a>
+        <a href="">A propos</a>
+        <a href="">Qui sommes-nous ?</a>
+      </div>
+    <br>
+    <br>
   </div>
 
-</div>
 
+  <style>
+    .container{
+      font-style: oblique;
+      font-family: Georgia, serif;
 
-  <!--Pied de page-->
-    <div class="container-fluid mt-5" style="background-color: #11385b;">
-      <br>
-        <br>
-          <div class="row d-flex justify-content-around">
-            <a href="">Nous contacter</a>
-            <a href="">A propos</a>
-            <a href="">Qui sommes-nous ?</a>
-          </div>
-        <br>
-      <br>
-    </div>
-
-
-    <style>
-      .container{
-        font-style: oblique;
-        font-family: Georgia, serif;
-
-      }
-    </style>
+    }
+  </style>
 @endsection

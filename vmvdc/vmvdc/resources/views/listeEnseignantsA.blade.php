@@ -2,8 +2,8 @@
 @section('contenu')
 
 <div class="contenu" style="background: url(content/bandeau-ibps.jpg) fixed no-repeat top; background-size: 100%;">
-  <!-- En-tete -->
-  <div class="container-fluid">
+    <!-- En-tete -->
+    <div class="container-fluid">
     <div class="row" style="background-color: #11385b;">
       <a href="">
         <img src="content/ibps-logo.jpg" alt="Logo-IBPS" class="float-left" style="height: 100px;">
@@ -21,34 +21,25 @@
 <div class="container mt-5">
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
-      <h3 class="mb-5">Liste des sessions :</h3>
+      <h3>Liste des enseignants :</h3>
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Enseignant</th>
-            <th scope="col">Doctorants</th>
-            <th scope="col">Accompagnateurs</th>
-            <th scope="col">Nombre d'élèves</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">numéro de téléphone</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach($sessions as $session):?>
+          <?php foreach($enseignants as $key => $enseignant):?>
             <tr>
-              <td><?= $session->date ?></td>
-              <td><?= $enseignants[$session->idEnseignant] ?></td>
-              <td>
-                <?php foreach ($infoDoctorants as $infoDoctorant):?>
-                  <?php if ($infoDoctorant['idSession'] === $session->id):?>
-                    <?="- ".$infoDoctorant['prenom']." ".$infoDoctorant['nom']?>
-                  <?php endif;?>
-                <?php endforeach;?>
-              </td>
-              <td></td>
-              <td><?= $session->nombreEleves ?></td>
+              <td><?= $enseignant->prenom ?></td>
+              <td><?= $enseignant->nom ?></td>
+              <td><?= $enseignant->email ?></td>
+              <td><?= $enseignant->numTel ?></td>
             </tr>
           <?php endforeach;?>
-        </tbody>
       </table>
     </div>
   </div>
