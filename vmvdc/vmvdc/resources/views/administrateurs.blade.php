@@ -78,15 +78,6 @@
             </div>
           </div>
 
-          <div class="card col-lg-5">
-            <div class="card-body">
-              <h5 class="card-title">Descriptif du projet</h5>
-              <p class="card-text">
-                Texte explicatif
-              </p>
-            </div>
-          </div>
-
         <!--Carte Sessions-->
           <div class="col-md-3">
             <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
