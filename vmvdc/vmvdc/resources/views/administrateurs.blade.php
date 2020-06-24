@@ -38,21 +38,10 @@
         </div>
       <!--</dl>-->
 
-
-
-        <div style="text-align:center;">
-            <a type="button" class="btn btn-xs btn-secondary" href="/sessionsA">Accéder a mes sessions</a>
-            <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
-            <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
-
-              <a type="button" class="btn btn-xs btn-secondary" href="">Listes des classes pré-inscrites</a>
-
-        </div>
-      </div>
-
-      <div style="text-align:center;">
+      <div class="mt-5 mb-3" style="text-align:center;">
         <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
         <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
+        <a type="button" class="btn btn-xs btn-secondary" href={{('ajoutSession')}}>Ajouter une date de session</a>
       </div>
     </div>
   </div><!--Fin container-->
@@ -66,8 +55,8 @@
         <!--Carte doctorants-->
           <div class="col-md-3">
             <div class="card" style="background-color: #f5f5f5;">
-            <img class="card-img-top" src="content/doctorants.png" alt="" style="">
-                <div class="card-body d-flex flex-column align-items-start" style="">
+            <img class="card-img-top" src="content/doctorants.png" alt="">
+                <div class="card-body d-flex flex-column align-items-start">
                   <strong class="d-inline-block text-secondary">Les doctorants</strong>
                   <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listeDoctorantsA')}} style="position:center">Y aller !</a>
                 </div>
@@ -79,7 +68,7 @@
             <div class="card" style="background-color: #f5f5f5;">
               <img class="card-img-top" src="content/enseignants.png" alt="">
               <div class="card flex-md-row">
-                <div class="card-body d-flex flex-column align-items-start" style="">
+                <div class="card-body d-flex flex-column align-items-start">
                   <strong class="d-inline-block text-secondary">Les enseignants</strong>
                   <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listeEnseignantsA')}}>Y aller !</a>
                 </div>

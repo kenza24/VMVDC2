@@ -110,7 +110,6 @@
 </div> <!-- card.// -->
 
 <style>
-</body>
 
 body{
   background-color: black;

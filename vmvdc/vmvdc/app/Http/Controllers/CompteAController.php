@@ -30,4 +30,36 @@ class CompteAController extends Controller
 
         return redirect ('/');
       }
+
+      public function ajoutSession()
+      {
+        request()->validate([
+          'jour'=>'required',
+          'mois' => 'required'
+        ]);        
+
+        if (!isset($_POST['salle'])){
+          $jour = request('jour');
+          $mois = request('mois');
+
+          $resultat = DB::table('sessions')->insert(
+            array('date' => $jour."/".$mois)
+          );
+        }
+        else {
+          $jour = request('jour');
+          $mois = request('mois');
+          $salle = request('salle');
+
+          $resultat = DB::table('sessions')->insert(
+            array('date' => $jour."/".$mois, 'salle' => $salle)
+          );
+        }
+
+        if($resultat) {
+          return redirect ('administrateurs');
+        }
+
+        return redirect ('/inscriptionsA'); //probleme
+      }
 }
