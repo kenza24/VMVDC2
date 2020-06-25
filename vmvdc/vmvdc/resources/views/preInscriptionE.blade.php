@@ -87,11 +87,11 @@
     <label> Zone prioritaire ? </label>
     <div style="display: inline-block;">
 
-      <input type="radio"  name="rep" value="1"
+      <input type="radio"  name="rep" value="REP"
            checked style="margin-left:10px;">
     <label for="oui">Oui</label>
 
-    <input type="radio" name="rep" value="0" style="margin-left:5px;"  >
+    <input type="radio" name="rep" value="PAS REP" style="margin-left:5px;"  >
     <label for="non">Non</label>
 
 </div>
@@ -117,17 +117,13 @@
                   <label for="selection">Choisissez deux dates</label>
                   <select id="selection" class="form-control" style="display:inline-block;"
                    onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
-                    <optgroup label="Mai">
 
-                      <?php foreach($sessions as $key => $sessions):?>
+
+                      <?php foreach($sessions as $key => $session):?>
                         <!--a chaque session dans la table on affiche les dates des sessions -->
-                        <option value="mettre date"><?= $session->date ?></option>
+                        <option value=""><?= $session->choixDate1 ?></option>
                       <?php endforeach;?>
-                    </optgroup>
-                    <optgroup label="Juin">
-                      <option value="22/06">22/06</option>
-                      <option value="option 5">Option 5</option>
-                    </optgroup>
+
                   </select>
 
                   <br>
@@ -195,6 +191,8 @@
 </div>
 
 <style>
+
+
   .container{
     font-style: oblique;
     font-family: Georgia, serif;
