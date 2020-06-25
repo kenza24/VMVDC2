@@ -16,7 +16,7 @@ class listesAController extends Controller
             $dates[$value->date] = 0;
         }
 
-        $classes = DB::table('classes')->orderBy('dateSession', 'desc', 'choixDates1', 'choixDates2')->orderBy('niveau', 'desc')->get();
+        $classes = DB::table('classes')->orderBy('dateSession', 'desc', 'choixDates1', 'choixDates2', 'choixHeure1', 'choixHeure1')->orderBy('niveau', 'desc')->get();
         $enseignants = [];
         foreach ($classes as $key => $value) {
             $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $value->idEnseignant)->get();

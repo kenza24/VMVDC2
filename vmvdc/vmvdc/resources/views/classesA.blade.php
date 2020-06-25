@@ -39,9 +39,23 @@
           <?php foreach ($dates as $key => $date):?>
             <?php var_dump(key($dates)); ?>
             <?php foreach($classes as $key => $classe):?>
-              <?php if(preg_match("#".$classe->choixDates1."#", key($dates)) or preg_match("#".$classe->choixDates2."#", key($dates))): ?>
+              <?php if(preg_match("#".$classe->choixDates1."#", key($dates))): ?>
                 <tr>
                   <td><?= key($dates) ?></td>
+                  <td><?= $classe->choixHeure1 ?></td>
+                  <td><?= $classe->rep ?></td>
+                  <td><?= $classe->niveau ?></td>
+                  <td><?= $classe->academie ?></td>
+                  <td><?= $classe->ville ?></td>
+                  <td><?= $classe->codePostal ?></td>
+                  <td><?= $classe->etablissementScolaire ?></td>
+                  <td><?= $enseignants[$classe->idEnseignant] ?></td>
+                  <td><?= $classe->dejaVenu ?></td>
+                </tr>
+              <?php elseif(preg_match("#".$classe->choixDates2."#", key($dates))): ?>
+                <tr>
+                  <td><?= key($dates) ?></td>
+                  <td><?= $classe->choixHeure2 ?></td>
                   <td><?= $classe->rep ?></td>
                   <td><?= $classe->niveau ?></td>
                   <td><?= $classe->academie ?></td>
