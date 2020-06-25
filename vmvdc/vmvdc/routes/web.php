@@ -108,6 +108,7 @@ Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
+Route::get('preInscriptionE', 'PreInscriptionController@sessions')->name('preInscriptionE');
 
 //Auth
 
