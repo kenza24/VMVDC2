@@ -73,67 +73,124 @@
     </div>
         <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveau">
     </div>
+
+    <!--Effectif de la classe-->
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> </span>
+    </div>
+        <input class="form-control" placeholder="Effectif de la classe" type="text" name="effectifClasse">
+    </div>
+
     <!-- REP -->
 
     <label> Zone prioritaire ? </label>
-    <div style="display: inline;">
-    <div>
-      <input type="radio"  name="rep" value="1"
-           checked>
-    <label for="oui">Oui</label>
-  </div>
+    <div style="display: inline-block;">
 
-  <div>
-    <input type="radio" name="rep" value="0">
+      <input type="radio"  name="rep" value="1"
+           checked style="margin-left:10px;">
+    <label for="oui">Oui</label>
+
+    <input type="radio" name="rep" value="0" style="margin-left:5px;"  >
     <label for="non">Non</label>
-  </div>
+
 </div>
 
 <!--académie -->
 <div class="form-group input-group">
     <label> Académie :  </label>
     <div>
-    <div>
-      <input type="radio"  name="academie" value="creteil"
-           checked>
-    <label for="creteil">Créteil</label>
-  </div>
 
-  <div>
-    <input type="radio" name="academie" value="versailles">
+    <input type="radio"  name="academie" value="creteil" checked style="margin-left:10px;">
+    <label for="creteil">Créteil</label>
+
+    <input type="radio" name="academie" value="versailles" style="margin-left:5px;">
     <label for="versailles">Versailles</label>
-  </div>
-  <div>
-    <input type="radio" name="academie" value="paris">
+
+    <input type="radio" name="academie" value="paris" style="margin-left:5px;">
     <label for="paris">Paris</label>
-  </div>
+
 </div>
 </div>
+
+<div class="form-group">
+                  <label for="selection">Choisissez deux dates</label>
+                  <select id="selection" class="form-control" style="display:inline-block;"
+                   onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
+                    <optgroup label="Mai">
+                      <option value="mettre date">date 1</option>
+                      <option value="date 1">date 2</option>
+                      <option value="date 1">date 3</option>
+                    </optgroup>
+                    <optgroup label="Juin">
+                      <option value="22/06">22/06</option>
+                      <option value="option 5">Option 5</option>
+                    </optgroup>
+                  </select>
+
+                  <br>
+
+                  <select id="selection" class="form-control" style="display:inline-block;"
+                   onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date 2">
+                    <optgroup label="Mai">
+                      <option value="date 2">date 1</option>
+                      <option value="date 2">date 2</option>
+                      <option value="date 2">date 3</option>
+                    </optgroup>
+                    <optgroup label="Juin">
+                      <option value="date 2">Option 4</option>
+                      <option value="date 2">Option 5</option>
+                    </optgroup>
+                  </select>
+                </div>
 
 <!-- CHOIX DES DATES -->
-<div class="form-group input-group">
+<!--<div class="form-group input-group">
   <div class="input-group-prepend">
     <label> Choix d'une date : </label>
 <select name="dates">
-  <option value="date 1"> 22/06 </option>
-  <option value="date 2"> 26/06 </option>
+  <option value="date1"> 22/06 </option>
+  <option value="date1"> 26/06 </option>
 </select>
 
 <label> Choix d'une deuxieme date : </label>
 <select name="dates">
-<option value="date1"> 22/06 </option>
+<option value="date2"> 22/06 </option>
 <option value="date2"> 26/06 </option>
 </select>
+</div>-->
+
+<!-- CHOIX DATES -->
+<!--<div>
+<form>
+<input name="texte"  type="TEXT" name="date1"/>
+<select onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1">
+  <option>22/06</option>
+  <option>26/06</option>
+  <option>30/06</option>
+  </select>
+</form>
 </div>
 
+<div>
+<form>
+<input name="texte2" type="TEXT" name="date2"/>
+<select onclick="this.form.texte2.value=this.options[this.selectedIndex].text;" name="date2">
+  <option>22/06</option>
+  <option>26/06</option>
+  <option>30/06</option>
+</select>
+</form>
+</div>
+-->
     <!--BOUTON-->
-
-      <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
+    <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
 
 
 </form>
 
 </article>
+</div>
 
 <style>
   .container{

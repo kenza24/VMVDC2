@@ -22,6 +22,7 @@
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
       <h3>Liste des doctorants :</h3>
+        <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsD">Inscrire un doctorant</a>
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
