@@ -9,13 +9,27 @@ class listesAController extends Controller
 {
     public function classes()
     {
-        $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('niveau', 'desc')->get();
+        $sessions = DB::table('sessions')->select('date')->get();
+
+        $dates = [];
+        foreach ($sessions as $key => $value) {
+            $dates[$value->date] = 0;
+        }
+
+        $classes = DB::table('classes')->orderBy('dateSession', 'desc', 'choixDates1', 'choixDates2')->orderBy('niveau', 'desc')->get();
         $enseignants = [];
         foreach ($classes as $key => $value) {
             $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $value->idEnseignant)->get();
+            $dates[$value->choixDates1]++;
+            $dates[$value->choixDates2]++;
             $enseignants[$value->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
         }
+        //dd($dates);
+        asort($dates);
+        //dd($dates);
+
         return view('classesA', [
+            'dates' => $dates,
             'classes' => $classes,
             'enseignants' => $enseignants
         ]);
