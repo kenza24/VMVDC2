@@ -20,8 +20,8 @@ class CreateClassesTable extends Migration
             $table->boolean('dejaVenu');
             $table->boolean('rep');
             $table->string('academie');
-            $table->date('choixDates2');
-            $table->date('choixDates1');
+            $table->integer('choixSession1');
+            $table->integer('choixSession2');
             $table->string('etablissementScolaire');
             $table->string('codePostal');
             $table->integer('effectifClasse');
