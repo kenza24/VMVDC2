@@ -9,26 +9,30 @@ class listesAController extends Controller
 {
     public function classes()
     {
-        $sessions = DB::table('sessions')->select('date')->get();
+        $sessions = DB::table('sessions')->select('id', 'date', 'heure')->get();
 
         $dates = [];
-        foreach ($sessions as $key => $value) {
-            $dates[$value->date] = 0;
+        foreach ($sessions as $session) {
+            $dates[$session->id] = 0;
+            $sessions[$session->id] = $session;
         }
 
-        $classes = DB::table('classes')->orderBy('dateSession', 'desc', 'choixDates1', 'choixDates2', 'choixHeure1', 'choixHeure1')->orderBy('niveau', 'desc')->get();
+        $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('niveau', 'desc')->get();
         $enseignants = [];
-        foreach ($classes as $key => $value) {
-            $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $value->idEnseignant)->get();
-            $dates[$value->choixDates1]++;
-            $dates[$value->choixDates2]++;
-            $enseignants[$value->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
+        foreach ($classes as $classe) {
+            $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $classe->idEnseignant)->get();
+            $dates[$classe->choixSession1]++;
+            $dates[$classe->choixSession2]++;
+            $enseignants[$classe->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
         }
+
+        //dd($sessions);
         //dd($dates);
         asort($dates);
         //dd($dates);
 
         return view('classesA', [
+            'sessions' => $sessions,
             'dates' => $dates,
             'classes' => $classes,
             'enseignants' => $enseignants

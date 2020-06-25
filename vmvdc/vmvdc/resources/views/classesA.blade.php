@@ -25,6 +25,7 @@
         <thead>
           <tr>
             <th scope="col">Date</th>
+            <th scope="col">Heure</th>
             <th scope="col">Zone d'éducation</th>
             <th scope="col">Niveau</th>
             <th scope="col">Académie</th>
@@ -37,12 +38,11 @@
         </thead>
         <tbody>
           <?php foreach ($dates as $key => $date):?>
-            <?php var_dump(key($dates)); ?>
             <?php foreach($classes as $key => $classe):?>
-              <?php if(preg_match("#".$classe->choixDates1."#", key($dates))): ?>
+              <?php if($classe->choixSession1 == key($dates)): ?>
                 <tr>
-                  <td><?= key($dates) ?></td>
-                  <td><?= $classe->choixHeure1 ?></td>
+                  <td><?= $sessions[$classe->choixSession1]->date ?></td>
+                  <td><?= $sessions[$classe->choixSession1]->heure ?></td>
                   <td><?= $classe->rep ?></td>
                   <td><?= $classe->niveau ?></td>
                   <td><?= $classe->academie ?></td>
@@ -52,10 +52,10 @@
                   <td><?= $enseignants[$classe->idEnseignant] ?></td>
                   <td><?= $classe->dejaVenu ?></td>
                 </tr>
-              <?php elseif(preg_match("#".$classe->choixDates2."#", key($dates))): ?>
+                <?php elseif($classe->choixSession2 == key($dates)): ?>
                 <tr>
-                  <td><?= key($dates) ?></td>
-                  <td><?= $classe->choixHeure2 ?></td>
+                  <td><?= $sessions[$classe->choixSession2]->date ?></td>
+                  <td><?= $sessions[$classe->choixSession2]->heure ?></td>
                   <td><?= $classe->rep ?></td>
                   <td><?= $classe->niveau ?></td>
                   <td><?= $classe->academie ?></td>
