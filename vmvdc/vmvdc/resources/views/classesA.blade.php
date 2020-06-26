@@ -39,7 +39,10 @@
         <tbody>
           <?php foreach ($dates as $key => $date):?>
             <?php foreach($classes as $key => $classe):?>
-              <?php if($classe->choixSession1 == key($dates)): ?>
+            <!--<?php /*var_dump("-".$classe->id." | ".$sessions[key($dates)]->idClasse." == ".null." and ".$classe->choixSession1." == ".key($dates).
+                    " or ".$sessions[key($dates)]->idClasse." != ".null." and ".$sessions[key($dates)]->idClasse." == ".$classe->id)*/ ?>-->
+              <?php if(($sessions[key($dates)]->idClasse == null and $classe->choixSession1 == key($dates))
+                    or ($sessions[key($dates)]->idClasse != null and $sessions[key($dates)]->idClasse == $classe->id)): ?>
                 <tr>
                   <td><?= $sessions[$classe->choixSession1]->date ?></td>
                   <td><?= $sessions[$classe->choixSession1]->heure ?></td>
@@ -52,7 +55,8 @@
                   <td><?= $enseignants[$classe->idEnseignant] ?></td>
                   <td><?= $classe->dejaVenu ?></td>
                 </tr>
-                <?php elseif($classe->choixSession2 == key($dates)): ?>
+                <?php elseif(($sessions[key($dates)]->idClasse == null and $classe->choixSession2 == key($dates))
+                    or ($sessions[key($dates)]->idClasse != null and $sessions[key($dates)]->idClasse == $classe->id)): ?>
                 <tr>
                   <td><?= $sessions[$classe->choixSession2]->date ?></td>
                   <td><?= $sessions[$classe->choixSession2]->heure ?></td>

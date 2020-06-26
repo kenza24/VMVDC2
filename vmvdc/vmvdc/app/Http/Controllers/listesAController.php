@@ -9,7 +9,7 @@ class listesAController extends Controller
 {
     public function classes()
     {
-        $sessions = DB::table('sessions')->select('id', 'date', 'heure')->get();
+        $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();
 
         $dates = [];
         foreach ($sessions as $session) {
