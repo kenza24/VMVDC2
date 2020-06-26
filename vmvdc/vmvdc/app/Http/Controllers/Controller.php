@@ -10,4 +10,22 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    private string $etatSessions = "nonValidees";
+
+    public function getEtatSessions()
+    {
+        return $this->etatSessions;
+    }
+
+    public function setEtatSessionsValidees()
+    {
+        $this->etatSessions = "validees";
+    }
+
+    public function setEtatSessionsNonValidees()
+    {
+        $this->etatSessions = "nonValidees";
+    }
+
 }
