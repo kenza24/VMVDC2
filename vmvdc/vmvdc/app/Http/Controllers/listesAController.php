@@ -47,7 +47,7 @@ class listesAController extends Controller
         //on recup un tableau de couple (idSession/idDoctorants)
         foreach ($sessions as $value) {
             $sessionDoctorant = DB::table('participations_doctorants')->where('idSession', $value->id)->get();
-            
+
             //pour chq couple, on crée une 'case' dans le tableau $doctorants
             //Une case = idSession, nomDoctorant et prenomDoctorant
             foreach ($sessionDoctorant as $value) {

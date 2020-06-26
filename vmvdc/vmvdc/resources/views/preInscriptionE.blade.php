@@ -118,11 +118,11 @@
                   <select id="selection" class="form-control" style="display:inline-block;"
                    onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
 
+                      <!-- $sessions est un tableau definis dans controller -->
 
-                      <?php foreach($sessions as $key => $session):?>
                         <!--a chaque session dans la table on affiche les dates des sessions -->
-                        <option value=""><?= $session->choixDate1 ?></option>
-                      <?php endforeach;?>
+                        <option value=<?php $date ?></option>
+
 
                   </select>
 
