@@ -98,12 +98,13 @@ Route::get('sessionsE', function(){
 
 
 //PRE INSCRIPTION D'UNE CLASSE
-Route::post('preInscriptionE', "PreInscriptionController@preInscription")->name('preInscriptionsE');
-Route::get('preInscriptionE', 'PreInscriptionController@sessions')->name('preInscriptionsE');
-
 Route::get('preInscriptionE', function(){
   return view('preInscriptionE');
 });
+Route::post('preInscriptionE', "PreInscriptionController@preInscription")->name('preInscriptionE');
+Route::get('preInscriptionE', 'PreInscriptionController@session')->name('preInscriptionE'); //affichages des dates depuis bdd
+
+
 Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
