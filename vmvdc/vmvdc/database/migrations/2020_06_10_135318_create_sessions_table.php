@@ -19,6 +19,7 @@ class CreateSessionsTable extends Migration
             $table->string('heure');
             $table->string('sujet')->nullable();
             $table->integer('idEnseignant')->nullable();
+            $table->integer('idClasse')->nullable();
             $table->string('salle')->nullable();
             $table->integer('idAdminReferent')->nullable();
             $table->integer('nombreEleves')->nullable();
