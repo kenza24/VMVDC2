@@ -46,7 +46,7 @@ class listesAController extends Controller
 
     public function sessions()
     {
-        $sessions = DB::table('sessions')->select('date', 'id', 'nombreEleves', 'idEnseignant')->get();
+        $sessions = DB::table('sessions')->select('date', 'id', 'nombreEleves', 'idClasse')->get();
 
         $infoDoctorants = [];
         //on recup un tableau de couple (idSession/idDoctorants)
@@ -65,13 +65,33 @@ class listesAController extends Controller
         }
 
         $enseignants = [];
-        foreach ($sessions as $value) {
-            $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $value->idEnseignant)->get();
-            $enseignants[$value->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
+        $accompagnateurs = [];
+        foreach ($sessions as $session) {
+            $objetClasse = DB::table('classes')->select('nb_accompagnateurs')->where('id', $session->idClasse)->get();
+            var_dump($objetClasse[0]);
+            if (!isset($objetClasse[0])) {
+                dd('Il y a un probleme des l\'id des classes');
+            }
+            $accompagnateurs[$session->id] = $objetClasse[0]->nb_accompagnateurs;
+            if ($session->idClasse == null) {
+                $enseignants[$session->id] = "";
+            }
+            else {
+                $objetClasse = DB::table('classes')->select('idEnseignant')->where('id', $session->idClasse)->get();
+                if (!isset($objetClasse[0])) {
+                    dd('Il y a un probleme des l\'id des classes');
+                }
+                $objetEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $objetClasse[0]->idEnseignant)->get();
+                if (!isset($objetClasse[0])) {
+                    dd('Il y a un probleme des l\'id des enseignants');
+                }
+                $enseignants[$session->id] = $objetEnseignant[0]->prenom." ".$objetEnseignant[0]->nom;
+            }
         }
 
         return view('sessionsA', [
             'sessions' => $sessions,
+            'accompagnateurs' => $accompagnateurs,
             'enseignants' => $enseignants,
             'infoDoctorants' => $infoDoctorants
         ]);
