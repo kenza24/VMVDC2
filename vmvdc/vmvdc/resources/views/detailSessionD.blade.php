@@ -23,7 +23,24 @@
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
       <h3> Sessions du <h3>
 
+      <div class="container mt-1" style="background-color:white;">
+        <h5>Doctorant : </h5>
+        <h5>Mail : </h5>
+        <h5>Point de rendez-vous : </h5>
+        <h5>Nombre d'élèves : </h5>
+        <!--@csrf_field-->
+        {{ csrf_token() }}
+        <form action="detailSessionD" enctype= "multipart/form-data" method="POST" value="{{ csrf_token() }}">
+        <h5>Documents : <input type="file" name="fichierD"/></h5>
+          <div>
+            <button type="submit" class="btn btn-xs btn-secondary" href="">Enregistrer les modifications</button>
+          </div>
+        </form>
 
+        <h5>Détails : </h5>
+          <textarea type="input" name="message" rows="5" cols="30"></textarea>
+
+      </div>
     </div>
   </div>
 </div>
