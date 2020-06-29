@@ -65,7 +65,7 @@
                 <br>
                 <br>
                 <br>
-                <a class="btn btn-outline-secondary btn-sm" role="button" href="/sessionsE">Y aller !</a>
+                <a class="btn btn-outline-secondary btn-sm" role="button" href={{'sessionsE'}}>Y aller !</a>
               </div>
             </div>
 
