@@ -44,20 +44,52 @@ class PreInscriptionController extends Controller
 
       return redirect ('/preInscriptionE');
 
-
   }
 
-  public function sessions()
+  /*
+  public function session()
   {
-      //dd("coucou")
-      $sessions = DB::table('sessions')->get();
+      $sessions = DB::table('sessions')->select('date', 'id')->get();
+
+      $dates = [];
+      foreach ($sessions as $session) {
+          $dates[$session->id] = 0;
+          $sessions[$session->id] = $session;
+      }
+
+      //dd($dates);
+
       return view('preInscriptionE', [
-          'sessions' => $sessions
+          'sessions'=>$sessions,
+          'dates' => $dates
+
       ]);
+  }*/
+
+  public function session()
+  {
+
+      $sessions = DB::table('sessions')->select('date')->get();
+      //print_r($sessions);
+      //dd("$sessions");
+      //$dates = [];
+      foreach ($sessions as $val) {
+        //dd($sessions);
+        //$dates[$sessions->date]=$uneDate;
+        foreach ($val as $key=>$date) {
+          //echo $date; //print les dates
+          for ($i = 0; $i <= count($date); $i++) {
+            //echo("coucou");
+            //echo $date[$i];
+          }
+
+        }
+
+      return view('preInscriptionE',[
+        'date'=> $date
+      ]);
+
   }
-
-
-
-
+}
 
 }

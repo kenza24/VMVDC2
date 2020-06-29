@@ -1,4 +1,4 @@
-@extends('layout')
+    @extends('layout')
 @section('contenu')
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -121,10 +121,8 @@
                       <!-- $sessions est un tableau definis dans controller -->
 
                         <!--a chaque session dans la table on affiche les dates des sessions -->
-                        <option value=<?php $date ?></option>
-
-
-                  </select>
+                        <option value=<?php echo $date ?></option>
+                    </select>
 
                   <br>
 

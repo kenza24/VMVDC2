@@ -109,6 +109,9 @@ Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
+Route::get('detailSessionE', function(){
+  return view ('detailSessionE');
+});
 
 //Auth
 
