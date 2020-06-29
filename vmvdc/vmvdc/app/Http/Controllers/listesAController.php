@@ -12,9 +12,13 @@ class listesAController extends Controller
         $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();
 
         $dates = [];
+        $listeNoire = [];
         foreach ($sessions as $session) {
             $dates[$session->id] = 0;
             $sessions[$session->id] = $session;
+            if ($session->idClasse != null) {
+                array_push($listeNoire, $session->idClasse);
+            }
         }
 
         $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('niveau', 'desc')->get();
@@ -33,6 +37,7 @@ class listesAController extends Controller
 
         return view('classesA', [
             'sessions' => $sessions,
+            'listeNoire' => $listeNoire,
             'dates' => $dates,
             'classes' => $classes,
             'enseignants' => $enseignants
