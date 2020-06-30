@@ -43,7 +43,11 @@
                     " or ".$sessions[key($dates)]->idClasse." != ".null." and ".$sessions[key($dates)]->idClasse." == ".$classe->id)*/ ?>-->
               <?php if(($sessions[key($dates)]->idClasse == null and $classe->choixSession1 == key($dates) and !in_array($classe->id, $listeNoire))
                     or ($sessions[key($dates)]->idClasse != null and $sessions[key($dates)]->idClasse == $classe->id)): ?>
-                <tr>
+                <tr
+                  <?php if($sessions[key($dates)]->idClasse != null):?> 
+                    class="table-success"
+                  <?php endif;?>
+                >
                   <td><?= $sessions[$classe->choixSession1]->date ?></td>
                   <td><?= $sessions[$classe->choixSession1]->heure ?></td>
                   <td><?= $classe->rep ?></td>
@@ -57,7 +61,11 @@
                 </tr>
               <?php elseif(($sessions[key($dates)]->idClasse == null and $classe->choixSession2 == key($dates) and !in_array($classe->id, $listeNoire))
                     or ($sessions[key($dates)]->idClasse != null and $sessions[key($dates)]->idClasse == $classe->id)): ?>
-                <tr>
+                <tr
+                  <?php if($sessions[key($dates)]->idClasse != null):?>
+                    class="table-success"
+                  <?php endif; ?>
+                >
                   <td><?= $sessions[$classe->choixSession2]->date ?></td>
                   <td><?= $sessions[$classe->choixSession2]->heure ?></td>
                   <td><?= $classe->rep ?></td>

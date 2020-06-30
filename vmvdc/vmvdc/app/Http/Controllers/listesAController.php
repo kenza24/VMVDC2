@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+session_start();
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -87,6 +89,19 @@ class listesAController extends Controller
                 }
                 $enseignants[$session->id] = $objetEnseignant[0]->prenom." ".$objetEnseignant[0]->nom;
             }
+        }
+
+        if (isset($_POST['idClasse']) and isset($_POST['numeroChoix'])) {
+            if($_POST['numeroChoix'] == 1){
+                $objetClasse = DB::table('classes')->select('choixSession1')->where('id', $_POST['idClasse'])->get();
+                $colore = DB::table('sessions')->where('id', '=', $objetClasse->choixSession1)->update(array('idClasse' => $_POST['idClasse']));
+            }
+            if($_POST['numeroChoix'] == 2){
+                $objetClasse = DB::table('classes')->select('choixSession2')->where('id', $_POST['idClasse'])->get();
+                $colore = DB::table('sessions')->where('id', '=', $objetClasse->choixSession2)->update(array('idClasse' => $_POST['idClasse']));
+            }
+            unset($_POST['idClasse']);
+            unset($_POST['numeroChoix']);
         }
 
         return view('sessionsA', [
