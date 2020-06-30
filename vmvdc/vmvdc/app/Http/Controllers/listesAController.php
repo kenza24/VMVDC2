@@ -23,7 +23,7 @@ class listesAController extends Controller
             }
         }
 
-        $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('niveau', 'desc')->get();
+        $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('rep', 'desc')->get();
         $enseignants = [];
         foreach ($classes as $classe) {
             $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $classe->idEnseignant)->get();
@@ -59,7 +59,8 @@ class listesAController extends Controller
             //Une case = idSession, nomDoctorant et prenomDoctorant
             foreach ($sessionDoctorant as $value) {
                 $tmp['idSession'] = $value->idSession;
-                $unDoctorant = DB::table('doctorants')->select('nom', 'prenom')->where('id', $value->idDoctorants)->get();
+                $unDoctorant = DB::table('doctorants')
+                ->select('nom', 'prenom')->where('id', $value->idDoctorants)->get();
                 $tmp['nom'] = $unDoctorant[0]->nom;
                 $tmp['prenom'] = $unDoctorant[0]->prenom;
                 array_push($infoDoctorants, $tmp);
@@ -70,11 +71,12 @@ class listesAController extends Controller
         $accompagnateurs = [];
         foreach ($sessions as $session) {
             $objetClasse = DB::table('classes')->select('nb_accompagnateurs')->where('id', $session->idClasse)->get();
-            var_dump($objetClasse[0]);
             if (!isset($objetClasse[0])) {
-                dd('Il y a un probleme des l\'id des classes');
+                $accompagnateurs[$session->id] = null;
             }
-            $accompagnateurs[$session->id] = $objetClasse[0]->nb_accompagnateurs;
+            else {
+                $accompagnateurs[$session->id] = $objetClasse[0]->nb_accompagnateurs;
+            }
             if ($session->idClasse == null) {
                 $enseignants[$session->id] = "";
             }
