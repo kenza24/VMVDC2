@@ -23,7 +23,7 @@
 
 </div>
 
-<div class="container">
+<div class="container" style="height:450px;">
 
 
     <br>
@@ -33,7 +33,7 @@
         <article class="card-body mx-auto">
             <h3>Connectez-vous en tant que:</h3>
 
-            <a href={{route('connexionE')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Enseignant</a>
+            <a href={{route('connexionE')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Enseignant de lycée </a>
             <a href={{route('connexionD')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Doctorant</a>
             <a href={{route('connexionA')}} class="btn btn-secondary row d-flex align-content-center flex-wrap mt-3 mb-3" role="button" aria-pressed="true">Administrateur</a>
         </article>

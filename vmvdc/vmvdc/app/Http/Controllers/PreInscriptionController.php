@@ -35,7 +35,7 @@ class PreInscriptionController extends Controller
           //echo("coucou2");
           $resultat = DB::table('classes')->insert(
               array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
-              'codePostal' => $codePostal, 'rep'=>$rep, 'choixDates1'=>$date1, 'choixDates2'=>$date2,'academie'=>$academie, 'effectifClasse'=>$effectif)
+              'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2,'academie'=>$academie, 'effectifClasse'=>$effectif)
           );
           if($resultat) {
               $_SESSION['connecte'] = 'classes';
@@ -69,11 +69,11 @@ class PreInscriptionController extends Controller
   public function session()
   {
 
-    $sessions = DB::table('sessions')->select('date', 'id', 'heure')->get();
+    $sessions = DB::table('sessions')->select('date', 'id', 'heure', 'effectifMax')->get();
 
     $dates = [];
     foreach ($sessions as $session) {
-      $dates[$session->id] = $session->date." - ".$session->heure;
+      $dates[$session->id] = $session->date." - ".$session->heure. " - effectif max : ". $session->effectifMax;
     }
     asort($dates);
 

@@ -34,6 +34,7 @@
   <div style="background-color: white; padding-top: 20px; border: 10px solid #11385b;">
 
     <!--Cartes explicatives-->
+  <!--  <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;"> -->
       <div class="container-fluid mt-5 mb-5">
         <div class="row d-flex justify-content-around">
 
