@@ -15,11 +15,39 @@ class listesAController extends Controller
 
         $dates = [];
         $listeNoire = [];
+        $nbClasses = 0;
+        $nbREP = 0;
+        $nbTerminales = 0;
+        $nbPremieres = 0;
+        $lycees = [];
+        $academies = array('versailles' => 0, 'creteil' => 0, 'paris' => 0);
         foreach ($sessions as $session) {
             $dates[$session->id] = 0;
+
             $sessions[$session->id] = $session;
             if ($session->idClasse != null) {
                 array_push($listeNoire, $session->idClasse);
+
+                $classe = DB::table('classes')->select('etablissementScolaire', 'academie', 'rep', 'niveau')->where('id', $session->idClasse)->get();
+
+                $nbClasses++;
+
+                if (!isset($lycees[$classe[0]->etablissementScolaire])) {
+                    $lycees[$classe[0]->etablissementScolaire] = 1;
+                }
+                else{
+                    $lycees[$classe[0]->etablissementScolaire]++;
+                }
+                if (preg_match("#rep#", $classe[0]->rep)) {
+                    $nbREP++;
+                }
+                if (preg_match("#terminale#", $classe[0]->niveau)) {
+                    $nbTerminales++;
+                }
+                elseif (preg_match("#premiere#", $classe[0]->niveau)) {
+                    $nbPremieres++;
+                }
+                $academies[$classe[0]->academie]++;
             }
         }
 
@@ -40,6 +68,12 @@ class listesAController extends Controller
         return view('classesA', [
             'sessions' => $sessions,
             'listeNoire' => $listeNoire,
+            'lycees' => $lycees,
+            'academies' => $academies,
+            'nbClasses' => $nbClasses,
+            'nbREP' => $nbREP,
+            'nbTerminales' => $nbTerminales,
+            'nbPremieres' => $nbPremieres,
             'dates' => $dates,
             'classes' => $classes,
             'enseignants' => $enseignants
@@ -59,8 +93,7 @@ class listesAController extends Controller
             //Une case = idSession, nomDoctorant et prenomDoctorant
             foreach ($sessionDoctorant as $value) {
                 $tmp['idSession'] = $value->idSession;
-                $unDoctorant = DB::table('doctorants')
-                ->select('nom', 'prenom')->where('id', $value->idDoctorants)->get();
+                $unDoctorant = DB::table('doctorants')->select('nom', 'prenom')->where('id', $value->idDoctorants)->get();
                 $tmp['nom'] = $unDoctorant[0]->nom;
                 $tmp['prenom'] = $unDoctorant[0]->prenom;
                 array_push($infoDoctorants, $tmp);

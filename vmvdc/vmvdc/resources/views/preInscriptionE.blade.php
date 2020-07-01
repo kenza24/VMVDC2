@@ -83,7 +83,6 @@
           <label for="selection">Niveau de votre classe</label>
           <select id="selection" class="form-control" style="display:inline-block;" onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="niveau" value="niveau">
 
-            <option value=seconde>Seconde </option>
             <option value=premiere>Première </option>
             <option value=terminale>Terminal </option>
 
@@ -119,10 +118,10 @@
 
         <!-- Dates -->
         <div class="form-group">
-          <label for="selection">Choisissez trois dates</label>
+          <label for="selection">Sélectionnez des dates selon votre disponibilité (3 maximum) :</label>
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
-            <option value="0"> </option>
+            <option value="null"> -- </option>
             <?php foreach($dates as $keyDates => $date):?>
                 <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
@@ -132,7 +131,7 @@
 
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date 2">
-            <option value="0"> </option>
+            <option value="null"> -- </option>
             <?php foreach($dates as $keyDates => $date):?>
                 <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
@@ -140,7 +139,7 @@
 
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date3" value="date 3">
-            <option value="0"> </option>
+            <option value="null"> -- </option>
             <?php foreach($dates as $keyDates => $date):?>
                 <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
