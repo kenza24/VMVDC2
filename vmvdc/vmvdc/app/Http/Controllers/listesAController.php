@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\DB;
 
 class listesAController extends Controller
 {
+    public function selectionClasse()
+    {
+        $idClasse = request('idClasse');
+        $idSession = request('idSession');
+
+        $colore = DB::table('sessions')->where('id', '=', $idSession)->update(array('idClasse' => $idClasse));
+
+        return redirect('classesA');
+    }
+
     public function classes()
     {
         $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();

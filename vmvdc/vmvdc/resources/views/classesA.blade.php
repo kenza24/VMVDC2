@@ -64,9 +64,10 @@
       <br>
 
     <!--Tableau-->
-      <table class="table table-striped table-responsive-xl">
+      <table class="table table-striped table-responsive">
         <thead>
           <tr>
+            <th scope="col"></th>
             <th scope="col">Date</th>
             <th scope="col">Heure</th>
             <th scope="col">Zone d'éducation</th>
@@ -76,19 +77,31 @@
             <th scope="col">Code postal</th>
             <th scope="col">Etablissement</th>
             <th scope="col">Enseignant</th>
-            <th scope="col">Déjà participé</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($dates as $keyDates => $date):?>
+          <?php foreach ($dates as $keyDates => $date):?> <!-- keyDates = id de la session de la date-->
             <?php foreach($classes as $keyClasses => $classe):?>
+              <!--si, à cette date, (la session n'a pas de classe ET le choix1 de la classe == la date ET la classe n'est pas sur liste noire)
+                    OU (la session a une classe ET la classe de la session correspond a la classe en cours)-->
+              <?php /*var_dump(/*($sessions[$keyDates]/*->idClasse == null and $classe->choixSession1 == $keyDates and !in_array($classe->id, $listeNoire))
+                    or ($sessions[$keyDates]->idClasse != null and $sessions[$keyDates]->idClasse == $classe->id))*/ ?>
               <?php if(($sessions[$keyDates]->idClasse == null and $classe->choixSession1 == $keyDates and !in_array($classe->id, $listeNoire))
-                    or ($sessions[$keyDates]->idClasse != null and $sessions[$keyDates]->idClasse == $classe->id)): ?>
+                    or ($sessions[$keyDates]->idClasse != null and $keyDates == $classe->choixSession1 and $sessions[$keyDates]->idClasse == $classe->id)): ?>
+                    <?php //var_dump($sessions[$keyDates]); ?>
                 <tr
-                  <?php if($sessions[$keyDates]->idClasse != null):?> 
+                  <?php if($sessions[$keyDates]->idClasse != null):?>
                     class="table-success"
-                  <?php endif;?>
+                  <?php endif; ?>
                 >
+                  <td>
+                    <form action={{'selectionClasse'}} method="post">
+                    {{csrf_field()}}
+                      <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                      <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
+                      <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                    </form>
+                  </td>
                   <td><?= $sessions[$classe->choixSession1]->date ?></td>
                   <td><?= $sessions[$classe->choixSession1]->heure ?></td>
                   <td><?= $classe->rep ?></td>
@@ -98,15 +111,24 @@
                   <td><?= $classe->codePostal ?></td>
                   <td><?= $classe->etablissementScolaire ?></td>
                   <td><?= $enseignants[$classe->idEnseignant] ?></td>
-                  <td><?= $classe->dejaVenu ?></td>
                 </tr>
+              <!--si, à cette date, (la session n'a pas de classe ET le choix2 de la classe == la date ET la classe n'est pas sur liste noire)
+                  OU (la session a une classe ET la classe de la session correspond a la classe en cours)-->
               <?php elseif(($sessions[$keyDates]->idClasse == null and $classe->choixSession2 == $keyDates and !in_array($classe->id, $listeNoire))
-                    or ($sessions[$keyDates]->idClasse != null and $sessions[$keyDates]->idClasse == $classe->id)): ?>
+                    or ($sessions[$keyDates]->idClasse != null and $keyDates == $classe->choixSession2 and $sessions[$keyDates]->idClasse == $classe->id)): ?>
                 <tr
                   <?php if($sessions[$keyDates]->idClasse != null):?>
                     class="table-success"
                   <?php endif; ?>
                 >
+                  <td>
+                    <form action={{'selectionClasse'}} method="post">
+                    {{csrf_field()}}
+                      <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                      <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
+                      <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                    </form>
+                  </td>
                   <td><?= $sessions[$classe->choixSession2]->date ?></td>
                   <td><?= $sessions[$classe->choixSession2]->heure ?></td>
                   <td><?= $classe->rep ?></td>
@@ -116,7 +138,6 @@
                   <td><?= $classe->codePostal ?></td>
                   <td><?= $classe->etablissementScolaire ?></td>
                   <td><?= $enseignants[$classe->idEnseignant] ?></td>
-                  <td><?= $classe->dejaVenu ?></td>
                 </tr>
               <?php endif; ?>
             <?php endforeach;?>
