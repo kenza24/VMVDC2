@@ -109,10 +109,14 @@ Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
+
+
 Route::get('detailSessionD', function(){
   return view ('detailSessionD');
 });
-Route::post('detailSessionD', 'FichiersDController@ajoutFichier');
+Route::post('detailSessionD', 'DetailSessionDController@details');
+//Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
+
 
 
 

@@ -1,6 +1,7 @@
 @extends('layout')
 @section('contenu')
 
+
 <div class="contenu" style="background: url(content/bandeau-ibps.jpg) fixed no-repeat top; background-size: 100%;">
   <!-- En-tete -->
   <div class="container-fluid">
@@ -24,21 +25,47 @@
       <h3> Sessions du <h3>
 
       <div class="container mt-1" style="background-color:white;">
-        <h5>Doctorant : </h5>
-        <h5>Mail : </h5>
-        <h5>Point de rendez-vous : </h5>
-        <h5>Nombre d'élèves : </h5>
+        <br>
+        <br>
+        <div class="col-md-4 mb-2 mt-2" style ="font-size: 20px; text-align:center;">
+          <h5>Enseignant : </h5>
+        </div>
+        <br>
+        <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
+          <h5>Adresse mail : </h5>
+        </div>
+        <br>
+        <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
+          <h5>Lieu de rendez-vous : </h5>
+        </div>
+        <br>
+        <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
+          <h5>Nombre d'élèves : </h5>
+        </div>
         <!--@csrf_field-->
-        {{ csrf_token() }}
-        <form action="detailSessionD" enctype= "multipart/form-data" method="POST" value="{{ csrf_token() }}">
-        <h5>Documents : <input type="file" name="fichierD"/></h5>
-          <div>
-            <button type="submit" class="btn btn-xs btn-secondary" href="">Enregistrer les modifications</button>
+        <br>
+        <form action="detailSessionD" enctype= "multipart/form-data" method="POST">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          {{csrf_field()}}
+          <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
+            <h5>Documents : </h5>
           </div>
-        </form>
+           <input type="file" name="fichierD" style="font-size:17px;"/>
 
-        <h5>Détails : </h5>
-          <textarea type="input" name="message" rows="5" cols="30"></textarea>
+
+
+        <div class="md-form">
+          <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
+            <label for="form4">Détails</label>
+          </div>
+          <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px;"></textarea>
+        </div>
+
+        <!--BOUTON-->
+        <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
+        
+      </form>
+
 
       </div>
     </div>
@@ -58,6 +85,9 @@
     <br>
   <br>
 </div>
+
+
+
 
 <style>
 
