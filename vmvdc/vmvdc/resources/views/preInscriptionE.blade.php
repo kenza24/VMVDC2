@@ -62,14 +62,6 @@
           <input class="form-control" placeholder="Code postal" type="text" name="codePostal">
         </div>
 
-        <!--NIVEAU SCOLAIRE -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-          </div>
-          <input class="form-control" placeholder="Niveau scolaire de votre classe" type="text" name="niveau">
-        </div>
-
         <!--Effectif de la classe-->
         <div class="form-group input-group">
           <div class="input-group-prepend">
@@ -78,6 +70,17 @@
           <input class="form-control" placeholder="Effectif de la classe" type="text" name="effectifClasse">
         </div>
 
+        <!--NIVEAU SCOLAIRE -->
+        <div class="form-group">
+          <label for="selection">Niveau de votre classe</label>
+          <select id="selection" class="form-control" style="display:inline-block;" onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="niveau" value="niveau">
+
+            <option value=seconde>Seconde </option>
+            <option value=premiere>Première </option>
+            <option value=terminale>Terminal </option>
+
+          </select>
+        </div>
         <!-- REP -->
 
         <label> Zone prioritaire ? </label>
@@ -110,18 +113,18 @@
         <div class="form-group">
           <label for="selection">Choisissez deux dates</label>
           <select id="selection" class="form-control" style="display:inline-block;"
-            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date1">
-            <?php foreach($dates as $date):?>
-                <option value=<?= key($dates) ?>><?=$date?></option>
+            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
+            <?php foreach($dates as $keyDates => $date):?>
+                <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
           </select>
 
           <br>
 
           <select id="selection" class="form-control" style="display:inline-block;"
-            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date2">
-            <?php foreach($dates as $date):?>
-                <option value=<?= key($dates) ?>><?=$date?></option>
+            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date 2">
+            <?php foreach($dates as $keyDates => $date):?>
+                <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
           </select>
         </div>
