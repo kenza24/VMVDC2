@@ -70,6 +70,14 @@
           <input class="form-control" placeholder="Effectif de la classe" type="text" name="effectifClasse">
         </div>
 
+        <!--Nombre d'accompagnateur-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> </span>
+          </div>
+          <input class="form-control" placeholder="Nombre d'accompagnateurs" type="text" name="nbAccompagnateurs">
+        </div>
+
         <!--NIVEAU SCOLAIRE -->
         <div class="form-group">
           <label for="selection">Niveau de votre classe</label>
@@ -111,10 +119,10 @@
 
         <!-- Dates -->
         <div class="form-group">
-          <label for="selection">Choisissez deux dates</label>
+          <label for="selection">Choisissez trois dates</label>
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
-            <option value="null"> </option>
+            <option value="0"> </option>
             <?php foreach($dates as $keyDates => $date):?>
                 <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
@@ -124,7 +132,7 @@
 
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date 2">
-            <option value="null"> </option>
+            <option value="0"> </option>
             <?php foreach($dates as $keyDates => $date):?>
                 <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
@@ -132,7 +140,7 @@
 
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date3" value="date 3">
-            <option value="null"> </option>
+            <option value="0"> </option>
             <?php foreach($dates as $keyDates => $date):?>
                 <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
