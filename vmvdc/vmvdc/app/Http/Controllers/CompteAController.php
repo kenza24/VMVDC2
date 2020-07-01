@@ -35,24 +35,29 @@ class CompteAController extends Controller
       {
         request()->validate([
           'jour'=>'required',
-          'mois' => 'required'
+          'mois' => 'required',
+          'heure' => 'required',
+          'minute' => 'required'
         ]);        
 
-        if (!isset($_POST['salle'])){
+        if (!isset($_POST['effectifMax'])){
           $jour = request('jour');
           $mois = request('mois');
+          $heure = request('heure');
+          $minute = request('minute');
 
           $resultat = DB::table('sessions')->insert(
-            array('date' => $jour."/".$mois)
+            array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute)
           );
         }
         else {
           $jour = request('jour');
           $mois = request('mois');
-          $salle = request('salle');
-
+          $heure = request('heure');
+          $minute = request('minute');
+          $effectifMax = request('effectifMax');
           $resultat = DB::table('sessions')->insert(
-            array('date' => $jour."/".$mois, 'salle' => $salle)
+            array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute, 'effectifMax' => $effectifMax)
           );
         }
 
