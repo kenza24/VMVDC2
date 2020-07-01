@@ -12,14 +12,15 @@ class PreInscriptionController extends Controller
   public function preInscription(){
     //dd("coucou");
         request()->validate([
-          'date2'=> 'required',
+          //'date2'=> 'required',
           'etablissementScolaire'=>'required',
           'ville'=>'required',
           'niveau' => 'required',
           'codePostal' => 'required',
           'effectifClasse'=>'required',
-          'date1'=> 'required',
-          'date3'=>'required',
+          //'date1'=> 'required',
+          //'date3'=>'required',
+          'nbAccompagnateurs'=>'required',
       ]);
 
       $etablissement = request('etablissementScolaire');
@@ -32,12 +33,16 @@ class PreInscriptionController extends Controller
       $date2=request('date2');
       $date3=request('date3');
       $academie=request('academie');
+      $nbAccompagnateurs=request('nbAccompagnateurs');
+
 
           //echo("coucou2");
           $resultat = DB::table('classes')->insert(
-              array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
-              'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,'academie'=>$academie, 'effectifClasse'=>$effectif)
+            array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
+            'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,
+            'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs)
           );
+
           if($resultat) {
               $_SESSION['connecte'] = 'classes';
               return redirect ('/bienInscris');
