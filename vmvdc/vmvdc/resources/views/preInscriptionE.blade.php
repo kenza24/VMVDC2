@@ -110,7 +110,7 @@
         <div class="form-group">
           <label for="selection">Choisissez deux dates</label>
           <select id="selection" class="form-control" style="display:inline-block;"
-            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
+            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date1">
             <?php foreach($dates as $date):?>
                 <option value=<?= key($dates) ?>><?=$date?></option>
             <?php endforeach;?>
@@ -119,7 +119,7 @@
           <br>
 
           <select id="selection" class="form-control" style="display:inline-block;"
-            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date 2">
+            onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date2">
             <?php foreach($dates as $date):?>
                 <option value=<?= key($dates) ?>><?=$date?></option>
             <?php endforeach;?>
