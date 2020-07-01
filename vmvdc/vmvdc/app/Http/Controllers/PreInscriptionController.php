@@ -19,7 +19,7 @@ class PreInscriptionController extends Controller
           'codePostal' => 'required',
           'effectifClasse'=>'required',
           'date1'=> 'required',
-
+          'date3'=>'required',
       ]);
 
       $etablissement = request('etablissementScolaire');
@@ -30,12 +30,13 @@ class PreInscriptionController extends Controller
       $rep=request('rep');
       $date1=request('date1');
       $date2=request('date2');
+      $date3=request('date3');
       $academie=request('academie');
 
           //echo("coucou2");
           $resultat = DB::table('classes')->insert(
               array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
-              'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2,'academie'=>$academie, 'effectifClasse'=>$effectif)
+              'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,'academie'=>$academie, 'effectifClasse'=>$effectif)
           );
           if($resultat) {
               $_SESSION['connecte'] = 'classes';
