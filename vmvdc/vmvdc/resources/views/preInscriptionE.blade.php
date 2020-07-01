@@ -111,8 +111,8 @@
           <label for="selection">Choisissez deux dates</label>
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date1" value="date 1">
-            <?php foreach($dates as $date):?>
-                <option value=<?= key($dates) ?>><?=$date?></option>
+            <?php foreach($dates as $keyDates => $date):?>
+                <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
           </select>
 
@@ -120,8 +120,8 @@
 
           <select id="selection" class="form-control" style="display:inline-block;"
             onclick="this.form.texte.value=this.options[this.selectedIndex].text;" name="date2" value="date 2">
-            <?php foreach($dates as $date):?>
-                <option value=<?= key($dates) ?>><?=$date?></option>
+            <?php foreach($dates as $keyDates => $date):?>
+                <option value=<?= $keyDates ?>><?=$date?></option>
             <?php endforeach;?>
           </select>
         </div>
