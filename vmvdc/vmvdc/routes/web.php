@@ -116,8 +116,8 @@ Route::get('bienInscris', function(){
 Route::get('detailSessionD', function(){
   return view ('detailSessionD');
 });
-Route::post('detailSessionD', 'DetailSessionDController@details');
-//Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
+//Route::post('detailSessionD', 'DetailSessionDController@details');
+Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
 
 
 

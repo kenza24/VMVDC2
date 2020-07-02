@@ -42,6 +42,7 @@
         <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
         <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
         <a type="button" class="btn btn-xs btn-secondary" href={{('ajoutSession')}}>Ajouter une date de session</a>
+        <!--<a type="button" class="btn btn-xs btn-secondary" href="detailSessionD">Voir details</a>-->
       </div>
     </div>
   </div><!--Fin container-->
@@ -55,7 +56,7 @@
         <!--Carte doctorants-->
           <div class="col-md-3">
             <div class="card" style="background-color: #f5f5f5;">
-            <img class="card-img-top" src="content/doctorants.png" alt="">
+              <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
                 <div class="card-body d-flex flex-column align-items-start">
                   <strong class="d-inline-block text-secondary">Les doctorants</strong>
                   <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listeDoctorantsA')}} style="position:center">Y aller !</a>
@@ -66,7 +67,7 @@
         <!--Carte Enseignants-->
           <div class="col-md-3">
             <div class="card" style="background-color: #f5f5f5;">
-              <img class="card-img-top" src="content/enseignants.png" alt="">
+            <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
               <div class="card flex-md-row">
                 <div class="card-body d-flex flex-column align-items-start">
                   <strong class="d-inline-block text-secondary">Les enseignants</strong>

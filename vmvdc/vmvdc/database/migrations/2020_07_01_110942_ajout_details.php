@@ -14,7 +14,7 @@ class AjoutDetails extends Migration
      public function up()
      {
        Schema::table('doctorants', function(Blueprint $table){
-         $table->integer('details')->nullable();
+         $table->string('details')->nullable();
        });
      }
 

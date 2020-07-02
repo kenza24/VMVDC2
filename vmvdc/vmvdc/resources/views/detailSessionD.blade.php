@@ -47,11 +47,12 @@
         <form action="detailSessionD" enctype= "multipart/form-data" method="POST">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           {{csrf_field()}}
+
           <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
             <h5>Documents : </h5>
           </div>
-           <input type="file" name="fichierD" style="font-size:17px;"/>
-
+           <input type="file" name="fichierD" style="font-size:17px; padding-top:10px"/>
+          
 
 
         <div class="md-form">
@@ -63,7 +64,7 @@
 
         <!--BOUTON-->
         <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
-        
+
       </form>
 
 
