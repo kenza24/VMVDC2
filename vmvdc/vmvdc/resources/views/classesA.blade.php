@@ -96,7 +96,7 @@
                 >
                   <?php if($sessions[$keyDates]->idClasse == null): ?>
                     <td>
-                      <form action={{'selectionClasse'}} method="post">
+                      <form action={{'selectionClasse'}} method="post" onsubmit="return confirm('Etes vous sur ?');">
                       {{csrf_field()}}
                         <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
                         <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
@@ -105,9 +105,10 @@
                     </td>
                   <?php else: ?>
                     <td>
-                      <form action={{'deselectionClasse'}} method="post">
+                      <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
                       {{csrf_field()}}
                         <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
+
                         <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
                       </form>
                     </td>
@@ -137,7 +138,7 @@
                       {{csrf_field()}}
                         <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
                         <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
-                        <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                        <button type="submit" class="btn btn-outline-success" >Sélectionner</button>
                       </form>
                     </td>
                   <?php else: ?>
