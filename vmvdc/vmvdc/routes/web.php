@@ -84,6 +84,7 @@ Route::get('classesA', 'listesAController@classes')->name('classesA');
 Route::get('listeEnseignantsA', 'listesAController@enseignants')->name('listeEnseignantsA');
 Route::get('listeDoctorantsA', 'listesAController@doctorants')->name('listeDoctorantsA');
 Route::post('selectionClasse', 'listesAController@selectionClasse')->name('selectionClasse');
+Route::post('deselectionClasse', 'listesAController@deselectionClasse')->name('deselectionClasse');
 
 Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 

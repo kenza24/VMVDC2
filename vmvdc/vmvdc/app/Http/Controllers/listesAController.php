@@ -19,6 +19,15 @@ class listesAController extends Controller
         return redirect('classesA');
     }
 
+    public function deselectionClasse()
+    {
+        $idSession = request('idSession');
+
+        $colore = DB::table('sessions')->where('id', '=', $idSession)->update(array('idClasse' => null));
+
+        return redirect('classesA');
+    }
+
     public function classes()
     {
         $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();

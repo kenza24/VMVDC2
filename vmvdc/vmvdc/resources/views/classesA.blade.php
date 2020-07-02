@@ -94,14 +94,24 @@
                     class="table-success"
                   <?php endif; ?>
                 >
-                  <td>
-                    <form action={{'selectionClasse'}} method="post">
-                    {{csrf_field()}}
-                      <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
-                      <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
-                      <button type="submit" class="btn btn-outline-success">Sélectionner</button>
-                    </form>
-                  </td>
+                  <?php if($sessions[$keyDates]->idClasse == null): ?>
+                    <td>
+                      <form action={{'selectionClasse'}} method="post">
+                      {{csrf_field()}}
+                        <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
+                        <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                      </form>
+                    </td>
+                  <?php else: ?>
+                    <td>
+                      <form action={{'deselectionClasse'}} method="post">
+                      {{csrf_field()}}
+                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
+                        <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
+                      </form>
+                    </td>
+                  <?php endif; ?>
                   <td><?= $sessions[$classe->choixSession1]->date ?></td>
                   <td><?= $sessions[$classe->choixSession1]->heure ?></td>
                   <td><?= $classe->rep ?></td>
@@ -121,14 +131,24 @@
                     class="table-success"
                   <?php endif; ?>
                 >
-                  <td>
-                    <form action={{'selectionClasse'}} method="post">
-                    {{csrf_field()}}
-                      <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
-                      <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
-                      <button type="submit" class="btn btn-outline-success">Sélectionner</button>
-                    </form>
-                  </td>
+                  <?php if($sessions[$keyDates]->idClasse == null): ?>
+                    <td>
+                      <form action={{'selectionClasse'}} method="post">
+                      {{csrf_field()}}
+                        <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
+                        <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                      </form>
+                    </td>
+                  <?php else: ?>
+                    <td>
+                      <form action={{'deselectionClasse'}} method="post">
+                      {{csrf_field()}}
+                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
+                        <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
+                      </form>
+                    </td>
+                  <?php endif; ?>
                   <td><?= $sessions[$classe->choixSession2]->date ?></td>
                   <td><?= $sessions[$classe->choixSession2]->heure ?></td>
                   <td><?= $classe->rep ?></td>
