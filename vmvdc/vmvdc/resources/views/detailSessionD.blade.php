@@ -19,12 +19,14 @@
   </div>
 </div>
 <body>
-<div class="container mt-5">
+
+
+  <div class="container">
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
-      <h3> Sessions du <h3>
+      <h2> Session du "date"<h2>
 
-      <div class="container mt-1" style="background-color:white;">
+      <!--<div class="container mt-1" style="background-color:white;">
         <br>
         <br>
         <div class="col-md-4 mb-2 mt-2" style ="font-size: 20px; text-align:center;">
@@ -42,37 +44,56 @@
         <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
           <h5>Nombre d'élèves : </h5>
         </div>
-        <!--@csrf_field-->
+        @csrf_field-->
         <br>
+        <table class="table table-striped table-responsive-xl">
+          <thead style="font-size:25px;">
+            <tr>
+              <th scope="col">Enseignant</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Nombre d'élèves</th>
+              <th scope="col">Lieu de rendez-vous</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style="font-size:20px;">
+                <td>le prof</td>
+                <td>coucou@gmail.com</td>
+                <td>13</td>
+                <td>salle B </td>
+              </tr>
+
+        </table>
         <form action="detailSessionD" enctype= "multipart/form-data" method="POST">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           {{csrf_field()}}
-
-          <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
-            <h5>Documents : </h5>
+          <br>
+          <div style ="font-size: 20px;">
+            <h5>Choisissez un document de présentation : </h5>
           </div>
            <input type="file" name="fichierD" style="font-size:17px; padding-top:10px"/>
-          
 
+           <br>
+           <br>
 
-        <div class="md-form">
-          <div class="col-md-4 mb-1 mt-1" style ="font-size: 20px;">
-            <label for="form4">Détails</label>
+            <div style ="font-size: 20px;">
+              <label style="text-align:top;">Détails</label>
+            </div>
+
+              <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px; margin:auto;"></textarea>
+
           </div>
-          <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px;"></textarea>
-        </div>
+
+
 
         <!--BOUTON-->
-        <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
+        <button type="submit" class="btn btn-secondary btn-block" style="width:100px; margin:auto;"> Valider  </button>
 
       </form>
 
 
       </div>
-    </div>
   </div>
-</div>
-
 
 
 </body>
@@ -86,15 +107,22 @@
     <br>
   <br>
 </div>
+</div>
 
+</div>
 
 
 
 <style>
 
-body{
-  background-color: ;
-}
+<style>
+  .container{
+    font-style: oblique;
+    font-family: Georgia, serif;
+
+
+  }
+</style>
 
 
 
