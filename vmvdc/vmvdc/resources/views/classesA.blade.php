@@ -159,6 +159,43 @@
                   <td><?= $classe->etablissementScolaire ?></td>
                   <td><?= $enseignants[$classe->idEnseignant] ?></td>
                 </tr>
+              <!--si, à cette date, (la session n'a pas de classe ET le choix2 de la classe == la date ET la classe n'est pas sur liste noire)
+                  OU (la session a une classe ET la classe de la session correspond a la classe en cours)-->
+              <?php elseif(($sessions[$keyDates]->idClasse == null and $classe->choixSession3 == $keyDates and !in_array($classe->id, $listeNoire))
+                    or ($sessions[$keyDates]->idClasse != null and $keyDates == $classe->choixSession3 and $sessions[$keyDates]->idClasse == $classe->id)): ?>
+                <tr
+                  <?php if($sessions[$keyDates]->idClasse != null):?>
+                    class="table-success"
+                  <?php endif; ?>
+                >
+                  <?php if($sessions[$keyDates]->idClasse == null): ?>
+                    <td>
+                      <form action={{'selectionClasse'}} method="post">
+                      {{csrf_field()}}
+                        <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession3 ?>>
+                        <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                      </form>
+                    </td>
+                  <?php else: ?>
+                    <td>
+                      <form action={{'deselectionClasse'}} method="post">
+                      {{csrf_field()}}
+                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession3 ?>>
+                        <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
+                      </form>
+                    </td>
+                  <?php endif; ?>
+                  <td><?= $sessions[$classe->choixSession3]->date ?></td>
+                  <td><?= $sessions[$classe->choixSession3]->heure ?></td>
+                  <td><?= $classe->rep ?></td>
+                  <td><?= ucfirst($classe->niveau) ?></td>
+                  <td><?= ucfirst($classe->academie) ?></td>
+                  <td><?= $classe->ville ?></td>
+                  <td><?= $classe->codePostal ?></td>
+                  <td><?= $classe->etablissementScolaire ?></td>
+                  <td><?= $enseignants[$classe->idEnseignant] ?></td>
+                </tr>
               <?php endif; ?>
             <?php endforeach;?>
           <?php endforeach;?>
