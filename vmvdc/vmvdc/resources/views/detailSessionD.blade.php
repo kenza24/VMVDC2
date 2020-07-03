@@ -77,7 +77,7 @@
            <br>
 
             <div style ="font-size: 20px;">
-              <label style="text-align:top;">Détails</label>
+              <label style="text-align:top;">Informations complémentaires : </label>
             </div>
 
               <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px; margin:auto;"></textarea>

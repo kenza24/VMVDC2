@@ -26,13 +26,11 @@ class DetailSessionDController extends Controller{
 
       public function ajoutFichier(){
 
-        request()-> validate([
-          'fichierD'=> ['required'],
-        ]);
         //echo("cc");
         //affiche le chemin du fichier
         $path=request('fichierD')->store('fichierD');
         $id=DB::table('doctorants')->select('id');
+        //chez le doctorant ajoute son fichier, donc where id=id
         $res=DB::table('doctorants')->where('id', '=', $id)->update(array('fichierD'=>$path));
         //return $path;
       }
