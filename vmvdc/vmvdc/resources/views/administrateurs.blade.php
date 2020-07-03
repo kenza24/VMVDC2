@@ -92,16 +92,29 @@
 
         <!--Carte Classes-->
           <div class="col-md-3">
-              <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
-                <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
-                <div class="card flex-m shadow-sm h-md-250">
-                  <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
-                    <strong class="d-inline-block mb-2 text-secondary">Les classes pré-inscrites</strong>
-                    <a class="btn btn-outline-secondary btn-sm" role="button" href={{('classesA')}}>Y aller !</a>
-                  </div>
+            <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
+              <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
+              <div class="card flex-m shadow-sm h-md-250">
+                <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
+                  <strong class="d-inline-block mb-2 text-secondary">Sélection des classes</strong>
+                  <a class="btn btn-outline-secondary btn-sm" role="button" href={{('classesA')}}>Y aller !</a>
                 </div>
               </div>
             </div>
+          </div>
+
+        <!--Carte Classes-->
+          <div class="col-md-3">
+            <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
+              <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
+              <div class="card flex-m shadow-sm h-md-250">
+                <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
+                  <strong class="d-inline-block mb-2 text-secondary">Toutes les classes pré-inscrites</strong>
+                  <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionsA')}}>Y aller !</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>

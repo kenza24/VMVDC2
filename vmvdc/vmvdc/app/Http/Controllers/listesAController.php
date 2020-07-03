@@ -74,9 +74,16 @@ class listesAController extends Controller
         $enseignants = [];
         foreach ($classes as $classe) {
             $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $classe->idEnseignant)->get();
-            $dates[$classe->choixSession1]++;
-            $dates[$classe->choixSession2]++;
             $enseignants[$classe->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
+            if($classe->choixSession1 != null and !in_array($classe->id, $listeNoire)) {
+                $dates[$classe->choixSession1]++;
+            }
+            if($classe->choixSession2 != null and !in_array($classe->id, $listeNoire)) {
+                $dates[$classe->choixSession2]++;
+            }
+            if($classe->choixSession3 != null and !in_array($classe->id, $listeNoire)) {
+                $dates[$classe->choixSession3]++;
+            }
         }
 
         //dd($sessions);
@@ -96,6 +103,29 @@ class listesAController extends Controller
             'dates' => $dates,
             'classes' => $classes,
             'enseignants' => $enseignants
+        ]);
+    }
+
+    public function preInscriptions()
+    {
+        $classes = DB::table('classes')->get();
+        $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();
+
+        $enseignants = [];
+        foreach ($classes as $classe) {
+            $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $classe->idEnseignant)->get();
+            $enseignants[$classe->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
+        }
+
+        $sessionsOrdonnees = [];
+        foreach ($sessions as $keySession => $session) {
+            $sessionsOrdonnees[$session->id] = $session;
+        }
+
+        return view('preInscriptionsA', [
+            'classes' => $classes,
+            'enseignants' => $enseignants,
+            'sessionsOrdonnees' => $sessionsOrdonnees
         ]);
     }
 
