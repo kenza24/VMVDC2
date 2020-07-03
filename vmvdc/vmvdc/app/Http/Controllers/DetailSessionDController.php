@@ -15,9 +15,9 @@ class DetailSessionDController extends Controller{
 
       $details = request('details');
       //$id = request('id');
-      $id= DB::table('doctorants')->select('id')->get();
+      $id= DB::table('session')->select('id')->get();
       //update de la case "details" avec ce que le doctorant en question a entré
-      $res= DB::table('doctorants')->where('id', '=', $id)->update(array('details'=>$details));
+      $res= DB::table('session')->where('id', '=', $id)->update(array('details'=>$details));
       //dd($res);
 
       return redirect ('/detailSessionD');
@@ -28,10 +28,10 @@ class DetailSessionDController extends Controller{
 
         //echo("cc");
         //affiche le chemin du fichier
-        $path=request('fichierD')->store('fichierD');
-        $id=DB::table('doctorants')->select('id');
+        //$path=request('fichierD')->store('fichierD');
+        //$id=DB::table('fichiers_sessions')->select('id');
         //chez le doctorant ajoute son fichier, donc where id=id
-        $res=DB::table('doctorants')->where('id', '=', $id)->update(array('fichierD'=>$path));
+        //$res=DB::table('fichiers_sessions')->where('id', '=', $id)->update(array('fichierD'=>$path));
         //return $path;
       }
 
