@@ -62,6 +62,13 @@
       </div>
 
       <br>
+      <?php if($etatSessions == 0): ?>
+        <a type="button" class="btn btn-xs btn-secondary" href={{'validationSessions'}}>Valider la sélection des classes</a>
+      <?php else: ?>
+        <p>La sélection a été validée.</p>
+      <?php endif; ?>
+      <br>
+      <br>
 
     <!--Tableau-->
       <table class="table table-striped table-responsive">
@@ -94,24 +101,28 @@
                     class="table-success"
                   <?php endif; ?>
                 >
-                  <?php if($sessions[$keyDates]->idClasse == null): ?>
-                    <td>
-                      <form action={{'selectionClasse'}} method="post">
-                      {{csrf_field()}}
-                        <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
-                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
-                        <button type="submit" class="btn btn-outline-success">Sélectionner</button>
-                      </form>
-                    </td>
-                  <?php else: ?>
-                    <td>
-                      <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
-                      {{csrf_field()}}
-                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
+                  <?php if($etatSessions == 0): ?>
+                    <?php if($sessions[$keyDates]->idClasse == null): ?>
+                      <td>
+                        <form action={{'selectionClasse'}} method="post">
+                        {{csrf_field()}}
+                          <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                          <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
+                          <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                        </form>
+                      </td>
+                    <?php else: ?>
+                      <td>
+                        <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
+                        {{csrf_field()}}
+                          <input type="text" hidden name="idSession" value=<?= $classe->choixSession1 ?>>
 
-                        <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
-                      </form>
-                    </td>
+                          <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
+                        </form>
+                      </td>
+                    <?php endif; ?>
+                  <?php else: ?>
+                    <td></td>
                   <?php endif; ?>
                   <td><?= $sessions[$classe->choixSession1]->date ?></td>
                   <td><?= $sessions[$classe->choixSession1]->heure ?></td>
@@ -132,23 +143,27 @@
                     class="table-success"
                   <?php endif; ?>
                 >
-                  <?php if($sessions[$keyDates]->idClasse == null): ?>
-                    <td>
-                      <form action={{'selectionClasse'}} method="post">
-                      {{csrf_field()}}
-                        <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
-                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
-                        <button type="submit" class="btn btn-outline-success" >Sélectionner</button>
-                      </form>
-                    </td>
+                  <?php if($etatSessions == 0): ?>
+                    <?php if($sessions[$keyDates]->idClasse == null): ?>
+                      <td>
+                        <form action={{'selectionClasse'}} method="post">
+                        {{csrf_field()}}
+                          <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                          <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
+                          <button type="submit" class="btn btn-outline-success" >Sélectionner</button>
+                        </form>
+                      </td>
+                    <?php else: ?>
+                      <td>
+                        <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
+                        {{csrf_field()}}
+                          <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
+                          <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
+                        </form>
+                      </td>
+                    <?php endif; ?>
                   <?php else: ?>
-                    <td>
-                      <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
-                      {{csrf_field()}}
-                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession2 ?>>
-                        <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
-                      </form>
-                    </td>
+                    <td></td>
                   <?php endif; ?>
                   <td><?= $sessions[$classe->choixSession2]->date ?></td>
                   <td><?= $sessions[$classe->choixSession2]->heure ?></td>
@@ -169,23 +184,27 @@
                     class="table-success"
                   <?php endif; ?>
                 >
-                  <?php if($sessions[$keyDates]->idClasse == null): ?>
-                    <td>
-                      <form action={{'selectionClasse'}} method="post">
-                      {{csrf_field()}}
-                        <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
-                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession3 ?>>
-                        <button type="submit" class="btn btn-outline-success">Sélectionner</button>
-                      </form>
-                    </td>
+                  <?php if($etatSessions == 0): ?>
+                    <?php if($sessions[$keyDates]->idClasse == null): ?>
+                      <td>
+                        <form action={{'selectionClasse'}} method="post">
+                        {{csrf_field()}}
+                          <input type="text" hidden name="idClasse" value=<?= $classe->id ?>>
+                          <input type="text" hidden name="idSession" value=<?= $classe->choixSession3 ?>>
+                          <button type="submit" class="btn btn-outline-success">Sélectionner</button>
+                        </form>
+                      </td>
+                    <?php else: ?>
+                      <td>
+                        <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
+                        {{csrf_field()}}
+                          <input type="text" hidden name="idSession" value=<?= $classe->choixSession3 ?>>
+                          <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
+                        </form>
+                      </td>
+                    <?php endif; ?>
                   <?php else: ?>
-                    <td>
-                      <form action={{'deselectionClasse'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
-                      {{csrf_field()}}
-                        <input type="text" hidden name="idSession" value=<?= $classe->choixSession3 ?>>
-                        <button type="submit" class="btn btn-outline-danger">Désélectionner</button>
-                      </form>
-                    </td>
+                    <td></td>
                   <?php endif; ?>
                   <td><?= $sessions[$classe->choixSession3]->date ?></td>
                   <td><?= $sessions[$classe->choixSession3]->heure ?></td>

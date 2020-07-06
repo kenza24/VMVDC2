@@ -16,7 +16,7 @@ class listesAController extends Controller
 
         $colore = DB::table('sessions')->where('id', '=', $idSession)->update(array('idClasse' => $idClasse));
 
-        return redirect('classesA');
+        return back();
     }
 
     public function deselectionClasse()
@@ -25,7 +25,21 @@ class listesAController extends Controller
 
         $colore = DB::table('sessions')->where('id', '=', $idSession)->update(array('idClasse' => null));
 
-        return redirect('classesA');
+        return back();
+    }
+
+    public function validationSessions()
+    {
+        $validation = DB::table('informations')->update(array('etatValidation' => 1));
+
+        return back();
+    }
+
+    public function invalidationSessions()
+    {
+        $validation = DB::table('informations')->update(array('etatValidation' => 0));
+
+        return back();
     }
 
     public function classes()
@@ -71,20 +85,28 @@ class listesAController extends Controller
         }
 
         $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('rep', 'desc')->get();
-        $enseignants = [];
-        foreach ($classes as $classe) {
-            $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $classe->idEnseignant)->get();
-            $enseignants[$classe->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
-            if($classe->choixSession1 != null and !in_array($classe->id, $listeNoire)) {
-                $dates[$classe->choixSession1]++;
-            }
-            if($classe->choixSession2 != null and !in_array($classe->id, $listeNoire)) {
-                $dates[$classe->choixSession2]++;
-            }
-            if($classe->choixSession3 != null and !in_array($classe->id, $listeNoire)) {
-                $dates[$classe->choixSession3]++;
+        if (!empty($classes)){
+            $enseignants = [];
+            foreach ($classes as $classe) {
+                $unEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $classe->idEnseignant)->get();
+                if (isset($unEnseignant[0]->prenom) and isset($unEnseignant[0]->nom)){
+                    $enseignants[$classe->idEnseignant] = $unEnseignant[0]->prenom." ".$unEnseignant[0]->nom;
+                }
+                else{
+                    $enseignants[$classe->idEnseignant] ="- -";
+                }
+                if($classe->choixSession1 != null and isset($classe->id) and !in_array($classe->id, $listeNoire)) {
+                    $dates[$classe->choixSession1]++;
+                }
+                if($classe->choixSession2 != null and isset($classe->id) and !in_array($classe->id, $listeNoire)) {
+                    $dates[$classe->choixSession2]++;
+                }
+                if($classe->choixSession3 != null and isset($classe->id) and !in_array($classe->id, $listeNoire)) {
+                    $dates[$classe->choixSession3]++;
+                }
             }
         }
+        $etatValidation = DB::table('informations')->select('etatValidation')->get();
 
         //dd($sessions);
         //dd($dates);
@@ -102,7 +124,8 @@ class listesAController extends Controller
             'nbPremieres' => $nbPremieres,
             'dates' => $dates,
             'classes' => $classes,
-            'enseignants' => $enseignants
+            'enseignants' => $enseignants,
+            'etatSessions' => $etatValidation[0]->etatValidation
         ]);
     }
 

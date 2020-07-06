@@ -42,7 +42,7 @@ class PreInscriptionController extends Controller
             'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,
             'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs)
           );
-
+          
           if($resultat) {
               $_SESSION['connecte'] = 'classes';
               return redirect ('/bienInscris');
