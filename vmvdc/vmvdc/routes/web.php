@@ -112,15 +112,19 @@ Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
+Route::get('sessionsD', function(){
+  return view ('sessionsD');
+});
+
+Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
+Route::get('sessionsD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
 
 
 Route::get('detailSessionD', function(){
   return view ('detailSessionD');
 });
 Route::post('detailSessionD', 'DetailSessionDController@details');
-Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
-
-
+//Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
 
 
 //Auth
