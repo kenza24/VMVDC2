@@ -37,29 +37,18 @@ class CompteAController extends Controller
           'jour'=>'required',
           'mois' => 'required',
           'heure' => 'required',
-          'minute' => 'required'
-        ]);        
+          'minute' => 'required',
+          'effectifMax' => 'required'
+        ]);
 
-        if (!isset($_POST['effectifMax'])){
-          $jour = request('jour');
-          $mois = request('mois');
-          $heure = request('heure');
-          $minute = request('minute');
-
-          $resultat = DB::table('sessions')->insert(
-            array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute)
-          );
-        }
-        else {
-          $jour = request('jour');
-          $mois = request('mois');
-          $heure = request('heure');
-          $minute = request('minute');
-          $effectifMax = request('effectifMax');
-          $resultat = DB::table('sessions')->insert(
-            array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute, 'effectifMax' => $effectifMax)
-          );
-        }
+        $jour = request('jour');
+        $mois = request('mois');
+        $heure = request('heure');
+        $minute = request('minute');
+        $effectifMax = request('effectifMax');
+        $resultat = DB::table('sessions')->insert(
+          array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute, 'effectifMax' => $effectifMax, 'etatSession' => "nonValidee")
+        );
 
         if($resultat) {
           return redirect ('administrateurs');
