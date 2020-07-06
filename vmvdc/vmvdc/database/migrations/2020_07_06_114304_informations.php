@@ -17,7 +17,7 @@ class Informations extends Migration
             $table->string('descriptifProjet');
             $table->string('demarcheParticipation');
             $table->string('annee');
-            $table->int('etatValidation');
+            $table->integer('etatValidation');
             $table->timestamp('dateButoir');
         });
     }
