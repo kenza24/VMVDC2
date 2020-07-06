@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    private string $etatSessions = "nonValidees";
+    private $etatSessions = "nonValidees";
 
     public function getEtatSessions()
     {
