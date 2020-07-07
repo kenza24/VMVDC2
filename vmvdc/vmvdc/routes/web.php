@@ -117,8 +117,12 @@ Route::get('sessionsD', function(){
   return view ('sessionsD');
 });
 
+Route::get('sessionsInscrisD', function(){
+  return view ('sessionsInscrisD');
+});
+
+Route::get('sessionsD', 'SessionsDController@inscriptionDoctorant')->name('sessionsD');
 Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
-Route::get('sessionsD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
 
 
 Route::get('detailSessionD', function(){
