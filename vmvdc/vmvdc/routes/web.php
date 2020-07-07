@@ -87,6 +87,7 @@ Route::post('selectionClasse', 'listesAController@selectionClasse')->name('selec
 Route::post('deselectionClasse', 'listesAController@deselectionClasse')->name('deselectionClasse');
 Route::get('preInscriptionsA', 'listesAController@preInscriptions')->name('preInscriptionsA');
 Route::get('validationSessions', 'listesAController@validationSessions')->name('validationSessions');
+Route::get('invalidationSessions', 'listesAController@invalidationSessions')->name('invalidationSessions');
 
 Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 

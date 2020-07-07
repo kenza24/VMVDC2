@@ -19,10 +19,10 @@
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
       <h3>Liste des sessions :</h3>
-      <div style="postion:relative; float:left;">
-        <a type="button" class="btn btn-xs btn-secondary" href="/preInscriptionE">S'inscrire à une nouvelle session</a>
+      <div style="position:relative; float:left;">
+        <a type="button" class="btn btn-xs btn-secondary" href={{'preInscriptionE'}}>S'inscrire à une nouvelle session</a>
       </div>
-      <div style="postion:relative; float:right;">
+      <div style="position:relative; float:right;">
       <!--  <a type="button" class="btn btn-xs btn-secondary" href="">Refuser une session</a> -->
       </div>
         <br>

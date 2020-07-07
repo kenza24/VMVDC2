@@ -34,13 +34,17 @@ class PreInscriptionController extends Controller
       $date3=request('date3');
       $academie=request('academie');
       $nbAccompagnateurs=request('nbAccompagnateurs');
+      if (isset($_SESSION['id'])){
+        $idEnseignant = $_SESSION['id'];
+      }
+      else {
+        return redirect('/connexionE');
+      }
 
-
-          //echo("coucou2");
           $resultat = DB::table('classes')->insert(
             array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
             'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,
-            'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs)
+            'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs, 'idEnseignant' => $idEnseignant, 'dejaVenu' => 0)
           );
           
           if($resultat) {

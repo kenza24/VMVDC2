@@ -63,9 +63,9 @@
 
       <br>
       <?php if($etatSessions == 0): ?>
-        <a type="button" class="btn btn-xs btn-secondary" href={{'validationSessions'}}>Valider la sélection des classes</a>
+        <a type="button" class="btn btn-xs btn-secondary" href={{'validationSessions'}} onclick="return confirm('Etes-vous sûr de vouloir valider les sessions ? Vous ne pourrez plus les modifier.')">Valider la sélection des classes</a>
       <?php else: ?>
-        <p>La sélection a été validée.</p>
+        <a type="button" class="btn btn-xs btn-secondary" href={{'invalidationSessions'}} onclick="return confirm('Etes-vous sûr de vouloir invalider les sessions ? En cas de revalidation des sessions, l\'accord de l\'enseignant sera redemandé.')">Invalider les sessions</a>
       <?php endif; ?>
       <br>
       <br>
