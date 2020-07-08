@@ -32,7 +32,6 @@ Route::get('/inscriptione', function(){
   return view('inscriptionE');
 });
 Route::post('inscriptione', "inscriptionEController@inscription")->name('inscriptione');
-//J'ai essayé avec inscriptionE mais ca a pas l'air de marcher avec des majuscules
 
 Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
 Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione');
@@ -105,7 +104,8 @@ Route::get('/administrateurs', "CompteAController@accueil")->name('administrateu
 
 //ESPACE ENSEIGNANTS
 Route::get('sessionsE', "CompteEController@sessions")->name('sessionsE');
-
+Route::post('acceptation', "CompteEController@acceptation")->name('acceptation');
+Route::post('refus', "CompteEController@refus")->name('refus');
 
 //PRE INSCRIPTION D'UNE CLASSE
 Route::get('preInscriptionE', function(){

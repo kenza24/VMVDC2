@@ -25,11 +25,12 @@
       <div style="position:relative; float:right;">
       <!--  <a type="button" class="btn btn-xs btn-secondary" href="">Refuser une session</a> -->
       </div>
-        <br>
-        <br>
+      <br>
+      <br>
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
+            <th scope="col"></th>
             <th scope="col">Nom de la classe</th>
             <th scope="col">Date</th>
             <th scope="col">Heure</th>
@@ -42,6 +43,21 @@
           <?php foreach($sessions as $keySessions => $session):?>
             <?php if(isset($classes[$session->idClasse])): ?>
               <tr>
+                <td>
+                  <?php if($session->acceptation == 0): ?>
+                    <form action={{'acceptation'}} method="post">
+                    {{csrf_field()}}
+                      <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                      <button type="submit" class="btn btn-success">Accepter</button>
+                    </form>
+                    <br>
+                    <form action={{'refus'}} method="post">
+                    {{csrf_field()}}
+                      <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                      <button type="submit" class="btn btn-danger">Refuser</button>
+                    </form>
+                  <?php endif; ?>
+                </td>
                 <td><?= $classes[$session->idClasse]->nom ?></td>
                 <td><?= $session->date ?></td>
                 <td><?= $session->heure ?></td>
