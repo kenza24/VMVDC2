@@ -30,25 +30,28 @@
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
+            <th scope="col">Nom de la classe</th>
             <th scope="col">Date</th>
-            <th scope="col">Enseignant</th>
+            <th scope="col">Heure</th>
             <th scope="col">Doctorants</th>
             <th scope="col">Accompagnateurs</th>
             <th scope="col">Nombre d'élèves</th>
           </tr>
         </thead>
-        <!--
         <tbody>
-          <?php //foreach($data as $key => $value):?>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          <?php //endforeach;?>
-        </tbody>-->
+          <?php foreach($sessions as $keySessions => $session):?>
+            <?php if(isset($classes[$session->idClasse])): ?>
+              <tr>
+                <td><?= $classes[$session->idClasse]->nom ?></td>
+                <td><?= $session->date ?></td>
+                <td><?= $session->heure ?></td>
+                <td><?= $sessionDoctorant[$session->id] ?></td>
+                <td><?= $classes[$session->idClasse]->nb_accompagnateurs ?></td>
+                <td><?= $classes[$session->idClasse]->effectifClasse ?></td>
+              </tr>
+            <?php endif; ?>
+          <?php endforeach;?>
+        </tbody>
       </table>
     </div>
   </div>
