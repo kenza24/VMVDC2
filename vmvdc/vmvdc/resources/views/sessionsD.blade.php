@@ -32,25 +32,23 @@
             <th scope="col">Date</th>
             <th scope="col">Heure</th>
             <th scope="col">Effectif maximum</th>
-
-
-
           </tr>
         </thead>
 
         <tbody>
-          <form action={{('inscriptionD')}} method="post" >
-            {{csrf_field()}}
-            <!-- recuperer les id ? -->
-            <input type="text" hidden name="idDoctorant" value=<?= $session->id?>>
-            <input type="text" hidden name="idDoctorant" value=<?= $doctorants->id?>>
-            <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
-            </form>
           <?php foreach($sessions as $session):?>
             <tr>
-              <td>
 
-              </td>
+                <td>
+                  <form action={{route('inscriptionD')}} method="post" >
+                    {{csrf_field()}}
+                    <!-- recuperer les id ? -->
+                    <input type="text" hidden name="idSession" value=<?= $session->id?>>
+                  
+                    <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
+                  </form>
+                </td>
+
               <td><?= $session->date ?></td>
               <td><?= $session->heure?></td>
               <td><?=$session->effectifMax?></td>
