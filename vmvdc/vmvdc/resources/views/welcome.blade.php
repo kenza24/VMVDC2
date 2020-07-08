@@ -43,7 +43,9 @@
             <div class="card-body">
               <h5 class="card-title">Descriptif du projet</h5>
               <p class="card-text">
-                Texte explicatif
+                <?= nl2br($descriptifProjet) ?>
+                <br>
+                <a href="//sites.google.com/view/vismaviedechercheuribps/objectifs?authuser=0">Lien vers les objectifs</a>
               </p>
             </div>
           </div>
@@ -53,7 +55,7 @@
             <div class="card-body">
               <h5 class="card-title">Démarche pour y participer</h5>
               <p class="card-text">
-                Texte explicatif
+              <?= nl2br($demarcheParticipation) ?>
               </p>
             </div>
           </div>
