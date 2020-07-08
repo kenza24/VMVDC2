@@ -78,7 +78,7 @@ Route::get('/ajoutSession', function(){
 Route::get('/listeSessionsA', function(){
   return view('listeSessionsA');
 });
-Route::get('listeSessionsA', "ListeSessionsAController@sessionsA");
+Route::get('listeSessionsA', "ListeSessionsAController@sessionsA")->name('listeSessionsA');
 
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
