@@ -49,7 +49,7 @@ class PreInscriptionController extends Controller
           
           if($resultat) {
               $_SESSION['connecte'] = 'classes';
-              return redirect ('/bienInscris');
+              return redirect ('sessionsE');
           }
 
       return redirect ('/preInscriptionE');
