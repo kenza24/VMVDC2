@@ -97,9 +97,7 @@ Route::get('/administrateurs', "CompteAController@accueil")->name('administrateu
 
 
 //PAGE SESSIONS PERSO
-Route::get('sessionsE', function(){
-  return view ('sessionsE');
-});
+Route::get('sessionsE', "CompteEController@sessions")->name('sessionsE');
 
 
 //PRE INSCRIPTION D'UNE CLASSE
