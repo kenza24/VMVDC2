@@ -58,7 +58,7 @@ Route::get('/connexionD', function(){
   return view ('connexionD');
 });
 
-//administrateurs
+//ESPACE ADMINISTRATEURS
 Route::get('/administrateurs', function(){
   return view('administrateurs');
 });
@@ -101,9 +101,9 @@ Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA')
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
 //Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
 
+//FIN ADMINISTRATEURS
 
-
-//PAGE SESSIONS PERSO
+//ESPACE ENSEIGNANTS
 Route::get('sessionsE', "CompteEController@sessions")->name('sessionsE');
 
 
@@ -118,6 +118,7 @@ Route::get('preInscriptionE', 'PreInscriptionController@session')->name('preInsc
 Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
+//FIN ENSEIGNANTS
 
 //ESPACE DOCTORANT
 Route::get('sessionsD', function(){
@@ -137,9 +138,9 @@ Route::get('detailSessionD', function(){
 Route::post('detailSessionD', 'DetailSessionDController@details');
 //Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
 
-
+//FIN DOCTORANT
 //Auth
-
+/*
 Auth::routes();
 
 
@@ -174,5 +175,4 @@ Route::view(‘/enseignants’, ‘enseignants’);
 Route::group([‘middleware’ => ‘auth:admin’], function () {
 Auth::routes();
 Route::view(‘/admin’, ‘admin’);
-});
-*/
+});*/

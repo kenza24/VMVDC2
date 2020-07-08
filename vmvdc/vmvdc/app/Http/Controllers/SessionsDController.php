@@ -20,17 +20,17 @@ class SessionsDController extends Controller
   }
 
     public function inscriptionDoctorant (){
-
+      //sessions();
       $idSession = request('idSession');
       $idDoctorant = request('idDoctorant');
 
-      $sessions = DB::table('sessions')->select('id')->get();
-      $doctorant = DB::table('doctorants')->select('id')->get();
+      //$sessions = DB::table('sessions')->select('id')->get();
+      //$doctorant = DB::table('doctorants')->select('id')->get();
       //dd("coucou");
       //ajout lors du cliquage du bouton dans la classe participations_doctorants
       $inscription = DB::table('participations_doctorants')->insert(array('idSession' => $idSession, 'idDoctorants'=>$idDoctorant));
 
-      return view ('sessionsD');
+      return view('sessionsD');
   }
 
 }

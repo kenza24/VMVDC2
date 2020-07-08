@@ -62,7 +62,7 @@
             <div class="card flex-m shadow-sm h-md-250">
               <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
                 <strong class="d-inline-block mb-2 text-secondary">Liste des sessions</strong>
-                <a class="btn btn-outline-secondary btn-sm" role="button" href="sessionsD">Y aller !</a>
+                <a class="btn btn-outline-secondary btn-sm" role="button" href={{('sessionsD')}}>Y aller !</a>
               </div>
             </div>
           </div>

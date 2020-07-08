@@ -18,7 +18,7 @@
 <div class="container mt-5">
   <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
-      <h3>Liste des sessions :</h3>
+      <h3>Liste des sessions </h3>
 
       <div style="postion:relative; float:right;">
       <!--  <a type="button" class="btn btn-xs btn-secondary" href="">Refuser une session</a> -->
@@ -39,22 +39,22 @@
         </thead>
 
         <tbody>
+          <form action={{('inscriptionD')}} method="post" >
+            {{csrf_field()}}
+            <!-- recuperer les id ? -->
+            <input type="text" hidden name="idDoctorant" value=<?= $session->id?>>
+            <input type="text" hidden name="idDoctorant" value=<?= $doctorants->id?>>
+            <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
+            </form>
           <?php foreach($sessions as $session):?>
             <tr>
               <td>
-                <form method="post" action={{'inscriptionD'}}>
-                {{csrf_field()}}
-                <!-- recuperer les id ? -->
-                  <input type="text" hidden name="idDoctorant" value=<?= $_SESSION['id']?>>
-                  <button type="submit" class="btn btn-outline-success" href={{'inscriptionD'}}> S'inscrire </a>
-                </form>
 
               </td>
               <td><?= $session->date ?></td>
               <td><?= $session->heure?></td>
-
               <td><?=$session->effectifMax?></td>
-              <td></td>
+
 
             </tr>
           <?php endforeach;?>
