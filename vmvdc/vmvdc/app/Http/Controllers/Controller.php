@@ -11,4 +11,21 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    private $etatSessions = "nonValidees";
+
+    public function getEtatSessions()
+    {
+        return $this->etatSessions;
+    }
+
+    public function setEtatSessionsValidees()
+    {
+        $this->etatSessions = "validees";
+    }
+
+    public function setEtatSessionsNonValidees()
+    {
+        $this->etatSessions = "nonValidees";
+    }
+
 }

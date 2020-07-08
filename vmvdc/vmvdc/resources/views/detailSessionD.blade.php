@@ -57,10 +57,10 @@
           </thead>
           <tbody>
               <tr style="font-size:20px;">
-                <td>le prof</td>
-                <td>coucou@gmail.com</td>
-                <td>13</td>
-                <td>salle B </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
 
         </table>

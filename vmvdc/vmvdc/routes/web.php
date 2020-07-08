@@ -75,14 +75,21 @@ Route::get('/ajoutSession', function(){
   return view('ajoutSession');
 });
 
+Route::get('/listeSessionsA', function(){
+  return view('listeSessionsA');
+});
+Route::get('listeSessionsA', "ListeSessionsAController@sessionsA")->name('listeSessionsA');
+
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
 Route::post('ajoutSession', "CompteAController@ajoutSession")->name('ajoutSession');
 
 Route::get('sessionsA', 'listesAController@sessions')->name('sessionsA');
 Route::get('classesA', 'listesAController@classes')->name('classesA');
+
 Route::get('listeEnseignantsA', 'listesAController@enseignants')->name('listeEnseignantsA');
 Route::get('listeDoctorantsA', 'listesAController@doctorants')->name('listeDoctorantsA');
+
 Route::post('selectionClasse', 'listesAController@selectionClasse')->name('selectionClasse');
 Route::post('deselectionClasse', 'listesAController@deselectionClasse')->name('deselectionClasse');
 Route::get('preInscriptionsA', 'listesAController@preInscriptions')->name('preInscriptionsA');
@@ -112,15 +119,23 @@ Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
+//ESPACE DOCTORANT
+Route::get('sessionsD', function(){
+  return view ('sessionsD');
+});
 
+Route::get('sessionsInscrisD', function(){
+  return view ('sessionsInscrisD');
+});
+
+Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
+Route::post('sessionsD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
 
 Route::get('detailSessionD', function(){
   return view ('detailSessionD');
 });
 Route::post('detailSessionD', 'DetailSessionDController@details');
-Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
-
-
+//Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
 
 
 //Auth

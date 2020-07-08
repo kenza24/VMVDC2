@@ -26,7 +26,7 @@ class AjoutDetails extends Migration
      */
      public function down()
      {
-       Schema::table('$doctorants', function(Blueprint $table){
+       Schema::table('doctorants', function(Blueprint $table){
          $table->drop('details');
        });
      }
