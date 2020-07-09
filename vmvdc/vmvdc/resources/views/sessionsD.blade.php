@@ -40,8 +40,8 @@
             //dd($participations);
             ?>
             <tr>
-              <!-- quand je met $participations->selectionner; l'attribut n'est pas reconnu (undefined) -->
-              <?php if ($participations!=null):?>
+            <!-- si l'id de la session (tableau) correxpond a l'id de la sessions courante -> il est inscrit donc desinscriptionDoctorant -->
+              <?php if ($idS == $session->id):?>
 
                   <!--si selectionner = 0, c'est que la session n'a pas été choisi encore -->
                   <td>
@@ -52,10 +52,10 @@
                     </form>
                   </td>
 
-
+                <!--si ca ne correspond pas, il n'est pas inscrit -->
                 <?php else:?>
                   <td>
-                    <form action={{route('inscriptionD')}} method="post" >
+                    <form action={{route('desinscriptionDoctorant')}} method="post" >
                       {{csrf_field()}}
                       <!-- recuperer les id ? -->
                       <input type="text" hidden name="idSession" value=<?= $session->id?>>
