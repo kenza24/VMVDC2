@@ -43,6 +43,7 @@
         <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
         <a type="button" class="btn btn-xs btn-secondary" href={{('ajoutSession')}}>Ajouter une date de session</a>
         <a type="button" class="btn btn-xs btn-secondary" href={{('modificationAccueil')}}>Modifier les informations de la page d'accueil</a>
+        <a type="button" class="btn btn-xs btn-secondary" href={{('modificationAPropos')}}>Modifier les informations de la page "A propos"</a>
         <!--<a type="button" class="btn btn-xs btn-secondary" href="detailSessionD">Voir details</a>-->
       </div>
     </div>

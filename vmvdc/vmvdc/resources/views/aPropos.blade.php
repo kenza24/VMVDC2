@@ -80,7 +80,7 @@
         </div>
         <div class="row d-flex justify-content-around mt-5">
             <div class="col-md d-flex">
-                <h3>Loi Informatique et Liberté :</h3>
+                <h3>Loi Informatique et Libertés :</h3>
             </div>
         </div>
         <div class="row d-flex justify-content-around">

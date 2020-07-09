@@ -99,6 +99,8 @@ Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA')
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
 Route::get('modificationAccueil', "accueilController@modificationAccueil")->name('modificationAccueil');
 Route::post('updateAccueil', "accueilController@updateAccueil")->name('updateAccueil');
+Route::get('modificationAPropos', "accueilController@modificationAPropos")->name('modificationAPropos');
+Route::post('updateAPropos', "accueilController@updateAPropos")->name('updateAPropos');
 
 //FIN ADMINISTRATEURS
 
