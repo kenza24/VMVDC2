@@ -21,7 +21,7 @@
         <article class="card-body mx-auto" style="width: 800px;">
             <h4 class="card-title mt-3 text-center">Modification de la page d'accueil</h4>
             <br>
-            <form action={{'updateAccueil'}} method="post">
+            <form action={{'updateAccueil'}} method="post" enctype="multipart/form-data">
             {{csrf_field()}}
 
                 <!-- Descriptif du projet -->
@@ -41,6 +41,10 @@
                     ?></textarea>
                 </div>
                 <br>
+
+                <!-- Images -->
+                <h6>Ajouter une image (gif, jgeg/jpg, png):</h6>
+                <input type="file" name="image"/>
 
                 <!--BOUTON-->
                 <button type="submit" class="btn btn-secondary btn-block">Valider</button>

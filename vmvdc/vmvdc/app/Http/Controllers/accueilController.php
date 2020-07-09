@@ -21,8 +21,8 @@ class accueilController extends Controller
     public function modificationAccueil()
     {
         $informations = DB::table('informations')->get()[0];
-        $demarcheParticipation = $informations[0]->demarcheParticipation;
-        $descriptifProjet = $informations[0]->descriptifProjet;
+        $demarcheParticipation = $informations->demarcheParticipation;
+        $descriptifProjet = $informations->descriptifProjet;
 
         return view('modificationAccueil', [
             'descriptifProjet' => $descriptifProjet,
@@ -36,8 +36,49 @@ class accueilController extends Controller
         $demarcheParticipation = request('demarcheParticipation');
 
         $resultat = DB::table('informations')->update(array('descriptifProjet' => $descriptifProjet));
-        //dd($demarcheParticipation);
         $resultat = DB::table('informations')->update(array('demarcheParticipation' => $demarcheParticipation));
+
+
+
+        $dossier = 'content/';
+        $fichier = basename($_FILES['image']['name']);
+        $taille_maxi = 100000;
+        $taille = filesize($_FILES['image']['tmp_name']);
+        $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+        $extension = strrchr($_FILES['image']['name'], '.'); 
+        //Début des vérifications de sécurité...
+        if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
+        {
+            $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
+        }
+        if($taille>$taille_maxi)
+        {
+            $erreur = 'Le fichier est trop gros...';
+        }
+        if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+        {
+            //On formate le nom du fichier ici...
+            $fichier = strtr($fichier, 
+                'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+                'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+            $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+            if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+            {
+                echo 'Upload effectué avec succès !';
+                $images = DB::table('informations')->select('images')->get()[0]->images;
+                $chemins = explode("," ,$images);
+                array_push($chemins, $dossier.$fichier);
+                $resultat = DB::table('informations')->update(array('images' => implode(",", $chemins)));
+            }
+            else //Sinon (la fonction renvoie FALSE).
+            {
+                echo 'Echec de l\'upload !';
+            }
+        }
+        else
+        {
+            echo $erreur;
+        }
 
         return $this->accueil();
     }
