@@ -40,29 +40,38 @@
             //dd($participations);
             ?>
             <tr>
+
             <!-- si l'id de la session (tableau) correxpond a l'id de la sessions courante -> il est inscrit donc desinscriptionDoctorant -->
-              <?php if ($idS == $session->id):?>
+              <?php
+              //dd($idS);
+              foreach ($idS as $value):
+                  //on recupere les idSession dans un nveau tableau
+                  //$idS=$value->idSession;
 
+                  //dd($value->idSession);
+
+                  if ($value == $session->id):
+                //dd($idS);?>
                   <!--si selectionner = 0, c'est que la session n'a pas été choisi encore -->
-                  <td>
-                    <form method="post" action={{route('desinscriptionDoctorant')}}  onsubmit="return confirm('Etes-vous sur ?');">
-                      {{csrf_field()}}
-                      <input type="text" hidden name="idSession" value=<?= $session->id?>>
-                      <button type="submit" class="btn btn-outline-danger">Se désinscrire</button>
-                    </form>
-                  </td>
-
-                <!--si ca ne correspond pas, il n'est pas inscrit -->
+                    <td>
+                      <form method="post" action={{route('inscriptionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
+                        {{csrf_field()}}
+                        <input type="text" hidden name="idSession" value=<?= $session->id?>>
+                        <button type="submit" class="btn btn-outline-danger">Se désinscrire</button>
+                      </form>
+                    </td>
+                    <!--si ca ne correspond pas, il n'est pas inscrit -->
                 <?php else:?>
-                  <td>
-                    <form action={{route('desinscriptionDoctorant')}} method="post" >
-                      {{csrf_field()}}
-                      <!-- recuperer les id ? -->
-                      <input type="text" hidden name="idSession" value=<?= $session->id?>>
-                      <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
-                    </form>
-                  </td>
+                    <td>
+                      <form action={{route('inscriptionD')}} method="post" >
+                        {{csrf_field()}}
+                        <!-- recuperer les id ? -->
+                        <input type="text" hidden name="idSession" value=<?= $session->id?>>
+                        <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
+                      </form>
+                    </td>
                 <?php endif; ?>
+
 
 
               <td><?= $session->date ?></td>
@@ -71,6 +80,7 @@
 
 
             </tr>
+          <?php endforeach;?>
           <?php endforeach;?>
         </tbody>
       </table>

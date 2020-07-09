@@ -20,13 +20,15 @@ class SessionsDController extends Controller
       $d=$_SESSION['id'];
       $infosDoctorant = DB::table('participations_doctorants')->select('idSession', 'idDoctorants')->where('idDoctorants', '=', $d)->get();
       //$doctorants = DB::table('doctorants')->select('id')->where('id', $_SESSION['id'])->get();
-
+      //dd($infosDoctorant);
       //on parcours le tableau des infos
       $idS = [];
       foreach ($infosDoctorant as $value) {
         //on recupere les idSession dans un nveau tableau
         //$idS=$value->idSession;
         array_push($idS, $value->idSession);
+        //dd($value->idSession);
+
 
       }
 
