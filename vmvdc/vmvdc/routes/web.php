@@ -96,7 +96,8 @@ Route::get('invalidationSessions', 'listesAController@invalidationSessions')->na
 Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA');
 
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
-//Route::get('/deconnexiond', "CompteDController@deconnexion")->name('deconnexiond');
+Route::get('modificationAccueil', "accueilController@modificationAccueil")->name('modificationAccueil');
+Route::post('updateAccueil', "accueilController@updateAccueil")->name('updateAccueil');
 
 //FIN ADMINISTRATEURS
 

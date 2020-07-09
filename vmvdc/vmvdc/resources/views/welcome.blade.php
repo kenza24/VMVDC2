@@ -45,6 +45,7 @@
               <p class="card-text">
                 <?= nl2br($descriptifProjet) ?>
                 <br>
+                <br>
                 <a href="//sites.google.com/view/vismaviedechercheuribps/objectifs?authuser=0">Lien vers les objectifs</a>
               </p>
             </div>

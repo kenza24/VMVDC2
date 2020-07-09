@@ -42,6 +42,7 @@
         <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
         <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
         <a type="button" class="btn btn-xs btn-secondary" href={{('ajoutSession')}}>Ajouter une date de session</a>
+        <a type="button" class="btn btn-xs btn-secondary" href={{('modificationAccueil')}}>Modifier les informations de la page d'accueil</a>
         <!--<a type="button" class="btn btn-xs btn-secondary" href="detailSessionD">Voir details</a>-->
       </div>
     </div>
@@ -150,7 +151,11 @@
     .container{
       font-style: oblique;
       font-family: Georgia, serif;
+    }
 
+    .btn-secondary {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
   </style>
 @endsection
