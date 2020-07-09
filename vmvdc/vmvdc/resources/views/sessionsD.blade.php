@@ -36,18 +36,34 @@
         </thead>
 
         <tbody>
-          <?php foreach($sessions as $session):?>
+          <?php foreach($sessions as $session):
+            //dd($participations);
+            ?>
             <tr>
+              <!-- quand je met $participations->selectionner; l'attribut n'est pas reconnu (undefined) -->
+              <?php if ($participations!=null):?>
 
-                <td>
-                  <form action={{route('inscriptionD')}} method="post" >
-                    {{csrf_field()}}
-                    <!-- recuperer les id ? -->
-                    <input type="text" hidden name="idSession" value=<?= $session->id?>>
-                  
-                    <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
-                  </form>
-                </td>
+                  <!--si selectionner = 0, c'est que la session n'a pas été choisi encore -->
+                  <td>
+                    <form method="post" action={{route('desinscriptionDoctorant')}}  onsubmit="return confirm('Etes-vous sur ?');">
+                      {{csrf_field()}}
+                      <input type="text" hidden name="idSession" value=<?= $session->id?>>
+                      <button type="submit" class="btn btn-outline-danger">Se désinscrire</button>
+                    </form>
+                  </td>
+
+
+                <?php else:?>
+                  <td>
+                    <form action={{route('inscriptionD')}} method="post" >
+                      {{csrf_field()}}
+                      <!-- recuperer les id ? -->
+                      <input type="text" hidden name="idSession" value=<?= $session->id?>>
+                      <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
+                    </form>
+                  </td>
+                <?php endif; ?>
+
 
               <td><?= $session->date ?></td>
               <td><?= $session->heure?></td>
