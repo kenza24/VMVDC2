@@ -31,7 +31,7 @@
       </div>
     </div>
 
-  <div style="background-color: white; padding-top: 20px; border: 10px solid #11385b;">
+  <div style="background-color: #D2E6FF; padding-top: 20px; border: 10px solid #11385b;">
 
     <!--Cartes explicatives-->
   <!--  <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;"> -->
@@ -39,7 +39,7 @@
         <div class="row d-flex justify-content-around">
 
         <!--Carte 1-->
-          <div class="card col-lg-5" style="background-color: #B0C4DE;">
+          <div class="card col-lg-5">
             <div class="card-body">
               <h5 class="card-title">Descriptif du projet</h5>
               <p class="card-text text-justify">
@@ -52,7 +52,7 @@
           </div>
 
         <!--Carte 2-->
-          <div class="card col-lg-5" style="background-color: #B0C4DE;">
+          <div class="card col-lg-5">
             <div class="card-body" >
               <h5 class="card-title">Démarche pour y participer</h5>
               <p class="card-text text-justify">
