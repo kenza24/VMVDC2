@@ -39,12 +39,12 @@
           <?php foreach($sessions as $session):
             //dd($participations);
             ?>
+            <?php
+            foreach ($idS as $value): ?>
             <tr>
 
             <!-- si l'id de la session (tableau) correxpond a l'id de la sessions courante -> il est inscrit donc desinscriptionDoctorant -->
-              <?php
-              //dd($idS);
-              foreach ($idS as $value):
+          <?php    //dd($idS);
                   //on recupere les idSession dans un nveau tableau
                   //$idS=$value->idSession;
 
@@ -54,7 +54,7 @@
                 //dd($idS);?>
                   <!--si selectionner = 0, c'est que la session n'a pas été choisi encore -->
                     <td>
-                      <form method="post" action={{route('inscriptionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
+                      <form method="post" action={{route('desinscriptionDoctorant')}}  onsubmit="return confirm('Etes-vous sur ?');">
                         {{csrf_field()}}
                         <input type="text" hidden name="idSession" value=<?= $session->id?>>
                         <button type="submit" class="btn btn-outline-danger">Se désinscrire</button>
