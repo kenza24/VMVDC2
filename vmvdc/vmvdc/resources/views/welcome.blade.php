@@ -100,8 +100,8 @@
         <br>
           <br>
             <div class="row d-flex justify-content-around">
-              <a href="">A propos</a>
-              <a href="">Qui sommes-nous ?</a>
+              <a href={{'aPropos'}}>A propos</a>
+              <a href="https://sites.google.com/view/vismaviedechercheuribps/%C3%A9quipe-p%C3%A9dagogique?authuser=0">Qui sommes-nous ?</a>
             </div>
           <br>
         <br>

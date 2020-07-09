@@ -20,8 +20,9 @@ class accueilController extends Controller
 
     public function modificationAccueil()
     {
-        $descriptifProjet = DB::table('informations')->get()[0]->descriptifProjet;
-        $demarcheParticipation = DB::table('informations')->get()[0]->demarcheParticipation;
+        $informations = DB::table('informations')->get()[0]->descriptifProjet;
+        $demarcheParticipation = $informations[0]->demarcheParticipation;
+        $descriptifProjet = $informations[0]->descriptifProjet;
 
         return view('modificationAccueil', [
             'descriptifProjet' => $descriptifProjet,
@@ -39,5 +40,27 @@ class accueilController extends Controller
         $resultat = DB::table('informations')->update(array('demarcheParticipation' => $demarcheParticipation));
 
         return $this->accueil();
+    }
+
+    public function aPropos()
+    {
+        $aPropos = DB::table('aPropos')->get()[0];
+        $equipeAdmin = $aPropos->equipeAdmin;
+        $mentionsLegales = $aPropos->mentionsLegales;
+        $equipeInfo = $aPropos->equipeInfo;
+        $droits = $aPropos->droits;
+        $conceptDesign = $aPropos->conceptDesign;
+        $loiInformatiqueEtLiberte = $aPropos->loiInformatiqueEtLiberte;
+        $descriptif = $aPropos->descriptif;
+
+        return view('aPropos', [
+            'equipeAdmin' => $equipeAdmin,
+            'mentionsLegales' => $mentionsLegales,
+            'equipeInfo' => $equipeInfo,
+            'droits' => $droits,
+            'conceptDesign' => $conceptDesign,
+            'loiInformatiqueEtLiberte' => $loiInformatiqueEtLiberte,
+            'descriptif' => $descriptif
+        ]);
     }
 }
