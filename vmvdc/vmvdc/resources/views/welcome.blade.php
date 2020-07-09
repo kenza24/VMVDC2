@@ -39,7 +39,7 @@
         <div class="row d-flex justify-content-around">
 
         <!--Carte 1-->
-          <div class="card col-lg-5">
+          <div class="card col-lg-5" style="background-color: #B0C4DE;">
             <div class="card-body">
               <h5 class="card-title">Descriptif du projet</h5>
               <p class="card-text text-justify">
@@ -52,8 +52,8 @@
           </div>
 
         <!--Carte 2-->
-          <div class="card col-lg-5">
-            <div class="card-body">
+          <div class="card col-lg-5" style="background-color: #B0C4DE;">
+            <div class="card-body" >
               <h5 class="card-title">Démarche pour y participer</h5>
               <p class="card-text text-justify">
               <?= nl2br($demarcheParticipation) ?>
