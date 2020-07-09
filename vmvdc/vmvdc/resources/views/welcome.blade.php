@@ -42,7 +42,7 @@
           <div class="card col-lg-5">
             <div class="card-body">
               <h5 class="card-title">Descriptif du projet</h5>
-              <p class="card-text">
+              <p class="card-text text-justify">
                 <?= nl2br($descriptifProjet) ?>
                 <br>
                 <br>
@@ -55,7 +55,7 @@
           <div class="card col-lg-5">
             <div class="card-body">
               <h5 class="card-title">Démarche pour y participer</h5>
-              <p class="card-text">
+              <p class="card-text text-justify">
               <?= nl2br($demarcheParticipation) ?>
               </p>
             </div>
@@ -100,8 +100,8 @@
         <br>
           <br>
             <div class="row d-flex justify-content-around">
-              <a href="">A propos</a>
-              <a href="">Qui sommes-nous ?</a>
+              <a href={{'aPropos'}}>A propos</a>
+              <a href="https://sites.google.com/view/vismaviedechercheuribps/%C3%A9quipe-p%C3%A9dagogique?authuser=0">Qui sommes-nous ?</a>
             </div>
           <br>
         <br>

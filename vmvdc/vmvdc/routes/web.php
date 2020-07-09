@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 //page d'accueil
 Route::get('/', "accueilController@accueil");
-
+Route::get('aPropos', "accueilController@aPropos");
 
 Route::view('/orientationConnexion','orientationConnexion')->name('orientationConnexion');
+
 
 //ENSEIGNANTS
 Route::get('/connexionE', function(){
@@ -98,6 +99,8 @@ Route::post("connexionA", "ConnexionControllerA@traitement")->name('connexionA')
 Route::get('/administrateurs', "CompteAController@accueil")->name('administrateurs');
 Route::get('modificationAccueil', "accueilController@modificationAccueil")->name('modificationAccueil');
 Route::post('updateAccueil', "accueilController@updateAccueil")->name('updateAccueil');
+Route::get('modificationAPropos', "accueilController@modificationAPropos")->name('modificationAPropos');
+Route::post('updateAPropos', "accueilController@updateAPropos")->name('updateAPropos');
 
 //FIN ADMINISTRATEURS
 
