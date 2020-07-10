@@ -9,12 +9,15 @@ class accueilController extends Controller
 {
     public function accueil()
     {
-        $descriptifProjet = DB::table('informations')->get()[0]->descriptifProjet;
-        $demarcheParticipation = DB::table('informations')->get()[0]->demarcheParticipation;
+        $informations = DB::table('informations')->get()[0];
+        $descriptifProjet = $informations->descriptifProjet;
+        $demarcheParticipation = $informations->demarcheParticipation;
+        $tableauImages = explode(',', $informations->images);
 
         return view('welcome', [
             'descriptifProjet' => $descriptifProjet,
-            'demarcheParticipation' => $demarcheParticipation
+            'demarcheParticipation' => $demarcheParticipation,
+            'tableauImages' => $tableauImages
         ]);
     }
 
@@ -23,10 +26,20 @@ class accueilController extends Controller
         $informations = DB::table('informations')->get()[0];
         $demarcheParticipation = $informations->demarcheParticipation;
         $descriptifProjet = $informations->descriptifProjet;
+        $images = $informations->images;
+        $tableauImages = explode(',', $images);
+        $tableauNoms = [];
+        foreach ($tableauImages as $image) {
+            if ($image != ""){
+                array_push($tableauNoms, substr(strstr($image, "/"), 1));
+            }
+        }
 
         return view('modificationAccueil', [
             'descriptifProjet' => $descriptifProjet,
-            'demarcheParticipation' => $demarcheParticipation
+            'demarcheParticipation' => $demarcheParticipation,
+            'tableauNoms' => $tableauNoms,
+            'tableauImages' => $tableauImages
         ]);
     }
 
@@ -38,11 +51,9 @@ class accueilController extends Controller
         $resultat = DB::table('informations')->update(array('descriptifProjet' => $descriptifProjet));
         $resultat = DB::table('informations')->update(array('demarcheParticipation' => $demarcheParticipation));
 
-
-
         $dossier = 'content/';
         $fichier = basename($_FILES['image']['name']);
-        $taille_maxi = 100000;
+        $taille_maxi = 100000000;
         $taille = filesize($_FILES['image']['tmp_name']);
         $extensions = array('.png', '.gif', '.jpg', '.jpeg');
         $extension = strrchr($_FILES['image']['name'], '.'); 
@@ -64,23 +75,30 @@ class accueilController extends Controller
             $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
             if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
             {
-                echo 'Upload effectué avec succès !';
                 $images = DB::table('informations')->select('images')->get()[0]->images;
                 $chemins = explode("," ,$images);
                 array_push($chemins, $dossier.$fichier);
-                $resultat = DB::table('informations')->update(array('images' => implode(",", $chemins)));
+                if ($chemins[0] != "") {
+                    $resultat = DB::table('informations')->update(array('images' => implode(",", $chemins)));
+                }
+                else {
+                    $resultat = DB::table('informations')->update(array('images' => substr(implode(",", $chemins), 1)));
+
+                }
             }
             else //Sinon (la fonction renvoie FALSE).
             {
                 echo 'Echec de l\'upload !';
+                return $this->modificationAccueil();
             }
         }
         else
         {
             echo $erreur;
+            return $this->modificationAccueil();
         }
 
-        return $this->accueil();
+        return redirect('/');
     }
 
     public function aPropos()
@@ -145,6 +163,6 @@ class accueilController extends Controller
         $resultat = DB::table('APropos')->update(array('conceptDesign' => $conceptDesign));
         $resultat = DB::table('APropos')->update(array('loiInformatiqueEtLiberte' => $loiInformatiqueEtLiberte));
 
-        return $this->aPropos();
+        return redirect('aPropos');
     }
 }

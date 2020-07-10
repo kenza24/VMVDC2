@@ -46,6 +46,17 @@
                 <h6>Ajouter une image (gif, jgeg/jpg, png):</h6>
                 <input type="file" name="image"/>
 
+                <?php foreach($tableauNoms as $nom): ?>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input" name="suppressionImages[]" value=<?= "content/".$nom ?>>
+                            </div>
+                        </div>
+                        <!-- image -->
+                    </div>
+                <?php endforeach; ?>
+
                 <!--BOUTON-->
                 <button type="submit" class="btn btn-secondary btn-block">Valider</button>
 

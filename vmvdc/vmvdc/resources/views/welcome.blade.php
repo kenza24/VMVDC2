@@ -64,6 +64,15 @@
         </div>
       </div>
 
+    <!--Images-->
+      <div class="container-fluid mt-5 mb-5">
+        <div class="row justify-content-md-around mt-5 mb-5" id="image">
+          <?php foreach($tableauImages as $image): ?>
+            <img src=<?= $image ?> alt=<?= substr(strstr($image, "/"), 1) ?> class="img-thumbnail" style="height: 300px; min-width: 100px;">
+          <?php endforeach; ?>
+        </div>
+      </div>
+
 
     <!--Financement et partenariat-->
       <div class="container-fluid mt-5 mb-5">
