@@ -57,7 +57,7 @@ class SessionsDController extends Controller
       //$doctorant = DB::table('doctorants')->select('id')->get();
       //dd("coucou");
       //ajout lors du cliquage du bouton dans la classe participations_doctorants
-      $inscription = DB::table('participations_doctorants')->insert(array('idSession' => $idSession, 'idDoctorants' => $idDoctorant, 'selectionner'=> 1));
+      $inscription = DB::table('participations_doctorants')->insert(array('idSession' => $idSession, 'idDoctorants' => $idDoctorant));
 
       return back();
   }

@@ -54,7 +54,7 @@
                 //dd($idS);?>
                   <!--si selectionner = 0, c'est que la session n'a pas été choisi encore -->
                     <td>
-                      <form method="post" action={{route('desinscriptionDoctorant')}}  onsubmit="return confirm('Etes-vous sur ?');">
+                      <form method="post" action={{route('inscriptionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
                         {{csrf_field()}}
                         <input type="text" hidden name="idSession" value=<?= $session->id?>>
                         <button type="submit" class="btn btn-outline-danger">Se désinscrire</button>
@@ -63,7 +63,7 @@
                     <!--si ca ne correspond pas, il n'est pas inscrit -->
                 <?php else:?>
                     <td>
-                      <form action={{route('inscriptionD')}} method="post" >
+                      <form action={{route('inscriptionD')}} method="post">
                         {{csrf_field()}}
                         <!-- recuperer les id ? -->
                         <input type="text" hidden name="idSession" value=<?= $session->id?>>

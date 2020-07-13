@@ -131,9 +131,9 @@ Route::get('sessionsInscrisD', function(){
   return view ('sessionsInscrisD');
 });
 
-Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
-Route::post('sessionsD', 'SessionsDController@desinscriptionDoctorant')->name('desinscriptionDoctorant');
+Route::post('sessionsD', 'SessionsDController@desinscriptionDoctorant')->name('desinscriptionD');
 Route::post('sessionsD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
+Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
 
 Route::get('detailSessionD', function(){
   return view ('detailSessionD');
