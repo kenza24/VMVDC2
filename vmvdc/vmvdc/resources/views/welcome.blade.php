@@ -66,6 +66,13 @@
 
     <!--Images-->
       <div class="container-fluid mt-5 mb-5">
+        <?php if(!empty($tableauImages)): ?>
+          <div class="row d-flex justify-content-around mt-5 mb-5">
+            <div class="col-md d-flex justify-content-around mt-5 mb-5" style="color: black;">
+              <h3>Images de représentation</h3>
+            </div>
+          </div>
+        <?php endif; ?>
         <div class="row justify-content-md-around mt-5 mb-5" id="image">
           <?php foreach($tableauImages as $image): ?>
             <img src=<?= $image ?> alt=<?= substr(strstr($image, "/"), 1) ?> class="img-thumbnail" style="height: 300px; min-width: 100px;">

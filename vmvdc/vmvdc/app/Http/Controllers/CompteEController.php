@@ -36,22 +36,22 @@ class CompteEController extends Controller
   {
     $sessions = DB::table('sessions')->get();
     $id = []; //id des classes sélectionnées par les enseignants
-    $sessionDoctorant = [];
+    $sessionDoctorant = []; //couple sesions-doctorant : key=>idSession, value=>nom et prenom doctorant
     foreach ($sessions as $keySessions => $session) {
       array_push($id, $session->idClasse);
       $sessionDoctorant[$session->id] = "";
     }
     
-    $classes = DB::table('classes')->where('idEnseignant', $_SESSION['id'])->get();
+    $classes = DB::table('classes')->where('idEnseignant', $_SESSION['id'])->get(); //on prends les classes de l'enseignant connecte
 
-    $idClasses = [];
+    $idClasses = []; //on met les classes dans un tableau qui a pour clé leur id
     foreach ($classes as $keyClasse => $classe) {
       $idClasses[$classe->id] = $classe;
     }
 
-    $enseignant = DB::table('enseignants')->where('id', $_SESSION['id'])->get()[0];
+    $enseignant = DB::table('enseignants')->where('id', $_SESSION['id'])->get()[0]; //on prends les infos de l'enseignant connecte
 
-    $participation_doctorant = DB::table('participations_doctorants')->get();
+    $participation_doctorant = DB::table('participations_doctorants')->get();//on récupère tout les couples session-doctorant
 
     //Pour chq session, on donne une chaine de caractere avec les noms des doctorants qui y participent
     foreach ($participation_doctorant as $key => $value) {

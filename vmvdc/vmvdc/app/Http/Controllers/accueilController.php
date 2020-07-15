@@ -13,6 +13,7 @@ class accueilController extends Controller
         $descriptifProjet = $informations->descriptifProjet;
         $demarcheParticipation = $informations->demarcheParticipation;
         $tableauImages = explode(',', $informations->images);
+        $tableauImages = array_filter($tableauImages);
 
         return view('welcome', [
             'descriptifProjet' => $descriptifProjet,
@@ -29,11 +30,7 @@ class accueilController extends Controller
         $images = $informations->images;
         $tableauImages = explode(',', $images);
         $tableauNoms = [];
-        foreach ($tableauImages as $image) {
-            if ($image != ""){
-                array_push($tableauNoms, substr(strstr($image, "/"), 1));
-            }
-        }
+        $tableauImages = array_filter($tableauImages);
 
         return view('modificationAccueil', [
             'descriptifProjet' => $descriptifProjet,
@@ -47,55 +44,65 @@ class accueilController extends Controller
     {
         $descriptifProjet = request('descriptifProjet');
         $demarcheParticipation = request('demarcheParticipation');
+        $suppressionImages = request('suppressionImages');
 
         $resultat = DB::table('informations')->update(array('descriptifProjet' => $descriptifProjet));
         $resultat = DB::table('informations')->update(array('demarcheParticipation' => $demarcheParticipation));
 
-        $dossier = 'content/';
-        $fichier = basename($_FILES['image']['name']);
-        $taille_maxi = 100000000;
-        $taille = filesize($_FILES['image']['tmp_name']);
-        $extensions = array('.png', '.gif', '.jpg', '.jpeg');
-        $extension = strrchr($_FILES['image']['name'], '.'); 
-        //Début des vérifications de sécurité...
-        if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
-        {
-            $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
+        $images = DB::table('informations')->select('images')->get()[0]->images; //recuperation de la chaine des lien des images
+
+        //Suppression Image
+        if (isset($suppressionImages)) {
+            foreach ($suppressionImages as $suppImage){
+                unlink($suppImage);
+                $images = preg_replace("#".$suppImage."#", "", $images);
+                $images = trim($images, ",");
+            }
+            $resultat = DB::table('informations')->update(array('images' => $images));
         }
-        if($taille>$taille_maxi)
-        {
-            $erreur = 'Le fichier est trop gros...';
-        }
-        if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
-        {
-            //On formate le nom du fichier ici...
-            $fichier = strtr($fichier, 
-                'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
-                'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
-            $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-            if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+
+        if ($_FILES['image']['size'] != 0) { //Si un fichier est sélectionné
+            $dossier = 'content/';
+            $fichier = basename($_FILES['image']['name']);
+            $taille_maxi = 100000000;
+            $taille = filesize($_FILES['image']['tmp_name']);
+            $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+            $extension = strrchr($_FILES['image']['name'], '.'); 
+            //Début des vérifications de sécurité...
+            if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
             {
-                $images = DB::table('informations')->select('images')->get()[0]->images;
-                $chemins = explode("," ,$images);
-                array_push($chemins, $dossier.$fichier);
-                if ($chemins[0] != "") {
-                    $resultat = DB::table('informations')->update(array('images' => implode(",", $chemins)));
-                }
-                else {
-                    $resultat = DB::table('informations')->update(array('images' => substr(implode(",", $chemins), 1)));
+                $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
+            }
+            if($taille>$taille_maxi)
+            {
+                $erreur = 'Le fichier est trop gros...';
+            }
+            if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+            {
+                //On formate le nom du fichier ici...
+                $fichier = strtr($fichier, 
+                    'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+                    'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+                if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+                {
+                    $chemins = explode("," ,$images);
+                    array_push($chemins, $dossier.$fichier);
+                    //si la chaine est vide on supprime la ',' qui va apparaitre au debut de la chaine apres l'implode
+                    $resultat = DB::table('informations')->update(array('images' => trim(implode(",", $chemins), ",")));
 
                 }
+                else //Sinon (la fonction renvoie FALSE).
+                {
+                    echo 'Echec de l\'upload !';
+                    return redirect('modificationAccueil');
+                }
             }
-            else //Sinon (la fonction renvoie FALSE).
+            else
             {
-                echo 'Echec de l\'upload !';
-                return $this->modificationAccueil();
+                echo $erreur;
+                return redirect('modificationAccueil');
             }
-        }
-        else
-        {
-            echo $erreur;
-            return $this->modificationAccueil();
         }
 
         return redirect('/');

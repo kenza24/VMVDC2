@@ -43,19 +43,26 @@
                 <br>
 
                 <!-- Images -->
-                <h6>Ajouter une image (gif, jgeg/jpg, png):</h6>
+                <h6>Ajouter une image (gif, jpeg/jpg, png):</h6>
                 <input type="file" name="image"/>
+                <br>
+                <br>
 
-                <?php foreach($tableauNoms as $nom): ?>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input" name="suppressionImages[]" value=<?= "content/".$nom ?>>
-                            </div>
+                <div class="row">
+                    <?php foreach($tableauImages as $image): ?>
+                        <div class="input-group mb-3 col">
+                            <label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" aria-label="Checkbox for following text input" name="suppressionImages[]" value=<?= $image ?>>
+                                    </div>
+                                </div>
+                                <img src=<?= $image ?> alt=<?= substr(strstr($image, "/"), 1) ?> class="img-thumbnail" style="height: 100px; min-width: 50px;">
+                            </label>
                         </div>
-                        <!-- image -->
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                
 
                 <!--BOUTON-->
                 <button type="submit" class="btn btn-secondary btn-block">Valider</button>
