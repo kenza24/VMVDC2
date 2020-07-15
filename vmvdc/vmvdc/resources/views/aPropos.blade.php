@@ -21,7 +21,7 @@
         </div>
       </div>
 
-     <div style="background-color: white; padding-top: 20px; border: 10px solid #11385b;">
+     <div style="background-color: white; padding-top: 20px; border: 10px solid #11385b;font-style: oblique; font-family: Georgia, serif;">
 
     <div class="container mt-5 mb-5">
         <div class="row d-flex justify-content-around mt-5">
