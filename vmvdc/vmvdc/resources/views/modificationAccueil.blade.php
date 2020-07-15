@@ -44,7 +44,7 @@
 
                 <!-- Images -->
                 <h6>Ajouter une image (gif, jpeg/jpg, png):</h6>
-                <input type="file" name="image"/>
+                <input type="file" name='images[]' multiple/>
                 <br>
                 <br>
 

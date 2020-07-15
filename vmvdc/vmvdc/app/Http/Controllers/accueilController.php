@@ -61,50 +61,52 @@ class accueilController extends Controller
             $resultat = DB::table('informations')->update(array('images' => $images));
         }
 
-        if ($_FILES['image']['size'] != 0) { //Si un fichier est sélectionné
+        $nbElmt = count($_FILES['images']['name']);
+        if ($_FILES['images']['size'][0] != 0) {
             $dossier = 'content/';
-            $fichier = basename($_FILES['image']['name']);
             $taille_maxi = 100000000;
-            $taille = filesize($_FILES['image']['tmp_name']);
             $extensions = array('.png', '.gif', '.jpg', '.jpeg');
-            $extension = strrchr($_FILES['image']['name'], '.'); 
-            //Début des vérifications de sécurité...
-            if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
-            {
-                $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
-            }
-            if($taille>$taille_maxi)
-            {
-                $erreur = 'Le fichier est trop gros...';
-            }
-            if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
-            {
-                //On formate le nom du fichier ici...
-                $fichier = strtr($fichier, 
-                    'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
-                    'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
-                $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-                if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+            for ($i=0; $i < $nbElmt; $i++) { 
+                $nomFichier = basename($_FILES['images']['name'][$i]);
+                $tailleFichier = filesize($_FILES['images']['tmp_name'][$i]);
+                $extension = strrchr($_FILES['images']['name'][$i], '.');
+                //Début des vérifications de sécurité...
+                if(in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
                 {
-                    $chemins = explode("," ,$images);
-                    array_push($chemins, $dossier.$fichier);
-                    //si la chaine est vide on supprime la ',' qui va apparaitre au debut de la chaine apres l'implode
-                    $resultat = DB::table('informations')->update(array('images' => trim(implode(",", $chemins), ",")));
-
+                    if($tailleFichier <= $taille_maxi)
+                    {
+                        //On formate le nom du fichier ici...
+                        $nomFichier = strtr($nomFichier, 
+                            'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+                            'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                        $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
+                        if(move_uploaded_file($_FILES['images']['tmp_name'][$i], $dossier . $nomFichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+                        {
+                            $images = DB::table('informations')->select('images')->get()[0]->images; //recuperation de la chaine des lien des images
+                            $chemins = explode("," ,$images);
+                            array_push($chemins, $dossier.$nomFichier);
+                            //si la chaine est vide on supprime la ',' qui va apparaitre au debut de la chaine apres l'implode
+                            $resultat = DB::table('informations')->update(array('images' => trim(implode(",", $chemins), ",")));
+                        }
+                        else //Sinon (la fonction renvoie FALSE).
+                        {
+                            //dd('Fin1');
+                            return redirect('modificationAccueil');
+                        }
+                    }
+                    else {
+                        //dd('Fin2');
+                        return redirect('modificationAccueil');
+                    }
                 }
-                else //Sinon (la fonction renvoie FALSE).
-                {
-                    echo 'Echec de l\'upload !';
+                else {
+                    //dd('Fin3');
                     return redirect('modificationAccueil');
                 }
             }
-            else
-            {
-                echo $erreur;
-                return redirect('modificationAccueil');
-            }
         }
 
+        //dd('Fin4');
         return redirect('/');
     }
 
