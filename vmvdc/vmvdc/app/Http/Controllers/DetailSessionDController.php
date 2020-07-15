@@ -1,13 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
 
+session_start();
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DetailSessionDController extends Controller{
 
   public function details(){
+    //dd("coucou");
+    //dd($_SESSION['id']);
 
      request()->validate([
         'details'=>'required',
@@ -15,26 +17,33 @@ class DetailSessionDController extends Controller{
 
       $details = request('details');
       //$id = request('id');
-      $id= DB::table('session')->select('id')->get();
       //update de la case "details" avec ce que le doctorant en question a entré
-      $res= DB::table('session')->where('id', '=', $id)->update(array('details'=>$details));
+      $detail= DB::table('doctorants')->where('id', '=', $_SESSION['id'])->update(array('details'=>$details));
+
       //dd($res);
 
-      return redirect ('/detailSessionD');
+      return view('detailSessionD', [
+          'details' => $details,
+      ]);
     }
 
 
       public function ajoutFichier(){
-
+        dd("cc");
         //echo("cc");
         //affiche le chemin du fichier
-        //$path=request('fichierD')->store('fichierD');
+        $path=request('fichierD')->store('fichierD');
+        $id=$_SESSION['id'];
+        //dd($id);
+        if (isset($_SESSION['id'])){
+          $res=DB::table('doctorants')->where('id', '=', $id)->update(array('fichierD'=>$path));
+
+        }
         //$id=DB::table('fichiers_sessions')->select('id');
         //chez le doctorant ajoute son fichier, donc where id=id
-        //$res=DB::table('fichiers_sessions')->where('id', '=', $id)->update(array('fichierD'=>$path));
         //return $path;
+        return back();
       }
-
   //il faut pouvoir afficher les données de la session en question
   /*public function infosEnseignant (){
     $enseignants = DB::table('enseignants')->select('id', 'nom', 'prenom', 'mail')->get();

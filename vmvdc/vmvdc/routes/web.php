@@ -131,15 +131,17 @@ Route::get('sessionsInscrisD', function(){
   return view ('sessionsInscrisD');
 });
 
-Route::post('sessionsD', 'SessionsDController@desinscriptionDoctorant')->name('desinscriptionD');
-Route::post('sessionsD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
+Route::post('desinscriptionD', 'SessionsDController@desinscriptionDoctorant')->name('desinscriptionD');
+Route::post('inscriptionD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
 Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
+
+Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessionsInscrisD');
 
 Route::get('detailSessionD', function(){
   return view ('detailSessionD');
 });
-Route::post('detailSessionD', 'DetailSessionDController@details');
-//Route::post('detailSessionD', 'DetailSessionDController@ajoutFichier');
+Route::post('detailSessionD', 'DetailSessionDController@details')->name('details');
+Route::post('ajoutFichier', 'DetailSessionDController@ajoutFichier')->name('ajoutFichier');
 
 //FIN DOCTORANT
 //Auth

@@ -64,30 +64,32 @@
               </tr>
 
         </table>
-        <form action="detailSessionD" enctype= "multipart/form-data" method="POST">
+        <form  enctype= "multipart/form-data" method="POST">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           {{csrf_field()}}
           <br>
           <div style ="font-size: 20px;">
-            <h5>Choisissez un document de présentation : </h5>
+            <h5>Choisissez un document de présentation :
+
+            </h5>
           </div>
            <input type="file" name="fichierD" style="font-size:17px; padding-top:10px"/>
 
            <br>
            <br>
-
-            <div style ="font-size: 20px;">
-              <label style="text-align:top;">Informations complémentaires : </label>
-            </div>
-
-              <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px; margin:auto;"></textarea>
-
+             <div style ="font-size: 20px;">
+               <label style="text-align:top;">Informations complémentaires : </label>
+             </div>
+             <form action={{route('details')}} method="post">
+               {{csrf_field()}}
+               <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px; margin:auto;"><?= $details ?></textarea>
+               <button type="submit" class="btn btn-secondary btn-block" style="width:100px; margin:auto;"> Valider  </button>
+             </form>
           </div>
 
 
 
         <!--BOUTON-->
-        <button type="submit" class="btn btn-secondary btn-block" style="width:100px; margin:auto;"> Valider  </button>
 
       </form>
 
