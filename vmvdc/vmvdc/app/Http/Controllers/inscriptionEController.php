@@ -27,12 +27,25 @@ class inscriptionEController extends Controller
         $mdp = request('mdp');
         $mdpConfirmation = request('mdp-confirmation');
 
-        if (isset($mdp) and isset($mdpConfirmation) and preg_match("#".$mdp."#", $mdpConfirmation)) {
+        $listeEmails = [];
+        if (null != DB::table('enseignants')->select('email')->get()) {
+            $desEmails = DB::table('enseignants')->select('email')->get();
+            foreach ($desEmails as $unEmail) {
+                array_push($listeEmails, $unEmail->email);
+            }
+        }
+
+        if (isset($mdp) and isset($mdpConfirmation) and preg_match("#".$mdp."#", $mdpConfirmation) and !in_array($email, $listeEmails)) {
             $resultat = DB::table('enseignants')->insert(
                 array('nom' => $nom, 'prenom' => $prenom, 'numTel' => $tel, 'email' => $email, 'mot_de_passe' => password_hash($mdp, PASSWORD_DEFAULT), 'age' => 0)
             );
             if($resultat) {
+                $id = null;
+                if (isset(DB::table('enseignants')->where('email', $email)->get()[0]->id)){
+                    $id = DB::table('enseignants')->where('email', $email)->get()[0]->id;
+                }
                 $_SESSION['connecte'] = 'enseignant';
+                $_SESSION['id'] = $id;
                 return redirect ('/enseignants');
             }            
         }

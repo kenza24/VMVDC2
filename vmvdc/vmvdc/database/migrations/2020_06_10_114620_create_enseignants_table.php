@@ -15,14 +15,14 @@ class CreateEnseignantsTable extends Migration
     {
         Schema::create('enseignants', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('nom');
-          $table->string('prenom');
+          $table->string('nom')->nullable();
+          $table->string('prenom')->nullable();
           $table->string('email')->unique();
-          $table->string('mot_de_passe');
+          $table->string('mot_de_passe')->nullable();
           $table->boolean('dejaVenu')->default(0);
-          $table->string('numTel');
-          $table->integer('age');
-          $table->boolean('isEnseignant');
+          $table->string('numTel')->nullable();
+          $table->integer('age')->nullable();
+          $table->boolean('isEnseignant')->nullable();
           $table->timestamps();
         });
     }

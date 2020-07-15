@@ -14,8 +14,8 @@ class CreateParticipationsDoctorantsTable extends Migration
     public function up()
     {
         Schema::create('participations_doctorants', function (Blueprint $table) {
-            $table->integer('idSession');
-            $table->integer('idDoctorants');
+            $table->integer('idSession')->nullable();
+            $table->integer('idDoctorants')->nullable();
         });
     }
 

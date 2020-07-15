@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Informations extends Migration
+class CreateInformationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,12 @@ class Informations extends Migration
     public function up()
     {
         Schema::create('informations', function (Blueprint $table) {
-            $table->string('descriptifProjet');
-            $table->string('demarcheParticipation');
-            $table->string('annee');
-            $table->integer('etatValidation');
-            $table->timestamp('dateButoir');
+            $table->string('descriptifProjet')->nullable();
+            $table->string('demarcheParticipation')->nullable();
+            $table->string('annee')->nullable();
+            $table->integer('etatValidation')->default(0);
+            $table->timestamp('dateButoir')->nullable();
+            $table->string('images')->nullable();
         });
     }
 

@@ -15,11 +15,11 @@ class CreateDoctorantsTable extends Migration
     {
         Schema::create('doctorants', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email');
-            $table->string('mot_de_passe');
-            $table->boolean('isDoctorant');
+            $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mot_de_passe')->nullable();
+            $table->boolean('isDoctorant')->nullable();
             $table->timestamps();
         });
     }
