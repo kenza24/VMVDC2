@@ -34,7 +34,7 @@ class SessionsDController extends Controller
       }
       //dd($idS);
 
-      $participations = DB::table('participations_doctorants')->select('selectionner', 'idSession')->get();
+      $participations = DB::table('participations_doctorants')->select('idSession')->get();
       //dd($participations);
 
       return view('sessionsD', [
@@ -60,7 +60,7 @@ class SessionsDController extends Controller
       //dd("coucou");
       //ajout lors du cliquage du bouton dans la classe participations_doctorants
       //$inscription = DB::table('participations_doctorants')->update(array('idSession' => $idSession, 'idDoctorants' => $idDoctorant));
-      $inscription = DB::table('participations_doctorants')->insert(array('idSession' => $idSession, 'idDoctorants' => $idDoctorant, 'selectionner'=>1));
+      $inscription = DB::table('participations_doctorants')->insert(array('idSession' => $idSession, 'idDoctorants' => $idDoctorant));
 
       return back();
   }

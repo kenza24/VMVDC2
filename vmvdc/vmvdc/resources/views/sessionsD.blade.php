@@ -89,7 +89,7 @@
                     </td>
                     <!--si ca ne correspond pas, il n'est pas inscrit -->
 
-                <?php  else:?>
+                <?php  elseif ($value!=null):?>
                   <td>
                     <form action={{route('inscriptionD')}} method="post">
                       {{csrf_field()}}
