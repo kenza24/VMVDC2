@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccompagnateursTable extends Migration
+class CreateLogosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAccompagnateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('accompagnateurs', function (Blueprint $table) {
+        Schema::create('logos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('idClasse');
+            $table->string('nom')->nullable();
+            $table->string('chemin')->nullable();
+            $table->string('url')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateAccompagnateursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accompagnateurs');
+        Schema::dropIfExists('logos');
     }
 }

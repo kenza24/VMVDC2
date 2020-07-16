@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class APropos extends Migration
+class CreateAProposTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class APropos extends Migration
     public function up()
     {
         Schema::create('aPropos', function (Blueprint $table) {
-            $table->string('descriptif');
-            $table->string('equipeAdmin');
-            $table->string('mentionsLegales');
-            $table->string('equipeInfo');
-            $table->string('droits');
-            $table->string('conceptDesign');
-            $table->string('loiInformatiqueEtLiberte');
+            $table->string('descriptif')->nullable();
+            $table->string('equipeAdmin')->nullable();
+            $table->string('mentionsLegales')->nullable();
+            $table->string('equipeInfo')->nullable();
+            $table->string('droits')->nullable();
+            $table->string('conceptDesign')->nullable();
+            $table->string('loiInformatiqueEtLiberte')->nullable();
         });
     }
 

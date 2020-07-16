@@ -14,8 +14,8 @@ class CreateFichiersSessionsTable extends Migration
     public function up()
     {
         Schema::create('fichiers_sessions', function (Blueprint $table) {
-            $table->integer('idSession');
-            $table->string('fichiers');
+            $table->integer('idSession')->nullable();
+            $table->string('fichiers')->nullable();
         });
     }
 

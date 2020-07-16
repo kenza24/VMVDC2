@@ -15,17 +15,20 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('niveau');
-            $table->integer('idEnseignant');
-            $table->boolean('dejaVenu');
-            $table->boolean('rep');
-            $table->string('academie');
-            $table->integer('choixSession1');
-            $table->integer('choixSession2');
-            $table->string('etablissementScolaire');
-            $table->string('codePostal');
-            $table->integer('effectifClasse');
-            $table->string('ville');
+            $table->string('niveau')->nullable();
+            $table->integer('idEnseignant')->nullable();
+            $table->boolean('dejaVenu')->nullable();
+            $table->boolean('rep')->nullable();
+            $table->string('academie')->nullable();
+            $table->integer('choixSession1')->nullable();
+            $table->integer('choixSession2')->nullable();
+            $table->integer('choixSession3')->nullable();
+            $table->string('etablissementScolaire')->nullable();
+            $table->string('codePostal')->nullable();
+            $table->integer('effectifClasse')->nullable();
+            $table->string('ville')->nullable();
+            $table->integer('nb_accompagnateurs')->nullable();
+            $table->string('nom')->nullable();
             $table->timestamps();
         });
     }
