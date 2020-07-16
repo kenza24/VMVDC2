@@ -19,7 +19,6 @@ class CompteEController extends Controller
         'data' => $data
       ]);
     }
-
     return view('connexionE');
   }
 
