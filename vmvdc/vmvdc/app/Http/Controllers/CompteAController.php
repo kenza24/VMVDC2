@@ -47,7 +47,7 @@ class CompteAController extends Controller
         $minute = request('minute');
         $effectifMax = request('effectifMax');
         $resultat = DB::table('sessions')->insert(
-          array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute, 'effectifMax' => $effectifMax, 'etatSession' => "nonValidee")
+          array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute, 'effectifMax' => $effectifMax)
         );
 
         if($resultat) {
