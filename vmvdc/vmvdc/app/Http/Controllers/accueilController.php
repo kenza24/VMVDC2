@@ -9,11 +9,16 @@ class accueilController extends Controller
 {
     public function accueil()
     {
-        $informations = DB::table('informations')->get()[0];
-        $descriptifProjet = $informations->descriptifProjet;
-        $demarcheParticipation = $informations->demarcheParticipation;
-        $tableauImages = explode(',', $informations->images);
-        $tableauImages = array_filter($tableauImages);
+        $descriptifProjet = "";
+        $demarcheParticipation = "";
+        $tableauImages = [];
+        if (isset(DB::table('informations')->get()[0])){
+            $informations = DB::table('informations')->get()[0];
+            $descriptifProjet = $informations->descriptifProjet;
+            $demarcheParticipation = $informations->demarcheParticipation;
+            $tableauImages = explode(',', $informations->images);
+            $tableauImages = array_filter($tableauImages); //supprime les elements vide ou nuls
+        }
 
         return view('welcome', [
             'descriptifProjet' => $descriptifProjet,
@@ -24,18 +29,21 @@ class accueilController extends Controller
 
     public function modificationAccueil()
     {
-        $informations = DB::table('informations')->get()[0];
-        $demarcheParticipation = $informations->demarcheParticipation;
-        $descriptifProjet = $informations->descriptifProjet;
-        $images = $informations->images;
-        $tableauImages = explode(',', $images);
-        $tableauNoms = [];
-        $tableauImages = array_filter($tableauImages);
+        $descriptifProjet = "";
+        $demarcheParticipation = "";
+        $tableauImages = [];
+        if (isset(DB::table('informations')->get()[0])) {
+            $informations = DB::table('informations')->get()[0];
+            $demarcheParticipation = $informations->demarcheParticipation;
+            $descriptifProjet = $informations->descriptifProjet;
+            $images = $informations->images;
+            $tableauImages = explode(',', $images);
+            $tableauImages = array_filter($tableauImages); //supprime les elements vides ou nuls
+        }
 
         return view('modificationAccueil', [
             'descriptifProjet' => $descriptifProjet,
             'demarcheParticipation' => $demarcheParticipation,
-            'tableauNoms' => $tableauNoms,
             'tableauImages' => $tableauImages
         ]);
     }
@@ -49,7 +57,10 @@ class accueilController extends Controller
         $resultat = DB::table('informations')->update(array('descriptifProjet' => $descriptifProjet));
         $resultat = DB::table('informations')->update(array('demarcheParticipation' => $demarcheParticipation));
 
-        $images = DB::table('informations')->select('images')->get()[0]->images; //recuperation de la chaine des lien des images
+        $images = "";
+        if (isset(DB::table('informations')->select('images')->get()[0]->images)) {
+            $images = DB::table('informations')->select('images')->get()[0]->images; //recuperation de la chaine des lien des images
+        }
 
         //Suppression Image
         if (isset($suppressionImages)) {
@@ -82,7 +93,10 @@ class accueilController extends Controller
                         $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
                         if(move_uploaded_file($_FILES['images']['tmp_name'][$i], $dossier . $nomFichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
                         {
-                            $images = DB::table('informations')->select('images')->get()[0]->images; //recuperation de la chaine des lien des images
+                            $images = "";
+                            if (isset(DB::table('informations')->select('images')->get()[0]->images)) {
+                                $images = DB::table('informations')->select('images')->get()[0]->images; //recuperation de la chaine des lien des images
+                            }
                             $chemins = explode("," ,$images);
                             array_push($chemins, $dossier.$nomFichier);
                             //si la chaine est vide on supprime la ',' qui va apparaitre au debut de la chaine apres l'implode
@@ -112,14 +126,23 @@ class accueilController extends Controller
 
     public function aPropos()
     {
-        $aPropos = DB::table('aPropos')->get()[0];
-        $equipeAdmin = $aPropos->equipeAdmin;
-        $mentionsLegales = $aPropos->mentionsLegales;
-        $equipeInfo = $aPropos->equipeInfo;
-        $droits = $aPropos->droits;
-        $conceptDesign = $aPropos->conceptDesign;
-        $loiInformatiqueEtLiberte = $aPropos->loiInformatiqueEtLiberte;
-        $descriptif = $aPropos->descriptif;
+        $equipeAdmin = "";
+        $mentionsLegales = "";
+        $equipeInfo = "";
+        $droits = "";
+        $conceptDesign = "";
+        $loiInformatiqueEtLiberte = "";
+        $descriptif = "";
+        if (isset(DB::table('aPropos')->get()[0])) {
+            $aPropos = DB::table('aPropos')->get()[0];
+            $equipeAdmin = $aPropos->equipeAdmin;
+            $mentionsLegales = $aPropos->mentionsLegales;
+            $equipeInfo = $aPropos->equipeInfo;
+            $droits = $aPropos->droits;
+            $conceptDesign = $aPropos->conceptDesign;
+            $loiInformatiqueEtLiberte = $aPropos->loiInformatiqueEtLiberte;
+            $descriptif = $aPropos->descriptif;
+        }
 
         return view('aPropos', [
             'equipeAdmin' => $equipeAdmin,
@@ -134,14 +157,24 @@ class accueilController extends Controller
 
     public function modificationAPropos()
     {
-        $aPropos = DB::table('aPropos')->get()[0];
-        $descriptif = $aPropos->descriptif;
-        $equipeAdmin = $aPropos->equipeAdmin;
-        $mentionsLegales = $aPropos->mentionsLegales;
-        $equipeInfo = $aPropos->equipeInfo;
-        $droits = $aPropos->droits;
-        $conceptDesign = $aPropos->conceptDesign;
-        $loiInformatiqueEtLiberte = $aPropos->loiInformatiqueEtLiberte;
+        $descriptif = "";
+        $equipeAdmin = "";
+        $mentionsLegales = "";
+        $equipeInfo = "";
+        $droits = "";
+        $conceptDesign = "";
+        $loiInformatiqueEtLiberte = "";
+        if (isset(DB::table('aPropos')->get()[0])) {
+            $aPropos = DB::table('aPropos')->get()[0];
+            $descriptif = $aPropos->descriptif;
+            $equipeAdmin = $aPropos->equipeAdmin;
+            $mentionsLegales = $aPropos->mentionsLegales;
+            $equipeInfo = $aPropos->equipeInfo;
+            $droits = $aPropos->droits;
+            $conceptDesign = $aPropos->conceptDesign;
+            $loiInformatiqueEtLiberte = $aPropos->loiInformatiqueEtLiberte;
+        }
+        
 
         return view('modificationAPropos', [
             'descriptif' => $descriptif,
@@ -164,13 +197,21 @@ class accueilController extends Controller
         $conceptDesign = request('conceptDesign');
         $loiInformatiqueEtLiberte = request('loiInformatiqueEtLiberte');
 
-        $resultat = DB::table('APropos')->update(array('descriptif' => $descriptif));
-        $resultat = DB::table('APropos')->update(array('equipeAdmin' => $equipeAdmin));
-        $resultat = DB::table('APropos')->update(array('mentionsLegales' => $mentionsLegales));
-        $resultat = DB::table('APropos')->update(array('equipeInfo' => $equipeInfo));
-        $resultat = DB::table('APropos')->update(array('droits' => $droits));
-        $resultat = DB::table('APropos')->update(array('conceptDesign' => $conceptDesign));
-        $resultat = DB::table('APropos')->update(array('loiInformatiqueEtLiberte' => $loiInformatiqueEtLiberte));
+        if (isset(DB::table('aPropos')->get()[0])) {
+            $resultat = DB::table('APropos')->update(array('descriptif' => $descriptif));
+            $resultat = DB::table('APropos')->update(array('equipeAdmin' => $equipeAdmin));
+            $resultat = DB::table('APropos')->update(array('mentionsLegales' => $mentionsLegales));
+            $resultat = DB::table('APropos')->update(array('equipeInfo' => $equipeInfo));
+            $resultat = DB::table('APropos')->update(array('droits' => $droits));
+            $resultat = DB::table('APropos')->update(array('conceptDesign' => $conceptDesign));
+            $resultat = DB::table('APropos')->update(array('loiInformatiqueEtLiberte' => $loiInformatiqueEtLiberte));
+        }
+        else {
+            $resultat = DB::table('APropos')->insert(
+                array('descriptif' => $descriptif, 'equipeAdmin' => $equipeAdmin, 'mentionsLegales' => $mentionsLegales,
+                'equipeInfo' => $equipeInfo, 'droits' => $droits, 'conceptDesign' => $conceptDesign,
+                'loiInformatiqueEtLiberte' => $loiInformatiqueEtLiberte));
+        }
 
         return redirect('aPropos');
     }
