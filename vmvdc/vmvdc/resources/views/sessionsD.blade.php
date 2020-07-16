@@ -28,10 +28,10 @@
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
+            <th scope="col"></th>
             <th scope="col">Date</th>
             <th scope="col">Heure</th>
             <th scope="col">Effectif maximum</th>
-            <th scope="col"></th>
           </tr>
         </thead>
 
@@ -42,30 +42,14 @@
             //dd($sessions);
             ?>
             <tr>
-            <td><?= $session->date ?></td>
-            <td><?= $session->heure?></td>
-            <td><?=$session->effectifMax?></td>
 
             <?php
             //dd($idS);
-            if ($idS == null): ?>
-            <td>
-              <form action={{route('inscriptionD')}} method="post">
-                {{csrf_field()}}
-                <!-- recuperer les id ? -->
-                <input type="text" hidden name="idSession" value=<?= $session->id?>>
-                <button type="submit" class="btn btn-outline-success"> S'inscrire </a>
-                </form>
-              </td>
+            //if ($idS == null): ?>
 
-          <?php endif;?>
 
-            <?php
-            foreach ($idS as $value):
-              //dd(count($idS));
-              //dd($value);
-              //dd($idS);
-              ?>
+
+
 
             <!-- si l'id de la session (tableau) correxpond a l'id de la sessions courante -> il est inscrit donc desinscriptionDoctorant -->
             <?php    //dd($idS);
@@ -75,7 +59,7 @@
                   //dd($value->idSession);
               //if($session->id != null) :
                 //dd($session->id);
-                if ($value == $session->id && $session->id != null):
+                if (in_array($session->id, $idS)):
                 //dd($value);
                 ?>
                   <!-- si ca correspond c'est qu'il est deja inscrit -->
@@ -89,7 +73,7 @@
                     </td>
                     <!--si ca ne correspond pas, il n'est pas inscrit -->
 
-                <?php  elseif ($value!=null):?>
+                <?php  else :?>
                   <td>
                     <form action={{route('inscriptionD')}} method="post">
                       {{csrf_field()}}
@@ -101,10 +85,13 @@
                   <?php endif; ?>
 
 
+                  <td><?= $session->date ?></td>
+                  <td><?= $session->heure?></td>
+                  <td><?=$session->effectifMax?></td>
               </tr>
 
 
-          <?php endforeach;?>
+
         <?php endforeach;?>
         </tbody>
       </table>
