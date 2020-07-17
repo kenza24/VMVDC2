@@ -94,27 +94,6 @@
               <img src=<?= $chemin ?> alt=<?= substr(strstr($chemin, "/"), 1) ?> class="img-thumbnail">
             </a>
           <?php endforeach; ?>
-          <!--<a href="https://www.paris.fr/" class="mt-2 mb-2">
-            <img src="content/ville-de-paris.png" alt="Sponsor1" class="img-thumbnail">
-          </a>
-          <a href="http://www.sorbonne-universite.fr/" class="mt-2 mb-2">
-            <img src="content/su-logo.jpg" alt="Sponsor2" class="img-thumbnail">
-          </a>
-          <a href="https://www.iledefrance.fr/" class="mt-2 mb-2">
-            <img src="content/LOGO_RIDF_2019.svg" alt="Sponsor3" class="img-thumbnail">
-          </a>
-          <a href="http://sciences.sorbonne-universite.fr/ufr-sciences-de-la-vie" class="mt-2 mb-2">
-            <img src="content/UFR-science-de-la-vie.jpg" alt="Sponsor4" class="img-thumbnail">
-          </a>
-          <a href="https://lannuaire.service-public.fr/navigation/ile-de-france/rectorat" class="mt-2 mb-2">
-            <img src="content/ac_creteil_paris_versailles.png" alt="Sponsor5" class="img-thumbnail">
-          </a>
-          <a href="http://ifd.sorbonne-universite.fr/fr/a-propos-de-l-ifd.html" class="mt-2 mb-2">
-            <img src="content/ifd.png" alt="Sponsor6" class="img-thumbnail">
-          </a>
-          <!--<a href="" class="mt-2 mb-2">
-            <img src="content/iut-villetaneuse.png" alt="Sponsor7" class="img-thumbnail">
-          </a>-->
         </div>
       </div>
 
