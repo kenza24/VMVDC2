@@ -13,6 +13,8 @@
             <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:50px; margin-top: 25px; margin-left: 100px;">
                 <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
             </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </div>
@@ -42,11 +44,15 @@
                 </div>
                 <br>
 
-                <!-- Images -->
+            <!-- Images -->
                 <h6>Ajouter une image (gif, jpeg/jpg, png):</h6>
                 <input type="file" name='images[]' multiple/>
                 <br>
                 <br>
+
+                <?php if(!empty($tableauImages)): ?>
+                    <h6>Supprimer les images souhaitées :</h6>
+                <?php endif; ?>
 
                 <div class="row">
                     <?php foreach($tableauImages as $image): ?>
@@ -58,6 +64,32 @@
                                     </div>
                                 </div>
                                 <img src=<?= $image ?> alt=<?= substr(strstr($image, "/"), 1) ?> class="img-thumbnail" style="height: 100px; min-width: 50px;">
+                            </label>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+            <!-- Logos Partenaires et Financeurs-->
+                <h6>Ajouter un logo de partenaire ou financeur (gif, jpeg/jpg, png):</h6>
+                <input type="file" name='logos[]' multiple/>
+                <br>
+                <br>
+
+                <?php if(!empty($tableauLogos)): ?>
+                    <h6>Supprimer ou ajouter un liens aux logos souhaités :</h6>
+                <?php endif; ?>
+
+                <div class="row">
+                    <?php foreach($tableauLogos as $chemin => $url): ?>
+                        <div class="input-group mb-3 col">
+                            <label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" aria-label="Checkbox for following text input" name="suppressionLogos[]" value=<?= $chemin ?>>
+                                    </div>
+                                </div>
+                                <img src=<?= $chemin ?> alt=<?= substr(strstr($chemin, "/"), 1) ?> class="img-thumbnail" style="height: 100px; min-width: 50px;">
+                                <input type="text" class="form-control" aria-label="Text input with checkbox" placeholder="<?= $url ?>" name="urls[]">
                             </label>
                         </div>
                     <?php endforeach; ?>

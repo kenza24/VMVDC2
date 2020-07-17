@@ -69,7 +69,7 @@
         <?php if(!empty($tableauImages)): ?>
           <div class="row d-flex justify-content-around mt-5 mb-5">
             <div class="col-md d-flex justify-content-around mt-5 mb-5" style="color: black;">
-              <h3>Images de représentation</h3>
+              <h3>Images de présentation</h3>
             </div>
           </div>
         <?php endif; ?>
