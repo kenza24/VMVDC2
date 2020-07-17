@@ -89,7 +89,12 @@
           </div>
         </div>
         <div class="row justify-content-md-around mt-5 mb-5" id="financeur-partenaire-logo">
-          <a href="https://www.paris.fr/" class="mt-2 mb-2">
+          <?php foreach ($tableauLogos as $chemin => $url):?>
+            <a href=<?= $url ?> class="mt-2 mb-2">
+              <img src=<?= $chemin ?> alt=<?= substr(strstr($chemin, "/"), 1) ?> class="img-thumbnail">
+            </a>
+          <?php endforeach; ?>
+          <!--<a href="https://www.paris.fr/" class="mt-2 mb-2">
             <img src="content/ville-de-paris.png" alt="Sponsor1" class="img-thumbnail">
           </a>
           <a href="http://www.sorbonne-universite.fr/" class="mt-2 mb-2">
