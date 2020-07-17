@@ -38,7 +38,9 @@
             <th scope="col">Enseignant</th>
             <th scope="col">Doctorants</th>
             <th scope="col">Accompagnateurs</th>
-            <th scope="col">Nombre d'élèves</th>
+            <th scope="col">Effectif Classe</th>
+            <th scope="col">Administrateur référent</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -54,7 +56,25 @@
                 <?php endforeach;?>
               </td>
               <td><?= $accompagnateurs[$session->id] ?></td>
-              <td><?= $session->nombreEleves ?></td>
+              <td><?= $session->effectifClasse ?></td>
+              <td><?= $administrateur[$session->id] ?></td>
+              <td>
+                <?php if($session->idAdminReferent == null): ?>
+                  <form action={{'accueilSession'}} method="post">
+                    {{csrf_field()}}
+                      <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                      <input type="text" hidden name="idAdmin" value=<?= $_SESSION['id'] ?>>
+                      <button type="submit" class="btn btn-success">Accueillir</button>
+                    </form>
+                <?php elseif($session->idAdminReferent == $_SESSION['id']): ?>
+                  <form action={{'desistementSession'}} method="post">
+                    {{csrf_field()}}
+                      <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                      <input type="text" hidden name="idAdmin" value=<?= $_SESSION['id'] ?>>
+                      <button type="submit" class="btn btn-danger">Se désister</button>
+                    </form>
+                <?php endif; ?>
+              </td>
             </tr>
           <?php endforeach;?>
         </tbody>
