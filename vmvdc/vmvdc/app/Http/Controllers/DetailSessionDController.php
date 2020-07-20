@@ -8,27 +8,43 @@ use Illuminate\Support\Facades\DB;
 class DetailSessionDController extends Controller{
 
   public function details(){
-    //dd("coucou");
-    //dd($_SESSION['id']);
+    /*request()->validate([
+      'idSession'=>'required'
+    ]);
+    
+    $idSession = request('idSession');*/
+    $idSession = 1;
+    
+    if(isset(DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->where('sessions.id', $idSession)
+    ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')->get()[0])){
 
-     request()->validate([
-        'details'=>'required',
-      ]);
+      //recuperation informations de sessoins et classes pour la sesion en cours
+      $session = DB::table('sessions')
+        ->join('classes', 'classes.id', '=', 'sessions.idClasse')
+        ->where('sessions.id', $idSession)
+        ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')
+        ->get()[0];
 
-      $details = request('details');
-      //$id = request('id');
-      //update de la case "details" avec ce que le doctorant en question a entré
-      $detail= DB::table('doctorants')->where('id', '=', $_SESSION['id'])->update(array('details'=>$details));
+      //recuperation informations enseignant
+      $enseignant = [];
+      if(isset(DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0])){
+        $enseignant = DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0];
+      }
 
-      //dd($res);
-
-      return view('detailSessionD', [
-          'details' => $details,
-      ]);
+      if (DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get() != null) {
+        $fichiers = DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get();
+      }
     }
 
+    return view('detailSessionD', [
+      'session' => $session,
+      'enseignant' => $enseignant,
+      'fichiers' => $fichiers
+    ]);
+  }
 
-      public function ajoutFichier(){
+
+      public function update(){
         dd("cc");
         //echo("cc");
         //affiche le chemin du fichier

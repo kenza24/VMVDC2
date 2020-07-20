@@ -140,11 +140,8 @@ Route::get('enseignantsD', 'SessionsDController@enseignants')->name('enseignants
 
 Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessionsInscrisD');
 
-Route::get('detailSessionD', function(){
-  return view ('detailSessionD');
-});
-Route::post('details', 'DetailSessionDController@details')->name('details');
-Route::post('ajoutFichier', 'DetailSessionDController@ajoutFichier')->name('ajoutFichier');
+Route::get('detailSessionD', 'DetailSessionDController@details');
+Route::post('update', 'DetailSessionDController@update')->name('update');
 
 //FIN DOCTORANT
 //Auth
