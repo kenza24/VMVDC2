@@ -21,11 +21,12 @@ class ListeInscritDController extends Controller
     //dd($idS);
     $sessions=[];
     foreach($idS as $s){
-      $session = DB::table('sessions')->where ('id', '=', $s->idSession)->select('date', 'heure', 'idEnseignant')->get();
+      $session = DB::table('sessions')->where ('id', '=', $s->idSession)->select('date', 'heure', 'idEnseignant', 'idClasse')->get();
 
       array_push($sessions, $session);
 
     }
+    //dd($sessions);
   //  dd($sessions);
   $enseignants = [];
     foreach ($sessions as $e){
@@ -38,11 +39,12 @@ class ListeInscritDController extends Controller
     $classes = [];
     foreach ($enseignants as $value){
       foreach($value as $e){
-        $classe = DB::table('classes')->where('idEnseignant', '=', $e->id)->select('etablissementScolaire', 'niveau', 'idEnseignant')->get();
+        $classe = DB::table('classes')->where('idEnseignant', '=', $e->id)->select('etablissementScolaire', 'niveau', 'idEnseignant', 'id')->get();
+
         array_push($classes, $classe);
       }
     }
-    //dd($classes);
+  //  dd($classes);
 
 //    dd($enseignants);
     //dd($sessions);

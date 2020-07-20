@@ -47,31 +47,37 @@
                   <!--AFFICHAGE DES INFOS DE LA SESSION -->
                   <td><?= $v->date?></td>
                   <td><?=$v->heure?></td>
+                  
                   <!--AFFICHAGE DES INFOS DE L'ENSEIGNANT -->
                   <?php foreach ($enseignants as $value) : //dd($enseignants); ?>
                     <?php foreach($value as $e): //dd($e);?>
+
                       <!--Ce if sert a afficher le nom de l'enseignant correspondant a la session -->
-                      <?php if ($v->idEnseignant == $e->id) : ?>
+                      <?php  if ($v->idEnseignant == $e->id) : ?>
                         <td><?= $e->nom. " ". $e->prenom?></td>
                       <?php endif;?>
+
                     <?php endforeach;?>
-                  <?php endforeach;
+                  <?php endforeach;?>
 
-                  ?>
+                  <!--- AFFICHAGE INFOS DE LA CLASSE -->
+                  <?php foreach ($classes as $key=>$value): ?>
+                    <?php foreach ($value as $classe): ?>
 
+                      <!-- affiche la classe en fonction de l'idClasse de la session -->
+                      <?php if ($v->idClasse == $classe->id): //dd($e->id)?>
+                        <td><?=$classe->etablissementScolaire ?></td>
+                        <td><?=$classe->niveau?> </td>
+                      <?php endif;?>
 
-                        <?php foreach ($classes as $c): //dd($classes);?>
-                          <?php foreach($c as $value) : //dd($e->id)?>
-                            <?php if ($value->idEnseignant == $e->id): ?>
-                              <td><?=$value->etablissementScolaire ?></td>
-                              <td><?=$value->niveau?> </td>
-                            <?php endif;?>
-
-
-                      <?php endforeach;?>
                     <?php endforeach;?>
+                  <?php endforeach;?>
+
+
+
                         <td><a type="button" class="btn btn-xs btn-secondary" href="/detailSessionD">Détails</a></td>
             </tr>
+            <!-- fin foreach de la session -->
           <?php endforeach;?>
         <?php endforeach;?>
         </tbody>
