@@ -29,9 +29,11 @@
         <thead>
           <tr>
             <th scope="col">Date</th>
+            <th scope="col">Heure</th>
             <th scope="col">Enseignant</th>
             <th scope="col">Nom du lycée</th>
-            <th scope="col">Accompagnateurs</th>
+            <th scope="col">Niveau</th>
+
             <th scope="col"></th>
 
           </tr>
@@ -40,14 +42,38 @@
         <tbody>
 
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a type="button" class="btn btn-xs btn-secondary" href="/detailSessionD">Détails</a></td>
+              <?php foreach ($sessions as $value) : ?>
+                <?php foreach ($value as $k=>$v) : ?>
+                  <!--AFFICHAGE DES INFOS DE LA SESSION -->
+                  <td><?= $v->date?></td>
+                  <td><?=$v->heure?></td>
+                  <!--AFFICHAGE DES INFOS DE L'ENSEIGNANT -->
+                  <?php foreach ($enseignants as $value) : //dd($enseignants); ?>
+                    <?php foreach($value as $e): //dd($e);?>
+                      <!--Ce if sert a afficher le nom de l'enseignant correspondant a la session -->
+                      <?php if ($v->idEnseignant == $e->id) : ?>
+                        <td><?= $e->nom. " ". $e->prenom?></td>
+                      <?php endif;?>
+                    <?php endforeach;?>
+                  <?php endforeach;
 
+                  ?>
+
+
+                        <?php foreach ($classes as $c): //dd($classes);?>
+                          <?php foreach($c as $value) : //dd($e->id)?>
+                            <?php if ($value->idEnseignant == $e->id): ?>
+                              <td><?=$value->etablissementScolaire ?></td>
+                              <td><?=$value->niveau?> </td>
+                            <?php endif;?>
+
+
+                      <?php endforeach;?>
+                    <?php endforeach;?>
+                        <td><a type="button" class="btn btn-xs btn-secondary" href="/detailSessionD">Détails</a></td>
             </tr>
-
+          <?php endforeach;?>
+        <?php endforeach;?>
         </tbody>
       </table>
     </div>
