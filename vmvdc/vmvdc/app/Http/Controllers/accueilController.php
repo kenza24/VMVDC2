@@ -12,6 +12,7 @@ class accueilController extends Controller
         $descriptifProjet = "";
         $demarcheParticipation = "";
         $tableauImages = [];
+        $tableauLogos = [];
         if (isset(DB::table('informations')->get()[0])){
             $informations = DB::table('informations')->get()[0];
             $descriptifProjet = $informations->descriptifProjet;
@@ -19,11 +20,18 @@ class accueilController extends Controller
             $tableauImages = explode(',', $informations->images);
             $tableauImages = array_filter($tableauImages); //supprime les elements vide ou nuls
         }
+        if (DB::table('logos')->select('chemin')->get() != null){
+            $Logos = DB::table('logos')->select('chemin', 'url')->get();
+            foreach ($Logos as $logo) {
+                $tableauLogos[$logo->chemin] = $logo->url;
+            }
+        }
 
         return view('welcome', [
             'descriptifProjet' => $descriptifProjet,
             'demarcheParticipation' => $demarcheParticipation,
-            'tableauImages' => $tableauImages
+            'tableauImages' => $tableauImages,
+            'tableauLogos' => $tableauLogos
         ]);
     }
 
@@ -93,11 +101,16 @@ class accueilController extends Controller
         }
 
     //Ajout url logos
-        if (isset($urls)) {
+        if (DB::table('logos')->select('id')->get() != null and isset($urls)) {
+            $tabLogos = DB::table('logos')->select('id')->get();
+            $logos = current($tabLogos);
+            reset($logos);
             foreach ($urls as $url) {
-                if ($url != ""){
-                    $resultat = DB::table('logos')->update(array('url' => $url));
+                (current($logos));
+                if ($url != null and isset(DB::table('logos')->where('id', current($logos)->id)->get()[0])) {
+                    $resultat = DB::table('logos')->where('id', current($logos)->id)->update(array('url' => $url));
                 }
+                next($logos);
             }
         }
 

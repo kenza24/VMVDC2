@@ -42,6 +42,24 @@ class listesAController extends Controller
         return back();
     }
 
+    public function accueilSession()
+    {
+        $idAdmin = request('idAdmin');
+        $idSession = request('idSession');
+        $validation = DB::table('sessions')->where('id', $idSession)->update(array('idAdminReferent' => $idAdmin));
+
+        return back();
+    }
+
+    public function desistementSession()
+    {
+        $idAdmin = request('idAdmin');
+        $idSession = request('idSession');
+        $validation = DB::table('sessions')->where('id', $idSession)->update(array('idAdminReferent' => null));
+
+        return back();
+    }
+
     public function classes()
     {
         $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();
@@ -154,7 +172,7 @@ class listesAController extends Controller
 
     public function sessions()
     {
-        $sessions = DB::table('sessions')->select('date', 'id', 'nombreEleves', 'idClasse')->get();
+        $sessions = DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->select('date', 'sessions.id', 'idClasse', 'idAdminReferent', 'effectifClasse')->get();
 
         $infoDoctorants = [];
         //on recup un tableau de couple (idSession/idDoctorants)
@@ -174,6 +192,7 @@ class listesAController extends Controller
 
         $enseignants = [];
         $accompagnateurs = [];
+        $administrateurReferent = [];
         foreach ($sessions as $session) {
             $objetClasse = DB::table('classes')->select('nb_accompagnateurs')->where('id', $session->idClasse)->get();
             if (!isset($objetClasse[0])) {
@@ -191,31 +210,24 @@ class listesAController extends Controller
                     dd('Il y a un probleme des l\'id des classes');
                 }
                 $objetEnseignant = DB::table('enseignants')->select('nom', 'prenom')->where('id', $objetClasse[0]->idEnseignant)->get();
-                if (!isset($objetClasse[0])) {
-                    dd('Il y a un probleme des l\'id des enseignants');
+                $enseignants[$session->id] = "";
+                if (isset($objetEnseignant[0])) {
+                    $enseignants[$session->id] = $objetEnseignant[0]->prenom." ".$objetEnseignant[0]->nom;
                 }
-                $enseignants[$session->id] = $objetEnseignant[0]->prenom." ".$objetEnseignant[0]->nom;
             }
-        }
-
-        if (isset($_POST['idClasse']) and isset($_POST['numeroChoix'])) {
-            if($_POST['numeroChoix'] == 1){
-                $objetClasse = DB::table('classes')->select('choixSession1')->where('id', $_POST['idClasse'])->get();
-                $colore = DB::table('sessions')->where('id', '=', $objetClasse->choixSession1)->update(array('idClasse' => $_POST['idClasse']));
+            $administrateurReferent[$session->id] = "";
+            if (isset(DB::table('administrateurs')->select('nom', 'prenom')->where('id', $session->idAdminReferent)->get()[0])){
+                $admin = DB::table('administrateurs')->select('nom', 'prenom')->where('id', $session->idAdminReferent)->get()[0];
+                $administrateurReferent[$session->id] = $admin->prenom." ".$admin->nom;
             }
-            if($_POST['numeroChoix'] == 2){
-                $objetClasse = DB::table('classes')->select('choixSession2')->where('id', $_POST['idClasse'])->get();
-                $colore = DB::table('sessions')->where('id', '=', $objetClasse->choixSession2)->update(array('idClasse' => $_POST['idClasse']));
-            }
-            unset($_POST['idClasse']);
-            unset($_POST['numeroChoix']);
         }
 
         return view('sessionsA', [
             'sessions' => $sessions,
             'accompagnateurs' => $accompagnateurs,
             'enseignants' => $enseignants,
-            'infoDoctorants' => $infoDoctorants
+            'infoDoctorants' => $infoDoctorants,
+            'administrateur' => $administrateurReferent
         ]);
     }
 
