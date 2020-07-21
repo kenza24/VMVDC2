@@ -157,6 +157,10 @@ Route::get('modificationInfosA', function(){
 Route::post('modifA', 'ModificationInfosAController@modif')->name('modifA');
 
 
+//SUPPRESSION DES COMPTES
+
+Route::post('suppressionE', 'SuppressionCompteEController@suppressionE')->name('suppressionE');
+
 
 //FIN DOCTORANT
 //Auth
