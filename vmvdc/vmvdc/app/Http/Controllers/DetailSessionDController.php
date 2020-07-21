@@ -33,7 +33,7 @@ class DetailSessionDController extends Controller{
 
       $sessions = DB::table('sessions')->select('id');
 
-      foreach $sessions as $session {
+      foreach ($sessions as $session) {
         $detail = DB::table('sessions')->where ('id', '=', $sessions->id)->update(array('details'=>$details));
       }
       //$detail= DB::table('sessions')->where('id', '=', ])->update(array('details'=>$details));
