@@ -44,9 +44,14 @@
 
     </div>
 
-    <div class="d-flex flex-row p-2 justify-content-center">
-      <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosE')}}>Modifier mes informations</a>
+    <div class="mt-5 mb-3" style="text-align:center;">
+      <a type="button" class="btn btn-xs btn-secondary" href={{('modificationInfosE')}}>Modifier mes informations</a>
+      <form method="post" action={{route('suppressionE')}}  onsubmit="return confirm('Etes-vous sur ?');">
+        {{csrf_field()}}
+        <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+      </form>
     </div>
+
   </div>
 </div><!--Fin container-->
 
@@ -57,7 +62,19 @@
       <div class="d-flex flex-row">
 
 
-                <!--Carte doctorants-->
+
+              <div class="col-md-3">
+                <div class="card" style="background-color: #f5f5f5;">
+                  <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
+                    <div class="card flex-md-row">
+                      <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block text-secondary">Pré-Inscrivez votre classe !</strong>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionE')}}>Y aller !</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                   <div class="col-md-3">
                     <div class="card" style="background-color: #f5f5f5;">
                       <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
@@ -68,18 +85,6 @@
                     </div>
                   </div>
 
-                <!--Carte Enseignants-->
-                  <div class="col-md-3">
-                    <div class="card" style="background-color: #f5f5f5;">
-                    <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
-                      <div class="card flex-md-row">
-                        <div class="card-body d-flex flex-column align-items-start">
-                          <strong class="d-inline-block text-secondary">Pré-Inscrivez votre classe !</strong>
-                          <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionE')}}>Y aller !</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
       </div>
     </div>
