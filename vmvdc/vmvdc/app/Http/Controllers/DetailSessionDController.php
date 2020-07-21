@@ -11,10 +11,10 @@ class DetailSessionDController extends Controller{
     /*request()->validate([
       'idSession'=>'required'
     ]);
-    
+
     $idSession = request('idSession');*/
     $idSession = 1;
-    
+
     if(isset(DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->where('sessions.id', $idSession)
     ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')->get()[0])){
 
@@ -25,11 +25,20 @@ class DetailSessionDController extends Controller{
         ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')
         ->get()[0];
 
-      //recuperation informations enseignant
-      $enseignant = [];
-      if(isset(DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0])){
-        $enseignant = DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0];
+
+      $details = request('details');
+      //$id = request('id');
+      //update de la case "details" avec ce que le doctorant en question a entré
+      // dans la table session !! donc doit recuperer les infos de la session en question
+
+      $sessions = DB::table('sessions')->select('id');
+
+      foreach $sessions as $session {
+        $detail = DB::table('sessions')->where ('id', '=', $sessions->id)->update(array('details'=>$details));
       }
+      //$detail= DB::table('sessions')->where('id', '=', ])->update(array('details'=>$details));
+
+      //dd($res);
 
       if (DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get() != null) {
         $fichiers = DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get();
@@ -74,7 +83,7 @@ class DetailSessionDController extends Controller{
       }
       $taille_maxi = 100000000;
       $extensions = array('.png', '.gif', '.jpg', '.jpeg', '.pdf', '.docx', '.doc', '.txt', '.xls', '.xlsx', '.pptx', '.ppt', '.odp', '.xml', '.rtf');
-      for ($i=0; $i < $nbElmt; $i++) { 
+      for ($i=0; $i < $nbElmt; $i++) {
         $nomFichier = basename($_FILES['fichiers']['name'][$i]);
         $tailleFichier = filesize($_FILES['fichiers']['tmp_name'][$i]);
         $extension = strrchr($_FILES['fichiers']['name'][$i], '.');
@@ -84,8 +93,8 @@ class DetailSessionDController extends Controller{
           if($tailleFichier <= $taille_maxi)
           {
             //On formate le nom du fichier ici...
-            $nomFichier = strtr($nomFichier, 
-              'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+            $nomFichier = strtr($nomFichier,
+              'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
               'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
             $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
             if(move_uploaded_file($_FILES['fichiers']['tmp_name'][$i], $dossier . '/' . $nomFichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...

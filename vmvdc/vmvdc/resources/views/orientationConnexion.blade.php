@@ -23,13 +23,13 @@
 
 </div>
 
-<div class="container" style="height:450px;">
+<div class="container" style="height:450px; font-family: Georgia, serif; ">
 
 
     <br>
     <hr>
 
-    <div class="card bg-light">
+    <div class="card bg-light" >
         <article class="card-body mx-auto">
             <h3>Connectez-vous en tant que:</h3>
 

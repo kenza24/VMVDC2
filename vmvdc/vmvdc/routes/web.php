@@ -144,6 +144,13 @@ Route::get('detailSessionD', 'DetailSessionDController@details');
 Route::post('update', 'DetailSessionDController@update')->name('update');
 Route::post('telechargement', 'DetailSessionDController@telechargement')->name('telechargement');
 
+
+Route::get('modificationInfosD', function(){
+  return view ('modificationInfosD');
+});
+
+Route::post('modif', 'ModificationInfosDController@modif')->name('modif');
+
 //FIN DOCTORANT
 //Auth
 /*

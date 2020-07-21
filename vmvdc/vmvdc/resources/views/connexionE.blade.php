@@ -16,7 +16,7 @@
     <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
       <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
     </div>
-    
+
   </div>
 </div>
 
@@ -26,7 +26,7 @@
     <br>
     <hr>
 
-    <div class="card bg-light">
+    <div class="card bg-light" style="font-family: Georgia, serif; ">
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center">Connectez-vous</h4>
 
