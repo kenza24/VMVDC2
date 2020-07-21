@@ -18,7 +18,7 @@
 <br>
 <br>
 <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
-  <h1><?= $data[0]->nom ?></h1>
+  <!--<h1><?= $data[0]->nom ?></h1>-->
 </div>
 
 <!-- Vos informations -->
@@ -45,7 +45,7 @@
     </div>
 
     <div class="d-flex flex-row p-2 justify-content-center">
-      <button type="button" class="btn btn-xs btn-secondary col-4 text-break">Modifier mes informations</button>
+      <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosE')}}>Modifier mes informations</a>
     </div>
   </div>
 </div><!--Fin container-->
@@ -62,7 +62,7 @@
                     <div class="card" style="background-color: #f5f5f5;">
                       <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
                         <div class="card-body d-flex flex-column align-items-start">
-                          <strong class="d-inline-block text-secondary">Les doctorants</strong>
+                          <strong class="d-inline-block text-secondary">Mes sessions</strong>
                           <a class="btn btn-outline-secondary btn-sm" role="button" href={{('sessionsE')}} style="position:center">Y aller !</a>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                     <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
                       <div class="card flex-md-row">
                         <div class="card-body d-flex flex-column align-items-start">
-                          <strong class="d-inline-block text-secondary">Les enseignants</strong>
+                          <strong class="d-inline-block text-secondary">Pré-Inscrivez votre classe !</strong>
                           <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionE')}}>Y aller !</a>
                         </div>
                       </div>

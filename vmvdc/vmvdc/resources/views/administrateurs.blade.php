@@ -39,7 +39,7 @@
       <!--</dl>-->
 
       <div class="mt-5 mb-3" style="text-align:center;">
-        <a type="button" class="btn btn-xs btn-secondary" href="">Modifier mes informations</a>
+        <a type="button" class="btn btn-xs btn-secondary" href={{('modificationInfosA')}}>Modifier mes informations</a>
         <a type="button" class="btn btn-xs btn-secondary" href="inscriptionsA">Inscrire un administrateur</a>
         <a type="button" class="btn btn-xs btn-secondary" href={{('ajoutSession')}}>Ajouter une date de session</a>
         <a type="button" class="btn btn-xs btn-secondary" href={{('modificationAccueil')}}>Modifier les informations de la page d'accueil</a>

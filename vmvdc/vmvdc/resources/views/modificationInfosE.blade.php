@@ -39,7 +39,7 @@
       <p class="divider-text">
         <span class="bg-light"></span>
       </p>
-      <form action={{route('modifD')}}  method="post">
+      <form action={{route('modifE')}}  method="post">
         {{ csrf_field () }}
 
       <!--NOM/PRENOM-->
@@ -79,7 +79,7 @@
 
       <!--BOUTON-->
         <div class="form-group">
-          <button type="submit" class="btn btn-xs btn-secondary col-4 text-break"> Valider  </button>
+          <button type="submit" class="btn btn-xs btn-secondary col-12 text-break"> Valider  </button>
         </div>
 
 
