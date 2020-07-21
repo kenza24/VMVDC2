@@ -129,10 +129,6 @@ Route::get('sessionsD', function(){
   return view ('sessionsD');
 });
 
-Route::get('sessionsInscrisD', function(){
-  return view ('sessionsInscrisD');
-});
-
 Route::post('desinscriptionD', 'SessionsDController@desinscriptionDoctorant')->name('desinscriptionD');
 Route::post('inscriptionD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
 Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
@@ -140,7 +136,7 @@ Route::get('enseignantsD', 'SessionsDController@enseignants')->name('enseignants
 
 Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessionsInscrisD');
 
-Route::get('detailSessionD', 'DetailSessionDController@details');
+Route::post('detailSessionD', 'DetailSessionDController@details')->name('detailSessionD');
 Route::post('update', 'DetailSessionDController@update')->name('update');
 Route::post('telechargement', 'DetailSessionDController@telechargement')->name('telechargement');
 

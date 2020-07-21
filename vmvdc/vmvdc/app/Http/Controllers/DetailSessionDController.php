@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 session_start();
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use stdClass;
 
 class DetailSessionDController extends Controller{
 
   public function details(){
-    /*request()->validate([
+    request()->validate([
       'idSession'=>'required'
     ]);
 
-    $idSession = request('idSession');*/
-    $idSession = 1;
+    $idSession = request('idSession');
 
     if(isset(DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->where('sessions.id', $idSession)
     ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')->get()[0])){
@@ -32,20 +32,21 @@ class DetailSessionDController extends Controller{
       if (DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get() != null) {
         $fichiers = DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get();
       }
+
+      return view('detailSessionD', [
+        'session' => $session,
+        'enseignant' => $enseignant,
+        'fichiers' => $fichiers
+      ]);
     }
 
-    return view('detailSessionD', [
-      'session' => $session,
-      'enseignant' => $enseignant,
-      'fichiers' => $fichiers
-    ]);
+    return back();
   }
 
   public function telechargement()
   {
-    //dd('telechargement');
+    //téléchragement du fichier sélectionné
     $chemin = request('chemin');
-    //dd($chemin);
 
     if (file_exists($chemin)) {
         header('Content-Description: File Transfer');
@@ -63,7 +64,12 @@ class DetailSessionDController extends Controller{
   public function update()
   {
     $idSession = request('idSession');
+    $details = request('details');
 
+  //update details
+    $nbInsertions = DB::table('sessions')->where('id', $idSession)->update(array('details' => $idSession));
+
+  //Telechragement fichiers
     $nbElmt = count($_FILES['fichiers']['name']);
     if ($_FILES['fichiers']['size'][0] != 0) {
       $dossier = 'content/documents/session_'.$idSession;
@@ -92,22 +98,18 @@ class DetailSessionDController extends Controller{
             }
             else //Sinon (la fonction renvoie FALSE).
             {
-              //dd('Fin1');
               return back();
             }
           }
           else {
-            //dd('Fin2');
             return back();
           }
         }
         else {
-          //dd('Fin3');
           return back();
         }
       }
     }
-    //dd('Fin4');
     return back();
   }
 }

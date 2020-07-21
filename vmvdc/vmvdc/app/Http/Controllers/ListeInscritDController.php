@@ -21,7 +21,7 @@ class ListeInscritDController extends Controller
     //dd($idS);
     $sessions=[];
     foreach($idS as $s){
-      $session = DB::table('sessions')->where ('id', '=', $s->idSession)->select('date', 'heure', 'idEnseignant', 'idClasse')->get();
+      $session = DB::table('sessions')->where ('id', '=', $s->idSession)->select('id', 'date', 'heure', 'idEnseignant', 'idClasse')->get();
 
       //on prend une
       $uneSession = $session[0];
