@@ -6,7 +6,7 @@ session_start();
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ModificationInfosDController extends Controller
+class ModificationInfosAController extends Controller
 {
   public function modif(){
     //l'utilisateur choisi les infos qu'il souhaite modifier
@@ -22,23 +22,23 @@ class ModificationInfosDController extends Controller
       //Gérer les cas ou l'utilisateur ne modifie pas toutes les infos
 
       if ($nom2 != null){
-        $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
+        $resultat = DB::table('administrateurs')->where('id', '=', $_SESSION['id'])
         ->update(array('nom' => $nom2));
       }
       if($prenom2 != null){
-        $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
+        $resultat = DB::table('administrateurs')->where('id', '=', $_SESSION['id'])
         ->update(array('prenom' => $prenom2));
       }
       if($mdp2 != null){
-        $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
+        $resultat = DB::table('administrateurs')->where('id', '=', $_SESSION['id'])
         ->update(array('mot_de_passe' =>  password_hash($mdp2, PASSWORD_DEFAULT)));
       }
       if($email2 != null){
-        $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
+        $resultat = DB::table('administrateurs')->where('id', '=', $_SESSION['id'])
         ->update(array('email' => $email2));
       }
 
-      return redirect('/doctorants');
+      return redirect('/administrateurs');
 
 
 

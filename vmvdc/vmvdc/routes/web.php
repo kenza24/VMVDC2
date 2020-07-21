@@ -143,12 +143,23 @@ Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessi
 Route::get('detailSessionD', 'DetailSessionDController@details');
 Route::post('update', 'DetailSessionDController@update')->name('update');
 
-
+//MODIFICATIONS DES INFOS PERSO
 Route::get('modificationInfosD', function(){
   return view ('modificationInfosD');
 });
+Route::post('modifD', 'ModificationInfosDController@modif')->name('modifD');
 
-Route::post('modif', 'ModificationInfosDController@modif')->name('modif');
+Route::get('modificationInfosE', function(){
+  return view ('modificationInfosE');
+});
+Route::post('modifE', 'ModificationInfosEController@modif')->name('modifE');
+
+Route::get('modificationInfosA', function(){
+  return view ('modificationInfosA');
+});
+Route::post('modifA', 'ModificationInfosAController@modif')->name('modifA');
+
+
 
 //FIN DOCTORANT
 //Auth
