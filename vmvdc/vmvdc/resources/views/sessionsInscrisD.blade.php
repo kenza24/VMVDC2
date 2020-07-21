@@ -72,7 +72,13 @@
 
                     <?php endforeach;?>
 
-                        <td><a type="button" class="btn btn-xs btn-secondary" href="/detailSessionD">Détails</a></td>
+                        <td>
+                          <form action={{'detailSessionD'}} method="post">
+                            {{csrf_field()}}
+                            <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                            <button type="submit" class="btn btn-xs btn-secondary">Détails</button>
+                          </form>
+                        </td>
             </tr>
             <!-- fin foreach de la session -->
             <?php endforeach;?>
