@@ -64,7 +64,12 @@ class DetailSessionDController extends Controller{
   public function update()
   {
     $idSession = request('idSession');
+    $details = request('details');
 
+  //update details
+    $nbInsertions = DB::table('sessions')->where('id', $idSession)->update(array('details' => $idSession));
+
+  //Telechragement fichiers
     $nbElmt = count($_FILES['fichiers']['name']);
     if ($_FILES['fichiers']['size'][0] != 0) {
       $dossier = 'content/documents/session_'.$idSession;
