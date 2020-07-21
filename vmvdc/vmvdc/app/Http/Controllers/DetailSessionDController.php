@@ -43,27 +43,73 @@ class DetailSessionDController extends Controller{
     ]);
   }
 
+  public function telechargement()
+  {
+    //dd('telechargement');
+    $chemin = request('chemin');
+    //dd($chemin);
 
-      public function update(){
-        dd("cc");
-        //echo("cc");
-        //affiche le chemin du fichier
-        $path=request('fichierD')->store('fichierD');
-        $id=$_SESSION['id'];
-        //dd($id);
-        if (isset($_SESSION['id'])){
-          $res=DB::table('doctorants')->where('id', '=', $id)->update(array('fichierD'=>$path));
+    if (file_exists($chemin)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($chemin).'"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($chemin));
+        readfile($chemin);
+        exit;
+    }
+  }
 
-        }
-        //$id=DB::table('fichiers_sessions')->select('id');
-        //chez le doctorant ajoute son fichier, donc where id=id
-        //return $path;
-        return back();
+  public function update()
+  {
+    $idSession = request('idSession');
+
+    $nbElmt = count($_FILES['fichiers']['name']);
+    if ($_FILES['fichiers']['size'][0] != 0) {
+      $dossier = 'content/documents/session_'.$idSession;
+      if(!is_dir($dossier)) {
+        mkdir($dossier);
       }
-  //il faut pouvoir afficher les données de la session en question
-  /*public function infosEnseignant (){
-    $enseignants = DB::table('enseignants')->select('id', 'nom', 'prenom', 'mail')->get();
-
-  }*/
-
+      $taille_maxi = 100000000;
+      $extensions = array('.png', '.gif', '.jpg', '.jpeg', '.pdf', '.docx', '.doc', '.txt', '.xls', '.xlsx', '.pptx', '.ppt', '.odp', '.xml', '.rtf');
+      for ($i=0; $i < $nbElmt; $i++) { 
+        $nomFichier = basename($_FILES['fichiers']['name'][$i]);
+        $tailleFichier = filesize($_FILES['fichiers']['tmp_name'][$i]);
+        $extension = strrchr($_FILES['fichiers']['name'][$i], '.');
+        //Début des vérifications de sécurité...
+        if(in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
+        {
+          if($tailleFichier <= $taille_maxi)
+          {
+            //On formate le nom du fichier ici...
+            $nomFichier = strtr($nomFichier, 
+              'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+              'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+            $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
+            if(move_uploaded_file($_FILES['fichiers']['tmp_name'][$i], $dossier . '/' . $nomFichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+            {
+              $nbInsertions = DB::table('fichiers_sessions')->insert(array('idSession' => $idSession, 'fichiers' => $dossier . '/' . $nomFichier, 'nomFichier' => $nomFichier));
+            }
+            else //Sinon (la fonction renvoie FALSE).
+            {
+              //dd('Fin1');
+              return back();
+            }
+          }
+          else {
+            //dd('Fin2');
+            return back();
+          }
+        }
+        else {
+          //dd('Fin3');
+          return back();
+        }
+      }
+    }
+    //dd('Fin4');
+    return back();
+  }
 }
