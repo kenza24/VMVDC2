@@ -15,10 +15,18 @@ class DetailSessionDController extends Controller{
         'details'=>'required',
       ]);
 
+
       $details = request('details');
       //$id = request('id');
       //update de la case "details" avec ce que le doctorant en question a entré
-      $detail= DB::table('doctorants')->where('id', '=', $_SESSION['id'])->update(array('details'=>$details));
+      // dans la table session !! donc doit recuperer les infos de la session en question
+
+      $sessions = DB::table('sessions')->select('id');
+
+      foreach $sessions as $session {
+        $detail = DB::table('sessions')->where ('id', '=', $sessions->id)->update(array('details'=>$details));
+      }
+      //$detail= DB::table('sessions')->where('id', '=', ])->update(array('details'=>$details));
 
       //dd($res);
 
@@ -29,7 +37,7 @@ class DetailSessionDController extends Controller{
 
 
       public function ajoutFichier(){
-        dd("cc");
+        //sdd("cc");
         //echo("cc");
         //affiche le chemin du fichier
         $path=request('fichierD')->store('fichierD');
