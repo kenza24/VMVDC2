@@ -17,29 +17,18 @@ class DetailSessionDController extends Controller{
 
     if(isset(DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->where('sessions.id', $idSession)
     ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')->get()[0])){
-
       //recuperation informations de sessoins et classes pour la sesion en cours
       $session = DB::table('sessions')
         ->join('classes', 'classes.id', '=', 'sessions.idClasse')
         ->where('sessions.id', $idSession)
         ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')
         ->get()[0];
-
-
-      $details = request('details');
-      //$id = request('id');
-      //update de la case "details" avec ce que le doctorant en question a entré
-      // dans la table session !! donc doit recuperer les infos de la session en question
-
-      $sessions = DB::table('sessions')->select('id');
-
-      foreach ($sessions as $session) {
-        $detail = DB::table('sessions')->where ('id', '=', $sessions->id)->update(array('details'=>$details));
+      //recuperation informations enseignant
+      $enseignant = [];
+      if(isset(DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0])){
+        $enseignant = DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0];
       }
-      //$detail= DB::table('sessions')->where('id', '=', ])->update(array('details'=>$details));
-
-      //dd($res);
-
+      //récupération des fichiers de la session
       if (DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get() != null) {
         $fichiers = DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get();
       }
