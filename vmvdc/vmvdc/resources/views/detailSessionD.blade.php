@@ -45,7 +45,7 @@
             <h5>Documents liés à la sessions :</h5>
             <div class="list-group">
               <?php foreach($fichiers as $fichier): ?>
-                <form action={{'telechargement'}} method="post">
+                <form action={{'telechargementD'}} method="post">
                   {{csrf_field()}}
                   <input type="text" hidden name="chemin" value=<?= $fichier->fichiers ?>>
                   <button type="submit" class="btn btn-light"><?= $fichier->nomFichier ?></button>
@@ -53,7 +53,7 @@
               <?php endforeach; ?>
             </div>
           <?php endif; ?>
-          <form action={{'update'}} enctype= "multipart/form-data" method="POST">
+          <form action={{'detailSessionD'}} enctype="multipart/form-data" method="POST">
             {{csrf_field()}}
             <div class="pt-3 pb-3">
               <h5>Choisissez un document de présentation :</h5>
