@@ -8,12 +8,22 @@ use Illuminate\Support\Facades\DB;
 class DetailSessionDController extends Controller{
 
   public function details(){
-    //dd("coucou");
-    //dd($_SESSION['id']);
+    /*request()->validate([
+      'idSession'=>'required'
+    ]);
 
-     request()->validate([
-        'details'=>'required',
-      ]);
+    $idSession = request('idSession');*/
+    $idSession = 1;
+
+    if(isset(DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->where('sessions.id', $idSession)
+    ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')->get()[0])){
+
+      //recuperation informations de sessoins et classes pour la sesion en cours
+      $session = DB::table('sessions')
+        ->join('classes', 'classes.id', '=', 'sessions.idClasse')
+        ->where('sessions.id', $idSession)
+        ->select('sessions.id', 'date', 'classes.idEnseignant', 'idClasse', 'details', 'effectifclasse', 'niveau')
+        ->get()[0];
 
 
       $details = request('details');
@@ -30,10 +40,17 @@ class DetailSessionDController extends Controller{
 
       //dd($res);
 
-      return view('detailSessionD', [
-          'details' => $details,
-      ]);
+      if (DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get() != null) {
+        $fichiers = DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get();
+      }
     }
+
+    return view('detailSessionD', [
+      'session' => $session,
+      'enseignant' => $enseignant,
+      'fichiers' => $fichiers
+    ]);
+  }
 
 
       public function ajoutFichier(){
