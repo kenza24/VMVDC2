@@ -71,10 +71,10 @@ class SessionsDController extends Controller
       $idDoctorant = $_SESSION['id'];
 
       //autre methode pour suppression
-      //$suppression = participations_doctorants::find($idSession);
+      //$suppression = DB::table('participations_doctorants')-;
       //$suppression->delete();
 
-      $desinscription = DB::table('participations_doctorants')->where('idSession', '=', $idSession)->update(array('idSession' => null, 'idDoctorants'=>null));
+      $desinscription = DB::table('participations_doctorants')->where('idSession', '=', $idSession)->delete();
 
       return back();
   }

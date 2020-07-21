@@ -56,18 +56,30 @@
     <div class="col-md-12" style=" display: inline-block;">
       <div class="d-flex flex-row">
 
-            <div class="card flex-md-row shadow-sm h-md-250 p-2" style="width: 100%;">
-              <div class="card-body d-flex flex-column align-items-start text-wrap text-break">
-                <strong class="d-inline-block mb-2 text-secondary">Mes sessions</strong>
-                <h6 class="mb-0">
-                  Vous pouvez retrouver un récapitulatif de vos sessions a venir !
-                </h6>
-                <br>
-                <br>
-                <br>
-                <a class="btn btn-outline-secondary btn-sm" role="button" href={{'sessionsE'}}>Y aller !</a>
-              </div>
-            </div>
+
+                <!--Carte doctorants-->
+                  <div class="col-md-3">
+                    <div class="card" style="background-color: #f5f5f5;">
+                      <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
+                        <div class="card-body d-flex flex-column align-items-start">
+                          <strong class="d-inline-block text-secondary">Les doctorants</strong>
+                          <a class="btn btn-outline-secondary btn-sm" role="button" href={{('sessionsE')}} style="position:center">Y aller !</a>
+                        </div>
+                    </div>
+                  </div>
+
+                <!--Carte Enseignants-->
+                  <div class="col-md-3">
+                    <div class="card" style="background-color: #f5f5f5;">
+                    <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
+                      <div class="card flex-md-row">
+                        <div class="card-body d-flex flex-column align-items-start">
+                          <strong class="d-inline-block text-secondary">Les enseignants</strong>
+                          <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionE')}}>Y aller !</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
       </div>
     </div>
