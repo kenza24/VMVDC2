@@ -142,6 +142,7 @@ Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessi
 
 Route::get('detailSessionD', 'DetailSessionDController@details');
 Route::post('update', 'DetailSessionDController@update')->name('update');
+Route::post('telechargement', 'DetailSessionDController@telechargement')->name('telechargement');
 
 //MODIFICATIONS DES INFOS PERSO
 Route::get('modificationInfosD', function(){

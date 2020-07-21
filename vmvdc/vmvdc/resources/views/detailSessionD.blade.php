@@ -28,36 +28,41 @@
         <h2> Session du <?=$session->date ?><h2>
         <div class="container pt-3 pb-3" style="background-color:white;">
         <!-- Inforamtions principales -->
-          <div class="col-md-4 pt-3 pb-3" style ="font-size: 20px; text-align:center;">
+          <div class="col-md-4 pt-3 pb-3">
             <h5>Enseignant : <?= $enseignant->prenom." ".$enseignant->nom ?></h5>
           </div>
-          <div class="col-md-4 pt-3 pb-3" style ="font-size: 20px;">
+          <div class="col-md-4 pt-3 pb-3">
             <h5>Adresse mail : <?= $enseignant->email ?></h5>
           </div>
-          <div class="col-md-4 pt-3 pb-3" style ="font-size: 20px;">
+          <div class="col-md-4 pt-3 pb-3">
             <h5>Nombre d'élèves : <?= $session->effectifClasse ?></h5>
           </div>
-          <div class="col-md-4 pt-3 pb-3" style ="font-size: 20px;">
+          <div class="col-md-4 pt-3 pb-3">
             <h5>Niveau de la Classe : <?= ucfirst($session->niveau) ?></h5>
           </div>
         <!-- fichiers et details -->
           <?php if(isset($fichiers[0])):?>
             <h5>Documents liés à la sessions :</h5>
-              <div class="list-group">
-                <?php foreach($fichiers as $fichier): ?>
-                  <!--<a href="" class="list-group-item list-group-item-action"><?= $fichier->nomFichier ?></a>-->
-                <?php endforeach; ?>
-              </div>
+            <div class="list-group">
+              <?php foreach($fichiers as $fichier): ?>
+                <form action={{'telechargement'}} method="post">
+                  {{csrf_field()}}
+                  <input type="text" hidden name="chemin" value=<?= $fichier->fichiers ?>>
+                  <button type="submit" class="btn btn-light"><?= $fichier->nomFichier ?></button>
+                </form>
+              <?php endforeach; ?>
+            </div>
           <?php endif; ?>
-          <form  enctype= "multipart/form-data" method="POST">
+          <form action={{'update'}} enctype= "multipart/form-data" method="POST">
             {{csrf_field()}}
-            <div style ="font-size: 20px;" class="pt-3 pb-3">
+            <div class="pt-3 pb-3">
               <h5>Choisissez un document de présentation :</h5>
             </div>
-            <input type="file" name="fichierD" style="font-size:17px;"/>
-            <div style ="font-size: 20px;" class="pt-3 pb-3">
-              <label style="text-align:top;">Informations complémentaires : </label>
+            <input type="file" name="fichiers[]" style="font-size:20px" multiple>
+            <div class="pt-3 pb-3">
+              <label style="font-size:20px">Informations complémentaires : </label>
             </div>
+            <input type="text" hidden name="idSession" value=<?= $session->id ?>>
             <textarea name="details" class="md-textarea form-control" rows="5" style="width:500px; margin:auto;"><?= $session->details ?></textarea>
             <button type="submit" class="btn btn-secondary btn-block mt-3 mb-3" style="width:100px; margin:auto;">Valider</button>
           </form>
@@ -77,12 +82,5 @@
       <br>
     <br>
   </div>
-
-<style>
-  .container{
-    font-style: oblique;
-    font-family: Georgia, serif;
-  }
-</style>
 
 @endsection
