@@ -311,7 +311,7 @@ class accueilController extends Controller
             return redirect('doctorants');
         }
         else {
-            return redirect('enseignant');
+            return redirect('enseignants');
         }
     }
 }
