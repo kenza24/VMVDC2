@@ -36,6 +36,10 @@
         <div class="col-md-4 mb-1 mt-1">
           <dt>Votre nom : <?= $data[0]->nom ?></dt>
         </div>
+        <form method="post" action={{route('suppressionA')}}  onsubmit="return confirm('Etes-vous sur ?');">
+          {{csrf_field()}}
+          <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+        </form>
       <!--</dl>-->
 
       <div class="mt-5 mb-3" style="text-align:center;">
