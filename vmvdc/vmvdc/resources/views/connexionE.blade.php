@@ -21,7 +21,7 @@
 </div>
 
 
-<div class="container">
+<div class="container" style="height: 403px;">
 
     <br>
     <hr>
@@ -58,9 +58,11 @@
                     </div>
 
                 <!--BOUTON-->
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
-                    </div>
+                <div class="form-group" style="margin-left:100px;">
+                  <div class="col text-center">
+                    <button type="submit" class="btn btn-xs btn-secondary col-20 text-break">Se connecter</button>
+                  </div>
+                </div>
                 </div>
             </form>
         </article>

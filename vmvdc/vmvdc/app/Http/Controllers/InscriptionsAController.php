@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class InscriptionsAController extends Controller
 {
     public function inscription() {
-      //dd("coucou");
+      
           request()->validate([
             'nomA' => 'required',
             'prenomA'=>'required',

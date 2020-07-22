@@ -10,16 +10,13 @@ use Illuminate\Support\Facades\DB;
 class PreInscriptionController extends Controller
 {
   public function preInscription(){
-    //dd("coucou");
+
         request()->validate([
-          //'date2'=> 'required',
           'etablissementScolaire'=>'required',
           'ville'=>'required',
           'niveau' => 'required',
           'codePostal' => 'required',
           'effectifClasse'=>'required',
-          //'date1'=> 'required',
-          //'date3'=>'required',
           'nbAccompagnateurs'=>'required',
       ]);
 
@@ -46,7 +43,7 @@ class PreInscriptionController extends Controller
             'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,
             'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs, 'idEnseignant' => $idEnseignant, 'dejaVenu' => 0)
           );
-          
+
           if($resultat) {
               return redirect ('sessionsE');
           }
@@ -55,25 +52,6 @@ class PreInscriptionController extends Controller
 
   }
 
-  /*
-  public function session()
-  {
-      $sessions = DB::table('sessions')->select('date', 'id')->get();
-
-      $dates = [];
-      foreach ($sessions as $session) {
-          $dates[$session->id] = 0;
-          $sessions[$session->id] = $session;
-      }
-
-      //dd($dates);
-
-      return view('preInscriptionE', [
-          'sessions'=>$sessions,
-          'dates' => $dates
-
-      ]);
-  }*/
 
   public function session()
   {

@@ -12,7 +12,7 @@ class ListeSessionsAController extends Controller
 
   public function sessionsA()
   {
-      //dd("coucou");
+      
       $sessions = DB::table('sessions')->select('date', 'id', 'heure', 'idClasse', 'effectifMax')->get();
       return view('listeSessionsA', [
           'sessions' => $sessions,
