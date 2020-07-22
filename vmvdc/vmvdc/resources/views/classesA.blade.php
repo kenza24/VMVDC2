@@ -124,15 +124,15 @@
                   <?php else: ?>
                     <td></td>
                   <?php endif; ?>
-                  <td><?= $sessions[$classe->choixSession1]->date ?></td>
-                  <td><?= $sessions[$classe->choixSession1]->heure ?></td>
-                  <td><?= $classe->rep ?></td>
-                  <td><?= ucfirst($classe->niveau) ?></td>
-                  <td><?= ucfirst($classe->academie) ?></td>
-                  <td><?= $classe->ville ?></td>
-                  <td><?= $classe->codePostal ?></td>
-                  <td><?= $classe->etablissementScolaire ?></td>
-                  <td><?= $enseignants[$classe->idEnseignant] ?></td>
+                  <td><?= htmlspecialchars($sessions[$classe->choixSession1]->date) ?></td>
+                  <td><?= htmlspecialchars($sessions[$classe->choixSession1]->heure) ?></td>
+                  <td><?= htmlspecialchars($classe->rep) ?></td>
+                  <td><?= htmlspecialchars(ucfirst($classe->niveau)) ?></td>
+                  <td><?=htmlspecialchars(ucfirst($classe->academie)) ?></td>
+                  <td><?=htmlspecialchars($classe->ville) ?></td>
+                  <td><?=htmlspecialchars($classe->codePostal) ?></td>
+                  <td><?= htmlspecialchars($classe->etablissementScolaire) ?></td>
+                  <td><?= htmlspecialchars($enseignants[$classe->idEnseignant]) ?></td>
                 </tr>
               <!--si, à cette date, (la session n'a pas de classe ET le choix2 de la classe == la date ET la classe n'est pas sur liste noire)
                   OU (la session a une classe ET la classe de la session correspond a la classe en cours)-->
