@@ -41,6 +41,7 @@
             <th scope="col">Effectif Classe</th>
             <th scope="col">Administrateur référent</th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -64,6 +65,15 @@
               <td><?= $accompagnateurs[$session->id] ?></td>
               <td><?= $session->effectifClasse ?></td>
               <td><?= $administrateur[$session->id] ?></td>
+              <td>
+              <td>
+                <form action={{'detailSessionA'}} method="post">
+                  {{csrf_field()}}
+                  <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                  <button type="submit" class="btn btn-xs btn-secondary">Détails</button>
+                </form>
+              </td>
+              </td>
               <td>
                 <?php if($session->idAdminReferent == null): ?>
                   <form action={{'accueilSession'}} method="post">

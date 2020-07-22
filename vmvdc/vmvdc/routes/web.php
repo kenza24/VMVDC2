@@ -85,6 +85,9 @@ Route::post('ajoutSession', "CompteAController@ajoutSession")->name('ajoutSessio
 Route::get('sessionsA', 'listesAController@sessions')->name('sessionsA');
 Route::get('classesA', 'listesAController@classes')->name('classesA');
 
+Route::post('detailSessionA', 'CompteAController@details')->name('detailSessionA');
+Route::post('telechargementA', 'CompteAController@telechargement')->name('telechargementA');
+
 Route::get('listeEnseignantsA', 'listesAController@enseignants')->name('listeEnseignantsA');
 Route::get('listeDoctorantsA', 'listesAController@doctorants')->name('listeDoctorantsA');
 
