@@ -12,7 +12,12 @@
             <h5>Enseignant : <?= $enseignant->prenom." ".$enseignant->nom ?></h5>
           </div>
           <div class="col-md-4 pt-3 pb-3">
-            <h5>Adresse mail : <?= $enseignant->email ?></h5>
+            <h5>Doctorant :</h5>
+              <ul>
+                  <?php foreach ($doctorants as $doctorant): ?>
+                      <li style="font-size:15px"><?= $doctorant->prenom." ".$doctorant->nom." : ".$doctorant->email ?></li>
+                  <?php endforeach; ?>
+              <ul>
           </div>
           <div class="col-md-4 pt-3 pb-3">
             <h5>Nombre d'élèves : <?= $session->effectifClasse ?></h5>
@@ -25,7 +30,7 @@
             <h5>Documents liés à la sessions :</h5>
             <div class="list-group">
               <?php foreach($fichiers as $fichier): ?>
-                <form action={{'telechargementD'}} method="post">
+                <form action={{'telechargementA'}} method="post">
                   {{csrf_field()}}
                   <input type="text" hidden name="chemin" value=<?= $fichier->fichiers ?>>
                   <button type="submit" class="btn btn-light"><?= $fichier->nomFichier ?></button>
@@ -33,7 +38,7 @@
               <?php endforeach; ?>
             </div>
           <?php endif; ?>
-          <form action={{'detailSessionD'}} enctype="multipart/form-data" method="POST">
+          <form action={{'detailSessionA'}} enctype="multipart/form-data" method="POST">
             {{csrf_field()}}
             <div class="pt-3 pb-3">
               <h5>Choisissez un document de présentation :</h5>

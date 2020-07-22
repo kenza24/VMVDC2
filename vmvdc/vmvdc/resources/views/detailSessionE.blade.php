@@ -1,26 +1,6 @@
 @extends('layout')
 @section('contenu')
 
-<!-- Entete -->
-  <div class="contenu">
-      <div class="container-fluid">
-          <div class="row" style="background-color: #11385b">
-            <a href="" style="width: 16%; min-width: 100px">
-              <img src="content/ibps-logo.jpg" class="img-fluid float-left" alt="Logo-IBPS">
-            </a>
-            <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
-              <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
-            </div>
-            <!--<a href={{route('orientationConnexion')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se connecter</a>
-            <a href={{route('inscriptione')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se créer un compte</a>-->
-            <div class="col-md-1"></div>
-              <form action={{route('deconnexione')}}>
-                <button type="submit" class="btn btn-primary btn-block col-md">Se déconnecter</button>
-              </form>
-          </div>
-        </div>
-  </div>
-
 <!-- contenu -->
   <div class="container pt-3 pb-3">
     <div class="shadow-lg bg-blue rounded pt-3 pb-3" style="background-color: #B0C4DE;">
@@ -29,13 +9,12 @@
         <div class="container pt-3 pb-3" style="background-color:white;">
         <!-- Inforamtions principales -->
           <div class="col-md-4 pt-3 pb-3">
-            <h5>Doctorant :
-                <ul>
-                    <?php foreach ($doctorants as $doctorant): ?>
-                        <li><?= $doctorant->prenom." ".$doctorant->nom." : ".$doctorant->email ?></li>
-                    <?php endforeach; ?>
-                <ul>
-            </h5>
+            <h5>Doctorant :</h5>
+              <ul>
+                  <?php foreach ($doctorants as $doctorant): ?>
+                      <li style="font-size:15px"><?= $doctorant->prenom." ".$doctorant->nom." : ".$doctorant->email ?></li>
+                  <?php endforeach; ?>
+              <ul>
           </div>
           <div class="col-md-4 pt-3 pb-3">
             <h5>Nom de la classe : <?= $session->nom ?></h5>

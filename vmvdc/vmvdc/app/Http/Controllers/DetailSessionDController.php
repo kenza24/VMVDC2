@@ -45,7 +45,7 @@ class DetailSessionDController extends Controller{
         }
 
       //Telechragement fichiers
-        if (isset($_FILES['fichiers'])) { //si des fichiers sont sélectionnés
+        if (isset($_FILES['fichiers']) and !isset(DB::table('fichiers_sessions')->where('idSession', $idSession)->get()[0])) { //si des fichiers sont sélectionnés
           $nbElmt = count($_FILES['fichiers']['name']);
           if ($_FILES['fichiers']['size'][0] != 0) { //si les fichiers n'ont pas une taille vide
             $dossier = 'content/documents/session_'.$idSession;

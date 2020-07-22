@@ -15,17 +15,24 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
     <body>
-        <!--<div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif-->
+        <!-- En-tete -->
+        <div class="container-fluid">
+        <div class="row" style="background-color: #11385b">
+            <a href={{'accueil'}} style="width: 15%; min-width: 100px">
+            <img src="content/ibps-logo.jpg" class="img-fluid float-left" alt="Logo-IBPS">
+            </a>
+            <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
+            <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
+            </div>
+            <?php if(!isset($_SESSION['connecte'])): ?>
+                <a href={{route('orientationConnexion')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap text-break text-wrap" role="button" aria-pressed="true">Se connecter</a>
+                <a href={{route('inscriptione')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap text-break text-wrap" role="button" aria-pressed="true">Se créer un compte</a>
+            <?php else: ?>
+                <a href={{route('deconnexione')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap text-break text-wrap" role="button" aria-pressed="true">Se déconnecter</a>
+                <a href={{route('retourProfil')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap text-break text-wrap" role="button" aria-pressed="true">Retourner à mon profil</a>
+            <?php endif; ?>
+        </div>
+        </div>
 
             <div class="content" style="background-color: #274D71;">
 

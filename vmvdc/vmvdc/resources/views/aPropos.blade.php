@@ -5,21 +5,6 @@
 <div class="contenu" style="background: url(content/bandeau-ibps.jpg) fixed no-repeat top; background-size: auto 500px;">
 
   <div>
-    <!-- En-tete -->
-      <div class="container-fluid">
-        <div class="row" style="background-color: #11385b">
-          <a href="" style="width: 15%; min-width: 100px">
-            <img src="content/ibps-logo.jpg" class="img-fluid float-left" alt="Logo-IBPS">
-          </a>
-          <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
-            <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
-          </div>
-          <!--<a href={{route('orientationConnexion')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se connecter</a>
-          <a href={{route('inscriptione')}} class="btn btn-primary col-md-1 d-flex align-content-center flex-wrap" role="button" aria-pressed="true">Se créer un compte</a>-->
-          <div class="col-md-1"></div>
-          <div class="col-md-1"></div>
-        </div>
-      </div>
 
      <div style="background-color: white; padding-top: 20px; border: 10px solid #11385b;font-style: oblique; font-family: Georgia, serif;">
 
