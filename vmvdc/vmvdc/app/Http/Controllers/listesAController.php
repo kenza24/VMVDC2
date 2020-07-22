@@ -131,8 +131,7 @@ class listesAController extends Controller
         //dd($sessions);
         //dd($dates);
         asort($dates);
-        //dd($dates);
-
+        //dd($dates);        
         return view('classesA', [
             'sessions' => $sessions,
             'listeNoire' => $listeNoire,
