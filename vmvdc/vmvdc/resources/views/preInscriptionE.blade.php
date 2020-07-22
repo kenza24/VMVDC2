@@ -62,6 +62,14 @@
           <input class="form-control" placeholder="Code postal" type="text" name="codePostal">
         </div>
 
+        <!--Nom de la classe-->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Nom de la classe" type="text" name="nomClasse">
+        </div>
+
         <!--Effectif de la classe-->
         <div class="form-group input-group">
           <div class="input-group-prepend">
