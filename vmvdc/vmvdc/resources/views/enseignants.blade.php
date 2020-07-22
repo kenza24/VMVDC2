@@ -85,6 +85,16 @@
                     </div>
                   </div>
 
+                  <div class="col-md-3">
+                    <div class="card" style="background-color: #f5f5f5;">
+                      <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
+                        <div class="card-body d-flex flex-column align-items-start">
+                          <strong class="d-inline-block text-secondary">Mes pré-inscriptions</strong>
+                          <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listePreInscritE')}} style="position:center">Y aller !</a>
+                        </div>
+                    </div>
+                  </div>
+
 
       </div>
     </div>

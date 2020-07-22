@@ -122,6 +122,12 @@ Route::get('preInscriptionE', 'PreInscriptionController@session')->name('preInsc
 Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
+
+Route::get('listePreInscritE', function(){
+  return view('listePreInscritE');
+});
+Route::get('listePreInscritE', 'ListePreInscritEController@affichage')->name('listePreInscritE');
+
 //FIN ENSEIGNANTS
 
 //ESPACE DOCTORANT

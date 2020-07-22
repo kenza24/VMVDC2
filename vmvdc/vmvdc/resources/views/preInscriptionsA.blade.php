@@ -27,7 +27,7 @@
       <table class="table table-striped table-responsive">
         <thead>
           <tr>
-            <th scope="col">Enseignant</th>  
+            <th scope="col">Enseignant</th>
             <th scope="col">Niveau</th>
             <th scope="col">REP</th>
             <th scope="col">Académie</th>
