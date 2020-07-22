@@ -24,6 +24,7 @@ class PreInscriptionController extends Controller
       $ville = request('ville');
       $codePostal = request('codePostal');
       $niveau=request('niveau');
+      $nomClasse = request('nomClasse');
       $effectif=request('effectifClasse');
       $rep=request('rep');
       $date1=request('date1');
@@ -41,11 +42,11 @@ class PreInscriptionController extends Controller
           $resultat = DB::table('classes')->insert(
             array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
             'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,
-            'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs, 'idEnseignant' => $idEnseignant, 'dejaVenu' => 0)
+            'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs, 'idEnseignant' => $idEnseignant, 'dejaVenu' => 0, 'nom' => $nomClasse)
           );
 
           if($resultat) {
-              return redirect ('sessionsE');
+              return redirect ('listePreInscritE');
           }
 
       return redirect ('/preInscriptionE');
