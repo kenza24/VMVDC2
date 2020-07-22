@@ -18,7 +18,7 @@
 <br>
 <br>
 <div class="col-md text-center text-wrap text-break content_center" style="color: white;font-style: oblique; font-family: Georgia, serif;">
-  <h1><?= $data[0]->nom ?></h1>
+  <!--<h1><?= $data[0]->nom ?></h1>-->
 </div>
 
 <!-- Vos informations -->
@@ -45,8 +45,12 @@
     </div>
 
     <div class="d-flex flex-row p-2 justify-content-center">
-      <button type="button" class="btn btn-xs btn-secondary col-4 text-break">Modifier mes informations</button>
+      <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosD')}} >Modifier mes informations</a>
     </div>
+    <form method="post" action={{route('suppressionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
+      {{csrf_field()}}
+      <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+    </form>
   </div>
 </div><!--Fin container-->
 
