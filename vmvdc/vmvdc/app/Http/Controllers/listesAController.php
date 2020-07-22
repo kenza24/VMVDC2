@@ -14,7 +14,9 @@ class listesAController extends Controller
         $idClasse = request('idClasse');
         $idSession = request('idSession');
 
-        $colore = DB::table('sessions')->where('id', '=', $idSession)->update(array('idClasse' => $idClasse));
+        $classe = DB::table('classes')->select('idEnseignant')->where('id', $idClasse)->get()[0];
+
+        $colore = DB::table('sessions')->where('id', '=', $idSession)->update(array('idEnseignant' => $classe->idEnseignant, 'idClasse' => $idClasse));
 
         return back();
     }
@@ -172,7 +174,7 @@ class listesAController extends Controller
 
     public function sessions()
     {
-        $sessions = DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->select('date', 'sessions.id', 'idClasse', 'idAdminReferent', 'effectifClasse')->get();
+        $sessions = DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->select('date', 'sessions.id', 'idClasse', 'idAdminReferent', 'effectifClasse', 'acceptation')->get();
 
         $infoDoctorants = [];
         //on recup un tableau de couple (idSession/idDoctorants)
@@ -193,8 +195,9 @@ class listesAController extends Controller
         $enseignants = [];
         $accompagnateurs = [];
         $administrateurReferent = [];
+        $acceptation = [];
         foreach ($sessions as $session) {
-            $objetClasse = DB::table('classes')->select('nb_accompagnateurs')->where('id', $session->idClasse)->get();
+            $objetClasse = DB::table('classes')->select('nb_accompagnateurs', 'acceptation')->where('id', $session->idClasse)->get();
             if (!isset($objetClasse[0])) {
                 $accompagnateurs[$session->id] = null;
             }

@@ -45,7 +45,13 @@
         </thead>
         <tbody>
           <?php foreach($sessions as $session):?>
-            <tr>
+            <tr
+            <?php if ($session->acceptation == 1): ?>
+              class="table-success"
+            <?php elseif($session->acceptation == 2): ?>
+              class="table-danger"
+            <?php endif; ?>
+            >
               <td><?= $session->date ?></td>
               <td><?= $enseignants[$session->id] ?></td>
               <td>

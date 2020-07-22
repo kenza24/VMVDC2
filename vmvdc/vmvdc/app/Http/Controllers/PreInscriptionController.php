@@ -48,7 +48,6 @@ class PreInscriptionController extends Controller
           );
           
           if($resultat) {
-              $_SESSION['connecte'] = 'classes';
               return redirect ('sessionsE');
           }
 

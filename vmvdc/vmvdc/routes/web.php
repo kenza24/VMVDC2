@@ -111,6 +111,9 @@ Route::get('sessionsE', "CompteEController@sessions")->name('sessionsE');
 Route::post('acceptation', "CompteEController@acceptation")->name('acceptation');
 Route::post('refus', "CompteEController@refus")->name('refus');
 
+Route::post('detailSessionE', 'CompteEController@details')->name('detailSessionE');
+Route::post('telechargementE', 'CompteEController@telechargement')->name('telechargementE');
+
 //PRE INSCRIPTION D'UNE CLASSE
 Route::get('preInscriptionE', function(){
   return view('preInscriptionE');
@@ -137,7 +140,6 @@ Route::get('enseignantsD', 'SessionsDController@enseignants')->name('enseignants
 Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessionsInscrisD');
 
 Route::post('detailSessionD', 'DetailSessionDController@details')->name('detailSessionD');
-Route::post('updateD', 'DetailSessionDController@update')->name('updateD');
 Route::post('telechargementD', 'DetailSessionDController@telechargement')->name('telechargementD');
 
 //MODIFICATIONS DES INFOS PERSO

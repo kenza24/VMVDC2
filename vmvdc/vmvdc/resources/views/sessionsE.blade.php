@@ -37,35 +37,41 @@
             <th scope="col">Doctorants</th>
             <th scope="col">Accompagnateurs</th>
             <th scope="col">Nombre d'élèves</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           <?php foreach($sessions as $keySessions => $session):?>
-            <?php if(isset($classes[$session->idClasse])): ?>
-              <tr>
-                <td>
-                  <?php if($session->acceptation == 0): ?>
-                    <form action={{'acceptation'}} method="post">
-                    {{csrf_field()}}
-                      <input type="text" hidden name="idSession" value=<?= $session->id ?>>
-                      <button type="submit" class="btn btn-success">Accepter</button>
-                    </form>
-                    <br>
-                    <form action={{'refus'}} method="post">
-                    {{csrf_field()}}
-                      <input type="text" hidden name="idSession" value=<?= $session->id ?>>
-                      <button type="submit" class="btn btn-danger">Refuser</button>
-                    </form>
-                  <?php endif; ?>
-                </td>
-                <td><?= $classes[$session->idClasse]->nom ?></td>
-                <td><?= $session->date ?></td>
-                <td><?= $session->heure ?></td>
-                <td><?= $sessionDoctorant[$session->id] ?></td>
-                <td><?= $classes[$session->idClasse]->nb_accompagnateurs ?></td>
-                <td><?= $classes[$session->idClasse]->effectifClasse ?></td>
-              </tr>
-            <?php endif; ?>
+            <tr>
+              <td>
+                <?php if($session->acceptation != 1 and $session->acceptation != 2): ?>
+                  <form action={{'acceptation'}} method="post">
+                  {{csrf_field()}}
+                    <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                    <button type="submit" class="btn btn-success">Accepter</button>
+                  </form>
+                  <br>
+                  <form action={{'refus'}} method="post">
+                  {{csrf_field()}}
+                    <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                    <button type="submit" class="btn btn-danger">Refuser</button>
+                  </form>
+                <?php endif; ?>
+              </td>
+              <td><?= $session->nom ?></td>
+              <td><?= $session->date ?></td>
+              <td><?= $session->heure ?></td>
+              <td><?= $doctorantSession[$session->id] ?></td>
+              <td><?= $session->nb_accompagnateurs ?></td>
+              <td><?= $session->effectifClasse ?></td>
+              <td>
+                <form action={{'detailSessionE'}} method="post">
+                  {{csrf_field()}}
+                  <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                  <button type="submit" class="btn btn-xs btn-secondary">Détails</button>
+                </form>
+              </td>
+            </tr>
           <?php endforeach;?>
         </tbody>
       </table>
