@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Auth;
 
 //page d'accueil
 Route::get('/', "accueilController@accueil");
+Route::get('accueil', "accueilController@accueil");
 Route::get('aPropos', "accueilController@aPropos");
 
 Route::view('/orientationConnexion','orientationConnexion')->name('orientationConnexion');
+
+Route::get('retourProfil', 'accueilController@retourProfil')->name('retourProfil');
 
 
 //ENSEIGNANTS

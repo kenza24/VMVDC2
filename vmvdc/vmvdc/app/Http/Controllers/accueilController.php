@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+session_start();
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -298,5 +300,18 @@ class accueilController extends Controller
         }
 
         return redirect('aPropos');
+    }
+
+    public function retourProfil()
+    {
+        if (isset($_SESSION['connecte']) and $_SESSION['connecte'] == 'administrateurs') {
+            return redirect('administrateurs');
+        }
+        elseif (isset($_SESSION['connecte']) and $_SESSION['connecte'] == 'doctorant') {
+            return redirect('doctorants');
+        }
+        else {
+            return redirect('enseignant');
+        }
     }
 }
