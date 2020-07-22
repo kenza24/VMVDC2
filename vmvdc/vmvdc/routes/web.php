@@ -168,6 +168,7 @@ Route::post('modifA', 'ModificationInfosAController@modif')->name('modifA');
 //SUPPRESSION DES COMPTES
 
 Route::post('suppressionE', 'SuppressionCompteEController@suppressionE')->name('suppressionE');
+Route::post('suppressionEAdmin', 'SuppressionCompteEController@suppressionEAdmin')->name('suppressionEAdmin');
 
 
 //FIN DOCTORANT

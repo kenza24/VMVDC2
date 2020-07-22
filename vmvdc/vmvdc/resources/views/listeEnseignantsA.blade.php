@@ -29,6 +29,7 @@
             <th scope="col">Nom</th>
             <th scope="col">E-mail</th>
             <th scope="col">numéro de téléphone</th>
+            <th scope="col"> </th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,12 @@
               <td><?= $enseignant->nom ?></td>
               <td><?= $enseignant->email ?></td>
               <td><?= $enseignant->numTel ?></td>
+
+              <td>  <form method="post" action={{route('suppressionEAdmin')}}  onsubmit="return confirm('Etes-vous sur ?');">
+                  {{csrf_field()}}
+                  <input type="text" hidden name="idE" value=<?= $enseignant->id?>>
+                  <button type="submit" class="btn btn-xs btn-secondary">Supprimer l'enseignant</button>
+                </form></td>
             </tr>
           <?php endforeach;?>
       </table>
