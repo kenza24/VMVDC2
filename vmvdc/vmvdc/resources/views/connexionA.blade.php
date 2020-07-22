@@ -16,19 +16,19 @@
     <div class="col-md text-center text-wrap text-break content_center" style="color: white; height:5%; margin-top: 1%;">
       <h1 style="vertical-align: middle;">Vis ma vie de chercheur</h1>
     </div>
-  
+
 
   </div>
 </div>
 
 
-<div class="container">
+<div class="container" style="height: 403px;">
 
     <br>
     <hr>
 
     <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
+        <article class="card-body mx-auto" style="max-width: 400px; font-family: Georgia, serif; ">
             <h4 class="card-title mt-3 text-center">Connectez-vous</h4>
 
             <p class="divider-text">
@@ -59,8 +59,10 @@
                     </div>
 
                 <!--BOUTON-->
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+                    <div class="form-group" style="margin-left:100px;">
+                      <div class="col text-center">
+                        <button type="submit" class="btn btn-xs btn-secondary col-20 text-break">Se connecter</button>
+                      </div>
                     </div>
                 </div>
             </form>

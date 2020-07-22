@@ -13,24 +13,20 @@ class ListeInscritDController extends Controller
   public function sessionsI(){
 
     $idD=$_SESSION['id'];
-    //dd($idD);
-    //selection des id de session
-    //$sessions= DB::table('sessions')->select('id');
 
     $idS = DB::table('participations_doctorants')->where('idDoctorants', '=', $_SESSION['id'])->select('idSession')->get();
-    //dd($idS);
+
     $sessions=[];
     foreach($idS as $s){
       $session = DB::table('sessions')->where ('id', '=', $s->idSession)->select('id', 'date', 'heure', 'idEnseignant', 'idClasse')->get();
 
-      //on prend une
+
       $uneSession = $session[0];
 
       array_push($sessions, $uneSession);
 
     }
-    //dd($sessions);
-  //  dd($sessions);
+
   $enseignants = [];
     foreach ($sessions as $e){
         $enseignant=DB::table('enseignants')->where('id', '=', $e->idEnseignant)->select('nom', 'prenom', 'id')->get();
@@ -54,23 +50,13 @@ class ListeInscritDController extends Controller
         array_push($classes, $uneClasse);
 
     }
-    //dd($classes);
 
-//    dd($enseignants);
-    //dd($sessions);
-
-
-
-  //  dd($enseignants);
-
-    //dd($enseignants);
 
 
     return view('sessionsInscrisD', [
       'idS'=>$idS,
       'sessions'=>$sessions,
       'enseignants'=>$enseignants,
-      //'donneesE'=>$donneesE,
       'classes'=>$classes,
 
     ]);
@@ -79,7 +65,6 @@ class ListeInscritDController extends Controller
 
   public function enseignants (){
     //recuperation des infos de l'enseignant
-
 
     $enseignant=DB::table('sessions')->select('idEnseignant');
 

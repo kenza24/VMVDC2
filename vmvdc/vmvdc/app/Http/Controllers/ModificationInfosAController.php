@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ModificationInfosAController extends Controller
 {
   public function modif(){
-    //l'utilisateur choisi les infos qu'il souhaite modifier
-    //dd($_SESSION['id']);
-
-
+  
       $nom2 = request('nom2');
       $prenom2 = request('prenom2');
       $email2 = request('email2');
