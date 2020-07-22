@@ -65,7 +65,7 @@ class listesAController extends Controller
         $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();
 
         $dates = [];
-        $listeNoire = [];
+        $listeNoire = []; //Stocke les id de classes déjà sélectionnée qu'on affiche pas
         $nbClasses = 0;
         $nbREP = 0;
         $nbTerminales = 0;

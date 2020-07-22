@@ -137,8 +137,8 @@ Route::get('enseignantsD', 'SessionsDController@enseignants')->name('enseignants
 Route::get('sessionsInscrisD', 'ListeInscritDController@sessionsI')->name('sessionsInscrisD');
 
 Route::post('detailSessionD', 'DetailSessionDController@details')->name('detailSessionD');
-Route::post('update', 'DetailSessionDController@update')->name('update');
-Route::post('telechargement', 'DetailSessionDController@telechargement')->name('telechargement');
+Route::post('updateD', 'DetailSessionDController@update')->name('updateD');
+Route::post('telechargementD', 'DetailSessionDController@telechargement')->name('telechargementD');
 
 //MODIFICATIONS DES INFOS PERSO
 Route::get('modificationInfosD', function(){
