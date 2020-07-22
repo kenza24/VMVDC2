@@ -173,6 +173,9 @@ Route::post('suppressionEAdmin', 'SuppressionCompteController@suppressionEAdmin'
 Route::post('suppressionD', 'SuppressionCompteController@suppressionD')->name('suppressionD');
 Route::post('suppressionDAdmin', 'SuppressionCompteController@suppressionDAdmin')->name('suppressionDAdmin');
 
+Route::post('suppressionA', 'SuppressionCompteController@suppressionA')->name('suppressionA');
+
+
 
 
 //FIN DOCTORANT

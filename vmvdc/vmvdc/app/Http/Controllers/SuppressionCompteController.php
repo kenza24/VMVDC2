@@ -55,4 +55,13 @@ class SuppressionCompteController extends Controller
 
     return back();
   }
+  public function suppressionA(){
+    //suppression du compte de l'enseignant apr lui même
+    $id = $_SESSION['id'];
+    $suppression = DB::table('administrateurs')->where('id', '=', $id)->delete();
+
+
+    return redirect('/');
+
+  }
 }
