@@ -32,6 +32,20 @@ class PreInscriptionController extends Controller
       $date3=request('date3');
       $academie=request('academie');
       $nbAccompagnateurs=request('nbAccompagnateurs');
+
+      $etaHtml=htmlspecialchars($etablissement);
+      $villeHtml=htmlspecialchars($ville);
+      $codeHtml=htmlspecialchars($codePostal);
+      $niveauHtml=htmlspecialchars($niveau);
+      $nomCHtml=htmlspecialchars($nomClasse);
+      $effectifHtml=htmlspecialchars($effectif);
+      $repHtml=htmlspecialchars($rep);
+      $date1Html=htmlspecialchars($date1);
+      $date2Html=htmlspecialchars($date2);
+      $date3Html=htmlspecialchars($date3);
+      $academieHtml=htmlspecialchars($academie);
+      $nbHtml=htmlspecialchars($nbAccompagnateurs);
+
       if (isset($_SESSION['id'])){
         $idEnseignant = $_SESSION['id'];
       }
@@ -40,9 +54,9 @@ class PreInscriptionController extends Controller
       }
 
           $resultat = DB::table('classes')->insert(
-            array('etablissementScolaire' => $etablissement, 'ville' => $ville, 'niveau' => $niveau,
-            'codePostal' => $codePostal, 'rep'=>$rep, 'choixSession1'=>$date1, 'choixSession2'=>$date2, 'choixSession3'=>$date3,
-            'academie'=>$academie, 'effectifClasse'=>$effectif, 'nb_accompagnateurs'=>$nbAccompagnateurs, 'idEnseignant' => $idEnseignant, 'dejaVenu' => 0, 'nom' => $nomClasse)
+            array('etablissementScolaire' => $etaHtml, 'ville' => $villeHtml, 'niveau' => $niveauHtml,
+            'codePostal' => $codeHtml, 'rep'=>$repHtml, 'choixSession1'=>$date1Html, 'choixSession2'=>$date2Html, 'choixSession3'=>$date3Html,
+            'academie'=>$academieHtml, 'effectifClasse'=>$effectifHtml, 'nb_accompagnateurs'=>$nbHtml, 'idEnseignant' => $idEnseignant, 'dejaVenu' => 0, 'nom' => $nomCHtml)
           );
 
           if($resultat) {

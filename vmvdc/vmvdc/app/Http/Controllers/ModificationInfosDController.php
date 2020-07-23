@@ -16,24 +16,28 @@ class ModificationInfosDController extends Controller
       $email2 = request('email2');
       $mdp2 = request('mdp2');
 
+      $nomH=htmlspecialchars($nom2);
+      $prenomH=htmlspecialchars($prenom2);
+      $emailH=htmlspecialchars($email2);
+      $mdpH=htmlspecialchars($mdp2);
 
       //Gérer les cas ou l'utilisateur ne modifie pas toutes les infos
 
       if ($nom2 != null){
         $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
-        ->update(array('nom' => $nom2));
+        ->update(array('nom' => $nomH));
       }
       if($prenom2 != null){
         $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
-        ->update(array('prenom' => $prenom2));
+        ->update(array('prenom' => $prenomH));
       }
       if($mdp2 != null){
         $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
-        ->update(array('mot_de_passe' =>  password_hash($mdp2, PASSWORD_DEFAULT)));
+        ->update(array('mot_de_passe' =>  password_hash($mdpH, PASSWORD_DEFAULT)));
       }
       if($email2 != null){
         $resultat = DB::table('doctorants')->where('id', '=', $_SESSION['id'])
-        ->update(array('email' => $email2));
+        ->update(array('email' => $emailH));
       }
 
       return redirect('/doctorants');

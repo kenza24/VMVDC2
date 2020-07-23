@@ -112,11 +112,11 @@
                   <td><?= $sessions[$classe->choixSession1]->heure ?></td>
                   <td><?= $classe->rep ?></td>
                   <td><?= ucfirst($classe->niveau) ?></td>
-                  <td><?= ucfirst($classe->academie) ?></td>
-                  <td><?= $classe->ville ?></td>
-                  <td><?= $classe->codePostal ?></td>
-                  <td><?= $classe->etablissementScolaire ?></td>
-                  <td><?= $enseignants[$classe->idEnseignant] ?></td>
+                  <td><?=ucfirst($classe->academie) ?></td>
+                  <td><?=$classe->ville ?></td>
+                  <td><?=$classe->codePostal ?></td>
+                  <td><?=$classe->etablissementScolaire ?></td>
+                  <td><?=$enseignants[$classe->idEnseignant] ?></td>
                 </tr>
               <!--si, à cette date, (la session n'a pas de classe ET le choix2 de la classe == la date ET la classe n'est pas sur liste noire)
                   OU (la session a une classe ET la classe de la session correspond a la classe en cours)-->
@@ -157,7 +157,7 @@
                   <td><?= $classe->ville ?></td>
                   <td><?= $classe->codePostal ?></td>
                   <td><?= $classe->etablissementScolaire ?></td>
-                  <td><?= $enseignants[$classe->idEnseignant] ?></td>
+                  <td><?=$enseignants[$classe->idEnseignant] ?></td>
                 </tr>
               <!--si, à cette date, (la session n'a pas de classe ET le choix2 de la classe == la date ET la classe n'est pas sur liste noire)
                   OU (la session a une classe ET la classe de la session correspond a la classe en cours)-->

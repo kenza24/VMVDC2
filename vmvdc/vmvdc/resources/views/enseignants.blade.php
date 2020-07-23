@@ -29,14 +29,17 @@
           <dt>Votre prénom : <?= $data[0]->prenom ?></dt>
         </div>
 
+
     </div>
 
     <div class="mt-5 mb-3" style="text-align:center;">
+      <div style="font-family: Georgia, serif;">
+        <form method="post" action={{route('suppressionE')}}  onsubmit="return confirm('Etes-vous sur ?');">
+          {{csrf_field()}}
+          <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+        </form>
+      </div>
       <a type="button" class="btn btn-xs btn-secondary" href={{('modificationInfosE')}}>Modifier mes informations</a>
-      <form method="post" action={{route('suppressionE')}}  onsubmit="return confirm('Etes-vous sur ?');">
-        {{csrf_field()}}
-        <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
-      </form>
     </div>
 
   </div>

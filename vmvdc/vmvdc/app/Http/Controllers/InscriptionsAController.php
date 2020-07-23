@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class InscriptionsAController extends Controller
 {
     public function inscription() {
-      
+
           request()->validate([
             'nomA' => 'required',
             'prenomA'=>'required',
@@ -25,9 +25,16 @@ class InscriptionsAController extends Controller
         $mdp = request('mdpA');
         $mdpConfirmation = request('mdp-confirmationA');
 
+        $nomH=htmlspecialchars($nom);
+        $prenomH=htmlspecialchars($prenom);
+        $emailH=htmlspecialchars($email);
+        $mdpH=htmlspecialchars($mdp);
+        $mdpCH=htmlspecialchars($mdpConfirmation);
+
+
         if (isset($mdp) and isset($mdpConfirmation) and preg_match("#".$mdp."#", $mdpConfirmation)) {
             $resultat = DB::table('administrateurs')->insert(
-                array('nom' => $nom, 'prenom' => $prenom, 'email' => $email, 'mot_de_passe' => password_hash($mdp, PASSWORD_DEFAULT))
+                array('nom' => $nomH, 'prenom' => $prenomH, 'email' => $emailH, 'mot_de_passe' => password_hash($mdpH, PASSWORD_DEFAULT))
             );
             if($resultat) {
                 $_SESSION['connecte'] = 'administrateurs';
