@@ -14,7 +14,7 @@
       <table class="table table-striped table-responsive-xl">
         <thead>
           <tr>
-          
+
             <th scope="col">Date</th>
             <th scope="col">Heure</th>
             <th scope="col">Effectif maximum</th>
