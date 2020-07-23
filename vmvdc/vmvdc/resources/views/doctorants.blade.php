@@ -31,7 +31,7 @@
 
     </div>
 
-    <div class="d-flex flex-row p-2 justify-content-center" style="width:650px; text-align:center; margin-left:200px;">
+    <div class="d-flex flex-row p-2 justify-content-center" >
 
       <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosD')}} >Modifier mes informations</a>
       <div style="margin-left:10px;">
