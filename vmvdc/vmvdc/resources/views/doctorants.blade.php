@@ -33,7 +33,7 @@
 
     <div class="d-flex flex-row p-2 justify-content-center" >
 
-      <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosD')}} >Modifier mes informations</a>
+      <a type="button" class="btn btn-xs btn-secondary col-3 text-break" href={{('modificationInfosD')}} >Modifier mes informations</a>
       <div style="margin-left:10px;">
       <form method="post" action={{route('suppressionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
         {{csrf_field()}}
