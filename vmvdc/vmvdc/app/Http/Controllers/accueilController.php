@@ -125,7 +125,7 @@ class accueilController extends Controller
         $nbElmt = count($_FILES['images']['name']);
         if ($_FILES['images']['size'][0] != 0) {
             $dossier = 'content/images/';
-            $taille_maxi = 100000000;
+            $taille_maxi = 5000000;
             $extensions = array('.png', '.gif', '.jpg', '.jpeg');
             for ($i=0; $i < $nbElmt; $i++) { 
                 $nomFichier = basename($_FILES['images']['name'][$i]);
@@ -171,7 +171,7 @@ class accueilController extends Controller
         $nbElmt = count($_FILES['logos']['name']);
         if ($_FILES['logos']['size'][0] != 0) {
             $dossier = 'content/logos/';
-            $taille_maxi = 100000000;
+            $taille_maxi = 5000000;
             $extensions = array('.png', '.gif', '.jpg', '.jpeg');
             for ($i=0; $i < $nbElmt; $i++) { 
                 $nomFichier = basename($_FILES['logos']['name'][$i]);

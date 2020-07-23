@@ -18,7 +18,7 @@
             <th scope="col">Date</th>
             <th scope="col">Heure</th>
             <th scope="col">Effectif maximum</th>
-
+            <th scope="col"></th>
 
 
           </tr>
@@ -31,7 +31,13 @@
               <td><?= $session->date ?></td>
               <td><?= $session->heure?></td>
               <td><?=$session->effectifMax?></td>
-
+              <td>
+                <form action={{'suppressionSession'}} method="post" onsubmit="return confirm('Etes-vous sur ?');">
+                  {{csrf_field()}}
+                  <input type="text" hidden name="idSession" value=<?= $session->id ?>>
+                  <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+                </form>
+              </td>
 
             </tr>
           <?php endforeach;?>

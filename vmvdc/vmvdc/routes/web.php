@@ -67,6 +67,7 @@ Route::get('/connexionA', function(){
 Route::get('/ajoutSession',"CompteAController@pageAjoutSession");
 
 Route::get('listeSessionsA', "ListeSessionsAController@sessionsA")->name('listeSessionsA');
+Route::post('suppressionSession', "ListeSessionsAController@suppressionSession")->name('suppressionSession');
 
 Route::get('inscriptionsA',"InscriptionsAController@pageInscriptionsA");
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');

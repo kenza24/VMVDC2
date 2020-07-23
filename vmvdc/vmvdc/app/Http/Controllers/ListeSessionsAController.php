@@ -23,5 +23,19 @@ class ListeSessionsAController extends Controller
       ]);
   }
 
+  public function suppressionSession()
+  {
+    $idSession = request('idSession');
+
+    $update = DB::table('classes')->where('choixSession1', $idSession)->update(array('choixSession1' => null));
+    $update = DB::table('classes')->where('choixSession2', $idSession)->update(array('choixSession2' => null));
+    $update = DB::table('classes')->where('choixSession3', $idSession)->update(array('choixSession3' => null));
+    $suppressions = DB::table('fichiers_sessions')->where('idSession', $idSession)->delete();
+    $suppressions = DB::table('participations_doctorants')->where('idSession', $idSession)->delete();
+    $suppressions = DB::table('sessions')->where('id', $idSession)->delete();
+
+    return redirect('listeSessionsA');
+  }
+
 
 }
