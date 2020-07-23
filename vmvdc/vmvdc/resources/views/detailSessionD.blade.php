@@ -3,10 +3,10 @@
 
 <!-- contenu -->
   <div class="container pt-3 pb-3">
-    <div class="shadow-lg bg-blue rounded pt-3 pb-3" style="background-color: #B0C4DE;">
-      <div class="col-md text-center text-wrap text-break pl-5 pr-5">
+    <div class="shadow-lg bg-blue rounded pt-3 pb-3" style="background-color: #B0C4DE; ">
+      <div class="col-md text-center text-wrap text-break pl-5 pr-5" style="font-style: oblique; font-family: Georgia, serif;">
         <h2> Session du <?=$session->date ?><h2>
-        <div class="container pt-3 pb-3" style="background-color:white;">
+        <div class="container pt-3 pb-3" style="background-color:#B0C4DE;font-style: oblique; font-family: Georgia, serif; text-align:center;">
         <!-- Inforamtions principales -->
           <div class="col-md-4 pt-3 pb-3">
             <h5>Enseignant : <?= $enseignant->prenom." ".$enseignant->nom ?></h5>
@@ -18,7 +18,7 @@
             <h5>Nombre d'élèves : <?= $session->effectifClasse ?></h5>
           </div>
           <div class="col-md-4 pt-3 pb-3">
-            <h5>Niveau de la Classe : <?= ucfirst($session->niveau) ?></h5>
+            <h5>Niveau de la classe : <?= ucfirst($session->niveau) ?></h5>
           </div>
         <!-- fichiers et details -->
           <?php if(isset($fichiers[0])):?>
