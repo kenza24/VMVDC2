@@ -49,42 +49,39 @@
 <div class="container">
   <div class="shadow-lg p-3 bg-black rounded" style="background-color:#B0C4DE;">
     <div class="col-md-12" style=" display: inline-block;">
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row flex-wrap">
 
+        <div class="col-md-3">
+          <div class="card" style="background-color: #f5f5f5;">
+            <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
+            <div class="card flex-md-row flex-wrap">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block text-secondary">Pré-Inscrivez votre classe !</strong>
+                <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionE')}}>Y aller !</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-md-3">
+          <div class="card" style="background-color: #f5f5f5;">
+            <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
+            <div class="card-body d-flex flex-column flex-wrap align-items-start">
+              <strong class="d-inline-block text-secondary">Mes sessions</strong>
+              <a class="btn btn-outline-secondary btn-sm" role="button" href={{('sessionsE')}} style="position:center">Y aller !</a>
+            </div>
+          </div>
+        </div>
 
-              <div class="col-md-3">
-                <div class="card" style="background-color: #f5f5f5;">
-                  <!--  <img class="card-img-top" src="content/enseignants.png" alt="">-->
-                    <div class="card flex-md-row">
-                      <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block text-secondary">Pré-Inscrivez votre classe !</strong>
-                        <a class="btn btn-outline-secondary btn-sm" role="button" href={{('preInscriptionE')}}>Y aller !</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                  <div class="col-md-3">
-                    <div class="card" style="background-color: #f5f5f5;">
-                      <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
-                        <div class="card-body d-flex flex-column align-items-start">
-                          <strong class="d-inline-block text-secondary">Mes sessions</strong>
-                          <a class="btn btn-outline-secondary btn-sm" role="button" href={{('sessionsE')}} style="position:center">Y aller !</a>
-                        </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-3">
-                    <div class="card" style="background-color: #f5f5f5;">
-                      <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
-                        <div class="card-body d-flex flex-column align-items-start">
-                          <strong class="d-inline-block text-secondary">Mes pré-inscriptions</strong>
-                          <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listePreInscritE')}} style="position:center">Y aller !</a>
-                        </div>
-                    </div>
-                  </div>
-
+        <div class="col-md-3">
+          <div class="card" style="background-color: #f5f5f5;">
+            <!--<img class="card-img-top" src="content/doctorantes.png" alt="">-->
+            <div class="card-body d-flex flex-column flex-wrap align-items-start">
+              <strong class="d-inline-block text-secondary">Mes pré-inscriptions</strong>
+              <a class="btn btn-outline-secondary btn-sm" role="button" href={{('listePreInscritE')}} style="position:center">Y aller !</a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
