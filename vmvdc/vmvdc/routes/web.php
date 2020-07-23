@@ -30,9 +30,7 @@ Route::get('/connexionE', function(){
 });
 Route::post("connexionE", "ConnexionControllerE@traitement")->name('connexionE');
 
-Route::get('/inscriptione', function(){
-  return view('inscriptionE');
-});
+Route::get('/inscriptione', "inscriptionEController@pageInscriptionE");
 Route::post('inscriptione', "inscriptionEController@inscription")->name('inscriptione');
 
 Route::get('/enseignants', "CompteEController@accueil")->name('enseignants');
@@ -40,9 +38,7 @@ Route::get('/deconnexione', "CompteEController@deconnexion")->name('deconnexione
 
 
 //DOCTORANTS
-Route::get('/inscriptionsD', function(){
-  return view('inscriptionsD');
-});
+Route::get('inscriptionsD', "InscriptionsDController@pageInscriptionsD");
 Route::post('inscriptionsD', "InscriptionsDController@inscription")->name('inscriptionsD');
 
 
@@ -68,19 +64,11 @@ Route::get('/connexionA', function(){
   return view('connexionA');
 });
 
-Route::get('/inscriptionsA', function(){
-  return view('inscriptionsA');
-});
+Route::get('/ajoutSession',"CompteAController@pageAjoutSession");
 
-Route::get('/ajoutSession', function(){
-  return view('ajoutSession');
-});
-
-Route::get('/listeSessionsA', function(){
-  return view('listeSessionsA');
-});
 Route::get('listeSessionsA', "ListeSessionsAController@sessionsA")->name('listeSessionsA');
 
+Route::get('inscriptionsA',"InscriptionsAController@pageInscriptionsA");
 Route::post('inscriptionsA', "InscriptionsAController@inscription")->name('inscriptions');
 
 Route::post('ajoutSession', "CompteAController@ajoutSession")->name('ajoutSession');
@@ -121,9 +109,6 @@ Route::post('detailSessionE', 'CompteEController@details')->name('detailSessionE
 Route::post('telechargementE', 'CompteEController@telechargement')->name('telechargementE');
 
 //PRE INSCRIPTION D'UNE CLASSE
-Route::get('preInscriptionE', function(){
-  return view('preInscriptionE');
-});
 Route::post('preInscriptionE', "PreInscriptionController@preInscription")->name('preInscriptionE');
 Route::get('preInscriptionE', 'PreInscriptionController@session')->name('preInscriptionE'); //affichages des dates depuis bdd
 
@@ -132,18 +117,11 @@ Route::get('bienInscris', function(){
   return view ('bienInscris');
 });
 
-Route::get('listePreInscritE', function(){
-  return view('listePreInscritE');
-});
 Route::get('listePreInscritE', 'ListePreInscritEController@affichage')->name('listePreInscritE');
 
 //FIN ENSEIGNANTS
 
 //ESPACE DOCTORANT
-Route::get('sessionsD', function(){
-  return view ('sessionsD');
-});
-
 Route::post('desinscriptionD', 'SessionsDController@desinscriptionDoctorant')->name('desinscriptionD');
 Route::post('inscriptionD', 'SessionsDController@inscriptionDoctorant')->name('inscriptionD');
 Route::get('sessionsD', 'SessionsDController@sessions')->name('sessionsD');
@@ -155,19 +133,13 @@ Route::post('detailSessionD', 'DetailSessionDController@details')->name('detailS
 Route::post('telechargementD', 'DetailSessionDController@telechargement')->name('telechargementD');
 
 //MODIFICATIONS DES INFOS PERSO
-Route::get('modificationInfosD', function(){
-  return view ('modificationInfosD');
-});
+Route::get('modificationInfosD', 'ModificationInfosDController@pageModification');
 Route::post('modifD', 'ModificationInfosDController@modif')->name('modifD');
 
-Route::get('modificationInfosE', function(){
-  return view ('modificationInfosE');
-});
+Route::get('modificationInfosE', 'ModificationInfosEController@pageModification');
 Route::post('modifE', 'ModificationInfosEController@modif')->name('modifE');
 
-Route::get('modificationInfosA', function(){
-  return view ('modificationInfosA');
-});
+Route::get('modificationInfosA', 'ModificationInfosAController@pageModification');
 Route::post('modifA', 'ModificationInfosAController@modif')->name('modifA');
 
 

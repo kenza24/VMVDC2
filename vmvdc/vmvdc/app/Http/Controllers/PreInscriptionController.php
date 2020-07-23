@@ -70,6 +70,10 @@ class PreInscriptionController extends Controller
 
   public function session()
   {
+    //TEST si un enseignant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "enseignant") {
+        return redirect('/orientationConnexion');
+    }
 
     $sessions = DB::table('sessions')->select('date', 'id', 'heure', 'effectifMax')->get();
 

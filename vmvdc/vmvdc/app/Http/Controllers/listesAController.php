@@ -64,6 +64,10 @@ class listesAController extends Controller
 
     public function classes()
     {
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+
         $sessions = DB::table('sessions')->select('id', 'date', 'heure', 'idClasse')->get();
 
         $dates = [];
@@ -173,6 +177,11 @@ class listesAController extends Controller
 
     public function sessions()
     {
+        //TEST si un administrateur est connecte
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+
         $sessions = DB::table('sessions')->join('classes', 'classes.id', '=', 'sessions.idClasse')->select('date', 'sessions.id', 'idClasse', 'idAdminReferent', 'effectifClasse', 'acceptation')->get();
 
         $infoDoctorants = [];
@@ -235,6 +244,11 @@ class listesAController extends Controller
 
     public function doctorants()
     {
+        //TEST si un administrateur est connecte
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+
         $doctorants = DB::table('doctorants')->get();
         return view('listeDoctorantsA', [
             'doctorants' => $doctorants
@@ -243,6 +257,11 @@ class listesAController extends Controller
 
     public function enseignants()
     {
+        //TEST si un administrateur est connecte
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+
         $enseignants = DB::table('enseignants')->get();
         return view('listeEnseignantsA', [
             'enseignants' => $enseignants

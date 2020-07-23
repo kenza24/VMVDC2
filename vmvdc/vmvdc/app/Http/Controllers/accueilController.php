@@ -39,6 +39,11 @@ class accueilController extends Controller
 
     public function modificationAccueil()
     {
+        //TEST si un administrateur est connecte
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+
         $descriptifProjet = "";
         $demarcheParticipation = "";
         $tableauImages = [];
@@ -243,6 +248,11 @@ class accueilController extends Controller
 
     public function modificationAPropos()
     {
+        //TEST si un administrateur est connecte
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+
         $descriptif = "";
         $equipeAdmin = "";
         $mentionsLegales = "";

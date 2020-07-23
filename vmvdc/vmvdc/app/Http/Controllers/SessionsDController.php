@@ -12,6 +12,11 @@ class SessionsDController extends Controller
 
   public function sessions()
   {
+    //TEST si un doctorant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "doctorant") {
+        return redirect('/orientationConnexion');
+    }
+
       //recuperation des infos de la sessions
         $sessions = DB::table('sessions')->select('date', 'id', 'heure', 'idClasse', 'effectifMax')->get();
 

@@ -9,6 +9,12 @@ use stdClass;
 class DetailSessionDController extends Controller{
 
   public function details(){
+
+    //TEST si un doctorant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "doctorant") {
+      return redirect('/orientationConnexion');
+    }
+
     request()->validate([
       'idSession'=>'required'
     ]);

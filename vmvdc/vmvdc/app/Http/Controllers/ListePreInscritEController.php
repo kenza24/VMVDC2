@@ -11,25 +11,30 @@ class ListePreInscritEController extends Controller
 {
   public function affichage(){
 
-  //affichage des infos pr les classes
-  $classes = DB::table("classes")
-  ->where('idEnseignant', '=', $_SESSION['id'])
-  ->select('etablissementScolaire', 'niveau', 'choixSession1', 'choixSession2', 'choixSession3')
-  ->get();
+    //TEST si un enseignant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "enseignant") {
+        return redirect('/orientationConnexion');
+    }
 
-  $sessions=DB::table('sessions')->select('date', 'heure', 'id')->get();
+    //affichage des infos pr les classes
+    $classes = DB::table("classes")
+    ->where('idEnseignant', '=', $_SESSION['id'])
+    ->select('etablissementScolaire', 'niveau', 'choixSession1', 'choixSession2', 'choixSession3')
+    ->get();
 
-  $sessionsOrdonnees = [];
-  foreach ($sessions as $keySession => $session) {
-    $sessionsOrdonnees[$session->id] = $session;
-  }
+    $sessions=DB::table('sessions')->select('date', 'heure', 'id')->get();
 
-  return view('listePreInscritE', [
-      'sessions' => $sessions,
-      'classes' => $classes,
-      'sessionsOrdonnees'=>$sessionsOrdonnees,
+    $sessionsOrdonnees = [];
+    foreach ($sessions as $keySession => $session) {
+      $sessionsOrdonnees[$session->id] = $session;
+    }
 
-  ]);
+    return view('listePreInscritE', [
+        'sessions' => $sessions,
+        'classes' => $classes,
+        'sessionsOrdonnees'=>$sessionsOrdonnees,
+
+    ]);
   }
 }
 ?>

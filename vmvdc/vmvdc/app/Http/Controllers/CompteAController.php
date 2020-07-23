@@ -31,6 +31,14 @@ class CompteAController extends Controller
     return redirect ('/');
   }
 
+  public function pageAjoutSession()
+  {
+    if (isset($_SESSION['connecte']) and $_SESSION['connecte'] == "administrateurs") {
+      return view('ajoutSession');
+    }
+    return redirect('/orientationConnexion');
+  }
+
   public function ajoutSession()
   {
     request()->validate([
@@ -66,6 +74,12 @@ class CompteAController extends Controller
 
 
   public function details(){
+
+    //TEST si un admin est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+      return redirect('/orientationConnexion');
+    }
+
     request()->validate([
       'idSession'=>'required'
     ]);

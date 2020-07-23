@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class ModificationInfosAController extends Controller
 {
+  public function pageModification()
+  {
+    //TEST si un administrateur est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+        return redirect('/orientationConnexion');
+    }
+    return view('modificationInfosA');
+  }
+
   public function modif(){
 
       $nom2 = request('nom2');

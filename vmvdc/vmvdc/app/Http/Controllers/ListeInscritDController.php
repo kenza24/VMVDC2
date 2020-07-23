@@ -11,6 +11,10 @@ class ListeInscritDController extends Controller
 {
 
   public function sessionsI(){
+    //TEST si un doctorant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "doctorant") {
+        return redirect('/orientationConnexion');
+    }
 
     $idD=$_SESSION['id'];
 
@@ -51,8 +55,6 @@ class ListeInscritDController extends Controller
 
     }
 
-
-
     return view('sessionsInscrisD', [
       'idS'=>$idS,
       'sessions'=>$sessions,
@@ -62,33 +64,5 @@ class ListeInscritDController extends Controller
     ]);
 
   }
-
-  public function enseignants (){
-    //recuperation des infos de l'enseignant
-
-    $enseignant=DB::table('sessions')->select('idEnseignant');
-
-
-    //information de l'enseignants qui correspond a la session selectionné
-    $idEnseignant = DB::table('enseignants')->where ('id', '=', $enseignant->idEnseignant)->select('nom', 'prenom', 'mail');
-    dd($idEnseignant);
-
-    return view ('sessionsInscrisD', [
-      'enseignants'=>$enseignants,
-    ]);
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

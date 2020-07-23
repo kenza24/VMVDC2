@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class ModificationInfosEController extends Controller
 {
+  public function pageModification()
+  {
+    //TEST si un enseignant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "enseignant") {
+        return redirect('/orientationConnexion');
+    }
+    return view('modificationInfosE');
+  }
+
   public function modif(){
 
 

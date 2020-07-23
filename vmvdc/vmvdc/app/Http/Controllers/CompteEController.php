@@ -33,6 +33,11 @@ class CompteEController extends Controller
 
   public function sessions()
   {
+    //TEST si un enseignant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "enseignant") {
+        return redirect('/orientationConnexion');
+    }
+
     $etatValidation = DB::table('informations')->get()[0]->etatValidation;
 
     //RECUPERATION toutes les session avec l'id de l'enseignant comme idEnseignant
@@ -83,6 +88,12 @@ class CompteEController extends Controller
   }
 
   public function details(){
+
+    //TEST si un enseignant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "enseignant") {
+      return redirect('/orientationConnexion');
+    }
+
     request()->validate([
       'idSession'=>'required'
     ]);

@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class InscriptionsDController extends Controller
 {
+    public function pageInscriptionsD()
+    {
+        //TEST si un administrateur est connecte
+        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
+            return redirect('/orientationConnexion');
+        }
+        return view('inscriptionsD');
+    }
+
     public function inscription() {
 
           request()->validate([

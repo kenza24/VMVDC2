@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class ModificationInfosDController extends Controller
 {
+  public function pageModification()
+  {
+    //TEST si un doctorant est connecte
+    if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "doctorant") {
+        return redirect('/orientationConnexion');
+    }
+    return view('modificationInfosD');
+  }
+
   public function modif(){
 
 
