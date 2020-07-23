@@ -31,13 +31,16 @@
 
     </div>
 
-    <div class="d-flex flex-row p-2 justify-content-center">
+    <div class="d-flex flex-row p-2 justify-content-center" >
+
       <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosD')}} >Modifier mes informations</a>
+      <div style="margin-left:10px;">
+      <form method="post" action={{route('suppressionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
+        {{csrf_field()}}
+        <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+      </form>
     </div>
-    <form method="post" action={{route('suppressionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
-      {{csrf_field()}}
-      <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
-    </form>
+  </div>
   </div>
 </div><!--Fin container-->
 
