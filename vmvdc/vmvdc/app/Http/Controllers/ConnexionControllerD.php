@@ -23,6 +23,9 @@ class ConnexionControllerD extends Controller
     $emailD = request('emailD');
     $mdpD = request('mdpD');
 
+    $emailDH=htmlspecialchars($emailD);
+    $mdpDH=htmlspecialchars($mdpD);
+
     $infos = DB::table('doctorants')->select('mot_de_passe', 'id')->where('email', $emailD)->get();
     //récupération de l'objet de l'email contenant le hash du mot de passe
 
@@ -32,7 +35,7 @@ class ConnexionControllerD extends Controller
       $_SESSION['id'] = $infos[0]->id;
       return redirect ('/doctorants');
     }
-    
+
     return back()->withInput()->withErrors([
       'email'=>'Vos identifiants sont incorrectes'
     ]);//retourne a la page precedente (le formulaire si pas bon id)

@@ -24,6 +24,9 @@ class ConnexionControllerE extends Controller
       $emailE = request('emailE');
       $mdpE = request('mdpE');
 
+      $emailEH=htmlspecialchars($emailE);
+      $mdpEH=htmlspecialchars($mdpE);
+      
       $infos = DB::table('enseignants')->select('mot_de_passe', 'id')->where('email', $emailE)->get();
       //récupération de l'objet de l'email contenant le hash du mot de passe
 

@@ -27,6 +27,13 @@ class inscriptionEController extends Controller
         $mdp = request('mdp');
         $mdpConfirmation = request('mdp-confirmation');
 
+        $nomH=htmlspecialchars($nom);
+        $prenomH=htmlspecialchars($prenom);
+        $telH=htmlspecialchars($tel);
+        $emailH=htmlspecialchars($email);
+        $mdpH=htmlspecialchars($mdp);
+        $mdpCH=htmlspecialchars($mdpConfirmation);
+
         $listeEmails = [];
         if (null != DB::table('enseignants')->select('email')->get()) {
             $desEmails = DB::table('enseignants')->select('email')->get();
@@ -37,7 +44,7 @@ class inscriptionEController extends Controller
 
         if (isset($mdp) and isset($mdpConfirmation) and preg_match("#".$mdp."#", $mdpConfirmation) and !in_array($email, $listeEmails)) {
             $resultat = DB::table('enseignants')->insert(
-                array('nom' => $nom, 'prenom' => $prenom, 'numTel' => $tel, 'email' => $email, 'mot_de_passe' => password_hash($mdp, PASSWORD_DEFAULT), 'age' => 0)
+                array('nom' => $nomH, 'prenom' => $prenomH, 'numTel' => $telH, 'email' => $emailH, 'mot_de_passe' => password_hash($mdpH, PASSWORD_DEFAULT), 'age' => 0)
             );
             if($resultat) {
                 $id = null;
@@ -47,7 +54,7 @@ class inscriptionEController extends Controller
                 $_SESSION['connecte'] = 'enseignant';
                 $_SESSION['id'] = $id;
                 return redirect ('/enseignants');
-            }            
+            }
         }
         return redirect ('/inscriptionE');
 

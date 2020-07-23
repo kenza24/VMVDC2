@@ -46,8 +46,15 @@ class CompteAController extends Controller
     $heure = request('heure');
     $minute = request('minute');
     $effectifMax = request('effectifMax');
+
+    $jourH = htmlspecialchars($jour);
+    $moisH = htmlspecialchars($mois);
+    $heureH = htmlspecialchars($heure);
+    $minuteH = htmlspecialchars($minute);
+    $effectifH = htmlspecialchars($effectifMax);
+
     $resultat = DB::table('sessions')->insert(
-      array('date' => $jour."/".$mois, 'heure' => $heure.":".$minute, 'effectifMax' => $effectifMax)
+      array('date' => $jourH."/".$moisH, 'heure' => $heureH.":".$minuteH, 'effectifMax' => $effectifH)
     );
 
     if($resultat) {
@@ -80,7 +87,7 @@ class CompteAController extends Controller
         $doctorants = [];
         if(DB::table('participations_doctorants')->join('doctorants', 'participations_doctorants.idDoctorants', '=', 'doctorants.id')
           ->select('doctorants.email', 'doctorants.nom', 'doctorants.prenom')->where('idSession', $idSession)->get() != null){
-          
+
             $doctorants = DB::table('participations_doctorants')
           ->join('doctorants', 'participations_doctorants.idDoctorants', '=', 'doctorants.id')
           ->select('email', 'nom', 'prenom')
@@ -99,10 +106,10 @@ class CompteAController extends Controller
 
     //UPDATE de la page
       $details = request('details');
-      
+
       //update details
         if (isset($details)) {
-          $nbInsertions = DB::table('sessions')->where('id', $idSession)->update(array('details' => $details)); 
+          $nbInsertions = DB::table('sessions')->where('id', $idSession)->update(array('details' => $details));
         }
 
       //Telechragement fichiers
@@ -178,20 +185,20 @@ class CompteAController extends Controller
           $doctorants = [];
           if(DB::table('participations_doctorants')->join('doctorants', 'participations_doctorants.idDoctorants', '=', 'doctorants.id')
             ->select('email', 'nom', 'prenom')->where('idSession', $idSession)->get() != null){
-            
+
               $doctorants = DB::table('participations_doctorants')
             ->join('doctorants', 'participations_doctorants.idDoctorants', '=', 'doctorants.id')
             ->select('email', 'nom', 'prenom')
             ->where('idSession', $idSession)
             ->get();
           }
-        
+
         //recuperation informations enseignant
           $enseignant = [];
           if(isset(DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0])){
             $enseignant = DB::table('enseignants')->select('email', 'nom', 'prenom')->where('id', $session->idEnseignant)->get()[0];
           }
-          
+
         //récupération des fichiers de la session
           if (DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get() != null) {
             $fichiers = DB::table('fichiers_sessions')->select('fichiers', 'nomFichier')->where('idSession', $session->id)->get();

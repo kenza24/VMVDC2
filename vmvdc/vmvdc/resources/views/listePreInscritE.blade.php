@@ -26,12 +26,12 @@
           <?php foreach ($classes as $c) : ?>
           <tr>
 
-              <td><?=htmlspecialchars((isset($c->choixSession1)) ? $sessionsOrdonnees[$c->choixSession1]->date : '-') ?>  <?=htmlspecialchars((isset($c->choixSession1)) ? $sessionsOrdonnees[$c->choixSession1]->heure : '-')?> |
-              <?= htmlspecialchars((isset($c->choixSession2)) ? $sessionsOrdonnees[$c->choixSession2]->date : '-') ?> - <?=htmlspecialchars((isset($c->choixSession2)) ? $sessionsOrdonnees[$c->choixSession2]->heure : '-')?> |
-              <?=htmlspecialchars((isset($c->choixSession3)) ? $sessionsOrdonnees[$c->choixSession3]->date : '-' )?> - <?=htmlspecialchars ((isset($c->choixSession3)) ? $sessionsOrdonnees[$c->choixSession3]->heure : '-')?></td>
+              <td><?=(isset($c->choixSession1)) ? $sessionsOrdonnees[$c->choixSession1]->date : '-' ?> - <?=(isset($c->choixSession1)) ? $sessionsOrdonnees[$c->choixSession1]->heure : '-'?> |
+              <?= (isset($c->choixSession2)) ? $sessionsOrdonnees[$c->choixSession2]->date : '-' ?> - <?=(isset($c->choixSession2)) ? $sessionsOrdonnees[$c->choixSession2]->heure : '-'?> |
+              <?=(isset($c->choixSession3)) ? $sessionsOrdonnees[$c->choixSession3]->date : '-' ?> - <?=(isset($c->choixSession3)) ? $sessionsOrdonnees[$c->choixSession3]->heure : '-'?></td>
             <td></td>
-            <td><?= htmlspecialchars($c->etablissementScolaire) ?></td>
-            <td><?=htmlspecialchars($c->niveau)?></td>
+            <td><?= $c->etablissementScolaire ?></td>
+            <td><?=$c->niveau?></td>
           </tr>
 
       <?php endforeach?>
