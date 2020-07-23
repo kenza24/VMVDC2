@@ -2,8 +2,11 @@
 @section('contenu')
 
 <div class="container" action="/preInscriptionE">
+  <br>
+  <br>
     <div class="card bg-light">
-        <article class="card-body mx-auto" style="width: 800px;">
+
+        <article class="card-body mx-auto" style="width: 800px;font-family: Georgia, serif;">
             <h4 class="card-title mt-3 text-center">Modification de la page "A propos"</h4>
             <br>
             <form action={{'updateAPropos'}} method="post">
@@ -78,6 +81,7 @@
             </form>
         </article>
     </div>
+    <br>
 </div>
 
 @endsection

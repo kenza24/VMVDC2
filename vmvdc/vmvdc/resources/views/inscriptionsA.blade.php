@@ -11,7 +11,7 @@
 
 
 
-<div class="container" action="/inscriptionsA">
+<div class="container" action="/inscriptionsA" style="font-family: Georgia, serif;">
 
 <br>
 <hr>
@@ -69,10 +69,10 @@
 
     <!--BOUTON-->
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
+        <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
     </div>
 
-    <p class="text-center">Deja inscrit ? <a href="">Connectez-vous !</a> </p>
+
 </form>
 </article>
 </div> <!-- card.// -->

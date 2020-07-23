@@ -1,7 +1,7 @@
 @extends('layout')
 @section('contenu')
 
-<div class="container" style="height:450px; font-family: Georgia, serif; ">
+<div class="container" style="font-family: Georgia, serif; ">
 
     <br>
     <hr>
@@ -13,13 +13,13 @@
             </div>
             <div class="d-flex justify-content-md-center text-break text-wrap flex-wrap">
                 <a href={{route('connexionE')}} class="btn btn-secondary d-flex flex-wrap mt-3 mb-3 text-break text-wrap col-12 px-md" role="button" aria-pressed="true" style="max-width: 20em">Enseignant de lycée </a>
-            </div> 
+            </div>
             <div class="d-flex justify-content-md-center text-break text-wrap flex-wrap">
                 <a href={{route('connexionD')}} class="btn btn-secondary d-flex flex-wrap mt-3 mb-3 text-break text-wrap col-12 px-md" role="button" aria-pressed="true" style="max-width: 20em">Doctorant</a>
-            </div> 
+            </div>
             <div class="d-flex justify-content-md-center text-break text-wrap flex-wrap">
                 <a href={{route('connexionA')}} class="btn btn-secondary d-flex flex-wrap mt-3 mb-3 text-break text-wrap col-12 px-md" role="button" aria-pressed="true" style="max-width: 20em">Administrateur</a>
-            </div> 
+            </div>
         </article>
     </div> <!-- card.// -->
 </div>

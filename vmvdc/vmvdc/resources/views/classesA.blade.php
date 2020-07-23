@@ -2,6 +2,7 @@
 @section('contenu')
 
 <div class="container">
+  <br>
   <div class="shadow-lg p-3 bg-blue rounded" style="background-color: #B0C4DE;">
     <div class="col-md text-center text-wrap text-break mt-5" style="font-style: oblique; font-family: Georgia, serif;">
       <h3>Liste des classes :</h3>
@@ -206,6 +207,7 @@
       </table>
     </div>
   </div>
+  <br>
 </div>
 
 <style>

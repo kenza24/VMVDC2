@@ -25,7 +25,7 @@
         </div>
         <form method="post" action={{route('suppressionA')}}  onsubmit="return confirm('Etes-vous sur ?');">
           {{csrf_field()}}
-          <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+          <button type="submit" class="btn btn-outline-danger">Supprimer mon compte</button>
         </form>
       <!--</dl>-->
 

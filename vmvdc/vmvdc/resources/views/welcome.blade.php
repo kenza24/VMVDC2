@@ -15,7 +15,7 @@
 
     <!--Cartes explicatives-->
   <!--  <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;"> -->
-      <div class="container-fluid mt-5 mb-5">
+      <div class="container-fluid mt-5 mb-5" style="font-style: oblique; font-family: Georgia, serif;">
         <div class="row d-flex justify-content-around">
 
         <!--Carte 1-->
@@ -62,7 +62,7 @@
 
 
     <!--Financement et partenariat-->
-      <div class="container-fluid mt-5 mb-5">
+      <div class="container-fluid mt-5 mb-5" style="font-style: oblique; font-family: Georgia, serif;">
         <div class="row d-flex justify-content-around mt-5 mb-5">
           <div class="col-md d-flex justify-content-around mt-5 mb-5" style="color: black;">
             <h3>Financeurs et partenaires</h3>

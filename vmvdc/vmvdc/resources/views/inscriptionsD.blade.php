@@ -18,7 +18,7 @@
 
 
 <div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
+<article class="card-body mx-auto" style="max-width: 400px;font-family: Georgia, serif;">
 	<h4 class="card-title mt-3 text-center">Inscrivez un doctorant</h4>
 
 
@@ -69,10 +69,10 @@
 
     <!--BOUTON-->
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
+        <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
     </div>
 
-    <p class="text-center">Deja inscrit ? <a href="">Connectez-vous !</a> </p>
+
 </form>
 </article>
 </div> <!-- card.// -->

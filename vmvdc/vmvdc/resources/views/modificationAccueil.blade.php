@@ -2,8 +2,10 @@
 @section('contenu')
 
 <div class="container" action="/preInscriptionE">
+  <br>
+  <br>
     <div class="card bg-light">
-        <article class="card-body mx-auto" style="width: 800px;">
+        <article class="card-body mx-auto" style="width: 800px;font-family: Georgia, serif;">
             <h4 class="card-title mt-3 text-center">Modification de la page d'accueil</h4>
             <br>
             <form action={{'updateAccueil'}} method="post" enctype="multipart/form-data">
@@ -77,7 +79,7 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
-                
+
 
                 <!--BOUTON-->
                 <button type="submit" class="btn btn-secondary btn-block">Valider</button>
@@ -85,6 +87,7 @@
             </form>
         </article>
     </div>
+    <br>
 </div>
 
 @endsection
