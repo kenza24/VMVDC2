@@ -34,10 +34,10 @@
     <div class="d-flex flex-row p-2 justify-content-center" >
 
       <a type="button" class="btn btn-xs btn-secondary col-4 text-break" href={{('modificationInfosD')}} >Modifier mes informations</a>
-      <div style="margin-left:10px;">
-      <form method="post" action={{route('suppressionD')}}  onsubmit="return confirm('Etes-vous sur ?');">
+      <div style="margin-left:10px;" class="col-4 pl-0 pr-0">
+      <form method="post" action={{route('suppressionD')}}  onsubmit="return confirm('Etes-vous sur ?');" class="col-12 pl-0 pr-0">
         {{csrf_field()}}
-        <button type="submit" class="btn btn-xs btn-secondary">Supprimer mon compte</button>
+        <button type="submit" class="btn btn-xs btn-secondary col-12">Supprimer mon compte</button>
       </form>
     </div>
   </div>
