@@ -3,7 +3,7 @@
 
 <br>
 <hr>
-
+<div class="container" style="font-style: oblique; font-family: Georgia, serif;">
 <div class="card bg-light">
   <article class="card-body mx-auto" style="max-width: 400px;">
     <h4 class="card-title mt-3 text-center">Ajoutez une session !</h4>
@@ -128,12 +128,15 @@
 
     <!--BOUTON-->
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
+        <button type="submit" class="btn btn-secondary btn-block"> Valider  </button>
       </div>
 
     </form>
   </article>
 </div> <!-- card.// -->
+<br>
+<br>
+</div>
 
 <style>
 
