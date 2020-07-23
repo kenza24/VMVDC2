@@ -2,8 +2,8 @@
 @section('contenu')
 
 <div class="container">
-  <div class="shadow-lg p-3 mb-5 bg-blue rounded" style="background-color: #B0C4DE;">
-    <div class="col-md text-center text-wrap text-break mt-5 mb-3" style="font-style: oblique; font-family: Georgia, serif;">
+  <div class="shadow-lg p-3 bg-blue rounded" style="background-color: #B0C4DE;">
+    <div class="col-md text-center text-wrap text-break mt-5" style="font-style: oblique; font-family: Georgia, serif;">
       <h3>Liste des sessions :</h3>
 
       <div style="postion:relative; float:right;">
@@ -74,19 +74,6 @@
     </div>
   </div>
 </div>
-
-<!--Pied de page-->
-<div class="container-fluid mt-5" style="background-color: #11385b;">
-  <br>
-    <br>
-      <div class="row d-flex justify-content-around">
-        <a href="">A propos</a>
-        <a href="">Qui sommes-nous ?</a>
-      </div>
-    <br>
-  <br>
-</div>
-
 
 <style>
   .container{

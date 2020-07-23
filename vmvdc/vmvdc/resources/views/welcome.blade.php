@@ -76,18 +76,6 @@
           <?php endforeach; ?>
         </div>
       </div>
-
-    <!--Pied de page-->
-      <div class="container-fluid mt-5" style="background-color: #11385b;">
-        <br>
-          <br>
-            <div class="row d-flex justify-content-around">
-              <a href={{'aPropos'}}>A propos</a>
-              <a href="https://sites.google.com/view/vismaviedechercheuribps/%C3%A9quipe-p%C3%A9dagogique?authuser=0">Qui sommes-nous ?</a>
-            </div>
-          <br>
-        <br>
-      </div>
     </div>
   </div>
 

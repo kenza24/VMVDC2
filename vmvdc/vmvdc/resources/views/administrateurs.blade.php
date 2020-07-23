@@ -125,20 +125,6 @@
     </div>
   </div><!--fin cartes-->
 
-
-<!--Pied de page-->
-  <div class="container-fluid mt-5" style="background-color: #11385b;">
-    <br>
-    <br>
-      <div class="row d-flex justify-content-around">
-        <a href="">A propos</a>
-        <a href="">Qui sommes-nous ?</a>
-      </div>
-    <br>
-    <br>
-  </div>
-
-
   <style>
     .container{
       font-style: oblique;
