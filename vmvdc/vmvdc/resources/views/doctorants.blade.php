@@ -45,14 +45,14 @@
 <div class="container">
   <div class="shadow-lg p-3 bg-black rounded" style="background-color:#B0C4DE;">
     <div class="col-md-12" style=" display: inline-block;">
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row flex-wrap">
 
         <div class="col-md-3">
           <div class="card" style="border: none; border-radius: 0; background-color: #f5f5f5; margin:0;">
             <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
             <div class="card flex-m shadow-sm h-md-250">
               <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
-                <strong class="d-inline-block mb-2 text-secondary">Liste des sessions</strong>
+                <strong class="d-inline-block mb-2 text-secondary text-break text-wrap">Liste des sessions</strong>
                 <a class="btn btn-outline-secondary btn-sm" role="button" href="sessionsD">Y aller !</a>
               </div>
             </div>
@@ -65,7 +65,7 @@
             <!--<img class="card-img-top" src="content/enseignants.png" alt="">-->
             <div class="card flex-m shadow-sm h-md-250">
               <div class="card-body d-flex flex-column align-items-start" style="width:250px; height:100px;">
-                <strong class="d-inline-block mb-2 text-secondary">Mes sessions</strong>
+                <strong class="d-inline-block mb-2 text-secondary text-break text-wrap">Mes sessions</strong>
                 <a class="btn btn-outline-secondary btn-sm" role="button" href="sessionsInscrisD">Y aller !</a>
               </div>
             </div>
