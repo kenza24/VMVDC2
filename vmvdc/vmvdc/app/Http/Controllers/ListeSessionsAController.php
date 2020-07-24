@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+ini_set('display_errors', 'on');
 session_start();
 
 use Illuminate\Http\Request;
@@ -30,6 +31,11 @@ class ListeSessionsAController extends Controller
     $update = DB::table('classes')->where('choixSession1', $idSession)->update(array('choixSession1' => null));
     $update = DB::table('classes')->where('choixSession2', $idSession)->update(array('choixSession2' => null));
     $update = DB::table('classes')->where('choixSession3', $idSession)->update(array('choixSession3' => null));
+    $fichiers = DB::table('fichiers_sessions')->where('idSession', $idSession)->get();
+    foreach ($fichiers as $fichier) {
+      unlink($fichier->fichiers);
+    }
+    rmdir(dirname($fichier->fichiers));
     $suppressions = DB::table('fichiers_sessions')->where('idSession', $idSession)->delete();
     $suppressions = DB::table('participations_doctorants')->where('idSession', $idSession)->delete();
     $suppressions = DB::table('sessions')->where('id', $idSession)->delete();
