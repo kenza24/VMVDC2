@@ -11,10 +11,6 @@ class inscriptionEController extends Controller
 {
     public function pageInscriptionE()
     {
-        //TEST si un administrateur est connecte
-        if(!isset($_SESSION['connecte']) or $_SESSION['connecte'] != "administrateurs") {
-            return redirect('/orientationConnexion');
-        }
         return view('inscriptionE');
     }
 
