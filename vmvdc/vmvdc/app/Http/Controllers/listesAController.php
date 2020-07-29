@@ -72,16 +72,18 @@ class listesAController extends Controller
 
         $dates = [];
         $listeNoire = []; //Stocke les id de classes déjà sélectionnée qu'on affiche pas
-        $nbClasses = 0;
+        $nbClasses = 0; //nombre de classes sélectionnées
         $nbREP = 0;
         $nbTerminales = 0;
         $nbPremieres = 0;
         $lycees = [];
         $academies = array('versailles' => 0, 'creteil' => 0, 'paris' => 0);
         foreach ($sessions as $session) {
-            $dates[$session->id] = 0;
+            $dates[$session->id] = 0; //compteur du nombre de demande à une session
 
-            $sessions[$session->id] = $session;
+            $sessions[$session->id] = $session;// pour pouvoir sélectionner les information d'une session grace a son id
+
+            //mise a jour des compteur pour les classes sélectionnées
             if ($session->idClasse != null) {
                 array_push($listeNoire, $session->idClasse);
 
@@ -108,7 +110,8 @@ class listesAController extends Controller
             }
         }
 
-        $classes = DB::table('classes')->orderBy('dateSession', 'desc')->orderBy('rep', 'desc')->get();
+        $classes = DB::table('classes')->orderBy('rep', 'desc')->orderBy('niveau', 'desc')->get();
+        //order by sert a placer les rep au dessus des non rep et les terminales au desssus des premiere
         if (!empty($classes)){
             $enseignants = [];
             foreach ($classes as $classe) {
@@ -119,6 +122,7 @@ class listesAController extends Controller
                 else{
                     $enseignants[$classe->idEnseignant] ="- -";
                 }
+                //incrémentation du nombre de demandes pour un session
                 if($classe->choixSession1 != null and isset($classe->id) and !in_array($classe->id, $listeNoire)) {
                     $dates[$classe->choixSession1]++;
                 }
@@ -132,10 +136,8 @@ class listesAController extends Controller
         }
         $etatValidation = DB::table('informations')->select('etatValidation')->get();
 
-        //dd($sessions);
-        //dd($dates);
-        asort($dates);
-        //dd($dates);
+        asort($dates); //on trie de tableau pour avoir en premier les sessions avec le moins de demandes
+
         return view('classesA', [
             'sessions' => $sessions,
             'listeNoire' => $listeNoire,
