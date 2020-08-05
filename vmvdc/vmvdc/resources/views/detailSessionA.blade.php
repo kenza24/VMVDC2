@@ -49,7 +49,7 @@
           <form action={{'detailSessionA'}} enctype="multipart/form-data" method="POST">
             {{csrf_field()}}
             <div class="pt-3 pb-3">
-              <h5><strong>Choisissez un document de présentation :</strong></h5>
+              <h5><strong>Choisissez un document :</br>(Type acceptés : .png, .gif, .jpg, .jpeg, .pdf, .docx, .doc, .txt, .xls, .xlsx, .pptx, .ppt, .odp, .xml, .rtf | Taille maximum : 2Mo)</strong></h5>
             </div>
             <input type="file" name="fichiers[]" style="font-size:20px" multiple>
             <div class="pt-3 pb-3">
