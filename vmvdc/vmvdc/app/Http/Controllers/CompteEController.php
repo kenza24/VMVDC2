@@ -143,7 +143,7 @@ class CompteEController extends Controller
             if(!is_dir($dossier)) {
               mkdir($dossier);
             }
-            $taille_maxi = 100000000;
+            $taille_maxi = 2000000;
             $extensions = array('.png', '.gif', '.jpg', '.jpeg', '.pdf', '.docx', '.doc', '.txt', '.xls', '.xlsx', '.pptx', '.ppt', '.odp', '.xml', '.rtf');
             for ($i=0; $i < $nbElmt; $i++) {
               $nomFichier = basename($_FILES['fichiers']['name'][$i]);
